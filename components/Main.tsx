@@ -16,11 +16,101 @@ interface StyleObject {
     [key: string]: string;
 }
 
+interface Question {
+    id: number;
+    targetContainerHTML: string;
+    objectContainerHTML: string;
+    initialCSS: StyleObject;
+    instruction: string;
+    answer: string;
+    points: string;
+    difficulty: string;
+}
+
+
 const Main: React.FC = () => {
-    const initialStyle = objectStyle[0].initialCSS;
-    const [baseStyle, setBaseStyle] = useState(initialStyle);
+    const questions: Question[] = objectStyle;
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+    const [baseStyle, setBaseStyle] = useState<StyleObject>(questions[0].initialCSS);
     const [userStyle, setUserStyle] = useState<StyleObject>({});
     const [cssInput, setCssInput] = useState('');
+
+    const renderPaginationItems = () => {
+        let items = [];
+        const totalPages = questions.length;
+
+        if (totalPages <= 3) {
+            for (let i = 0; i < totalPages; i++) {
+                items.push(
+                    <PaginationItem key={i}>
+                        <PaginationLink
+                            href="#"
+                            onClick={() => handlePageChange(i)}
+                            isActive={currentQuestionIndex === i}
+                        >
+                            {i + 1}
+                        </PaginationLink>
+                    </PaginationItem>
+                );
+            }
+        } else {
+            items.push(
+                <PaginationItem key={0}>
+                    <PaginationLink
+                        href="#"
+                        onClick={() => handlePageChange(0)}
+                        isActive={currentQuestionIndex === 0}
+                    >
+                        1
+                    </PaginationLink>
+                </PaginationItem>
+            );
+
+            if (currentQuestionIndex > 1) {
+                items.push(
+                    <PaginationItem key="ellipsis1">
+                        <PaginationEllipsis />
+                    </PaginationItem>
+                );
+            }
+
+            for (let i = Math.max(1, currentQuestionIndex - 1); i <= Math.min(currentQuestionIndex + 1, totalPages - 2); i++) {
+                items.push(
+                    <PaginationItem key={i}>
+                        <PaginationLink
+                            href="#"
+                            onClick={() => handlePageChange(i)}
+                            isActive={currentQuestionIndex === i}
+                        >
+                            {i + 1}
+                        </PaginationLink>
+                    </PaginationItem>
+                );
+            }
+
+            if (currentQuestionIndex < totalPages - 2) {
+                items.push(
+                    <PaginationItem key="ellipsis2">
+                        <PaginationEllipsis />
+                    </PaginationItem>
+                );
+            }
+
+            items.push(
+                <PaginationItem key={totalPages - 1}>
+                    <PaginationLink
+                        href="#"
+                        onClick={() => handlePageChange(totalPages - 1)}
+                        isActive={currentQuestionIndex === totalPages - 1}
+                    >
+                        {totalPages}
+                    </PaginationLink>
+                </PaginationItem>
+            );
+        }
+
+        return items;
+    };
 
     const handleStyleChange = (newStyle: StyleObject) => {
         setUserStyle(newStyle);
@@ -48,30 +138,40 @@ const Main: React.FC = () => {
     useEffect(() => {
     }, [combinedStyle]);
 
+    const handlePageChange = (index: number) => {
+        setCurrentQuestionIndex(index);
+        setBaseStyle(questions[index].initialCSS);
+        setUserStyle({});
+        setCssInput('');
+    }
+
     return (
         <div className="flex flex-col md:flex-row py-20">
             {/* Left Div */}
             <div className="flex-1 justify-center">
                 <div className="px-20">
-                    <div className="flex flex-col justify-between items-center md:flex-row md:py-10">
-                        <h1 className="text-2xl font-bold ">
-                            <span className="text-green-500">Flexing </span>
-                            <span className="underline">CSS</span>
-                        </h1>
-                        <div className="border-black border-2 px-2 md:my-2">
+                    <div className="flex-row justify-between items-center md:py-10">
+                        <div>
+                            <h1 className="text-2xl flex justify-center font-bold ">
+                                <span className="text-green-500">Flexing </span>
+                                <span className="underline">CSS</span>
+                            </h1>
+                        </div>
+                        <div className="border-black font-xs flex justify-center w-auto border-2 px-2 mt-10 md:my-2">
                             <Pagination>
                                 <PaginationContent>
                                     <PaginationItem>
-                                        <PaginationPrevious href="#" />
+                                        <PaginationPrevious
+                                            href="#"
+                                            onClick={() => handlePageChange(Math.max(0, currentQuestionIndex - 1))}
+                                        />
                                     </PaginationItem>
+                                    {renderPaginationItems()}
                                     <PaginationItem>
-                                        <PaginationLink href="#">1</PaginationLink>
-                                    </PaginationItem>
-                                    <PaginationItem>
-                                        <PaginationEllipsis />
-                                    </PaginationItem>
-                                    <PaginationItem>
-                                        <PaginationNext href="#" />
+                                        <PaginationNext
+                                            href="#"
+                                            onClick={() => handlePageChange(Math.min(questions.length - 1, currentQuestionIndex + 1))}
+                                        />
                                     </PaginationItem>
                                 </PaginationContent>
                             </Pagination>
