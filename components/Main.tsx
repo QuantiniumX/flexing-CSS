@@ -9,7 +9,7 @@ import {
     PaginationPrevious,
 } from "@/components/ui/pagination";
 import React, { useState, useEffect } from "react";
-import objectStyle from "../public/objectStyle.json";
+import objectStyle from "@/public/objectStyle.json";
 import { Button } from "./ui/button";
 
 interface StyleObject {
@@ -26,7 +26,6 @@ interface Question {
     points: string;
     difficulty: string;
 }
-
 
 const Main: React.FC = () => {
     const questions: Question[] = objectStyle;
@@ -145,19 +144,32 @@ const Main: React.FC = () => {
         setCssInput('');
     }
 
+    const getDifficultyColor = (difficulty: string) => {
+        switch (difficulty) {
+            case "easy":
+                return "text-green-500";
+            case 'medium':
+                return "text-yellow-500";
+            case "hard":
+                return "text-red-500";
+            default:
+                return '';
+        }
+    }
+
     return (
         <div className="flex flex-col md:flex-row py-20">
             {/* Left Div */}
             <div className="flex-1 justify-center">
                 <div className="px-20">
-                    <div className="flex-row justify-between items-center md:py-10">
+                    <div className="flex-row justify-between items-center py-2">
                         <div>
-                            <h1 className="text-2xl flex justify-center font-bold ">
-                                <span className="text-green-500">Flexing </span>
-                                <span className="underline">CSS</span>
-                            </h1>
+                            <div className="gap-2 text-xl flex justify-around font-bold mb-5">
+                                <span>Points: {questions[currentQuestionIndex].points}</span>
+                                <span>Difficulty: <span className={getDifficultyColor(questions[currentQuestionIndex].difficulty)}>{questions[currentQuestionIndex].difficulty}</span></span>
+                            </div>
                         </div>
-                        <div className="border-black font-xs flex justify-center w-auto border-2 px-2 mt-10 md:my-2">
+                        <div className="border-black rounded font-xs flex justify-center w-auto border-2 px-2 mt-10 md:my-2">
                             <Pagination>
                                 <PaginationContent>
                                     <PaginationItem>
@@ -178,7 +190,7 @@ const Main: React.FC = () => {
                         </div>
                     </div>
                     <div>
-                        <p className=" flex justify-center py-8">{JSON.parse(JSON.stringify(objectStyle[0].instruction))}</p>
+                        <p className="flex justify-center pb-4 ">{JSON.parse(JSON.stringify(objectStyle[0].instruction))}</p>
                     </div>
                     <div className="flex flex-col">
                         <div className="bg-gray-200 py-2 px-5 rounded border-black border-2">
@@ -199,12 +211,12 @@ const Main: React.FC = () => {
                                     value={cssInput}
                                     onChange={handleInputChange}
                                     placeholder="Enter CSS"
-                                    className="mx-10 flex-1 w-full border-black border-2 "
+                                    className="px-2 mx-10 flex-1 w-full rounded border-black border-2 "
                                 />
                             </div>
                             <pre>{'}'}</pre>
                         </div>
-                        <div className=" py-4 flex justify-center">
+                        <div className="py-4 flex justify-center">
                             <Button variant="outline" onClick={handleApply} className="bg-slate-800 text-white w-20">Apply</Button>
                         </div>
                     </div>
@@ -212,12 +224,12 @@ const Main: React.FC = () => {
             </div>
             {/* Right Div */}
             <div className="md:w-1/2 mt-8 md:mt-0 flex-1 px-10">
-                <div className=" justify-center p-4 border border-white" style={combinedStyle}>
+                <div className="justify-center p-4 border border-white" style={combinedStyle}>
                     <h2>Flexbox Game</h2>
                     <p>This text should change based on your CSS input.</p>
                 </div>
             </div>
-        </div >
+        </div>
     );
 }
 

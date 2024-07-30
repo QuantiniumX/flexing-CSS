@@ -1,248 +1,248 @@
 [
     {
         "id": 1,
-        "targetContainerHTML": "",
-        "objectContainerHTML": "",
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
         "initialCSS": {
             "display": "flex",
             "color": "red"
         },
-        "instruction": "First question First question First question",
-        "answer": "",
-        "points": "1",
-        "difficulty": "easy"
-    },
-    {
-        "id": 1,
-        "targetContainerHTML": "",
-        "objectContainerHTML": "",
-        "initialCSS": {
-            "display": "flex",
-            "color": "red"
-        },
-        "instruction": "First question First question First question",
-        "answer": "",
-        "points": "1",
-        "difficulty": "easy"
-    },
-    {
-        "id": 1,
-        "targetContainerHTML": "",
-        "objectContainerHTML": "",
-        "initialCSS": {
-            "display": "flex",
-            "color": "red"
-        },
-        "instruction": "First question First question First question",
-        "answer": "",
-        "points": "1",
-        "difficulty": "easy"
-    },
-    {
-        "id": 1,
-        "targetContainerHTML": "",
-        "objectContainerHTML": "",
-        "initialCSS": {
-            "display": "flex",
-            "color": "red"
-        },
-        "instruction": "First question First question First question",
-        "answer": "",
-        "points": "1",
-        "difficulty": "easy"
-    },
-    {
-        "id": 1,
-        "targetContainerHTML": "",
-        "objectContainerHTML": "",
-        "initialCSS": {
-            "display": "flex",
-            "color": "red"
-        },
-        "instruction": "First question First question First question",
-        "answer": "",
-        "points": "1",
-        "difficulty": "easy"
-    },
-    {
-        "id": 1,
-        "targetContainerHTML": "",
-        "objectContainerHTML": "",
-        "initialCSS": {
-            "display": "flex",
-            "color": "red"
-        },
-        "instruction": "First question First question First question",
-        "answer": "",
-        "points": "1",
-        "difficulty": "easy"
-    },
-    {
-        "id": 1,
-        "targetContainerHTML": "",
-        "objectContainerHTML": "",
-        "initialCSS": {
-            "display": "flex",
-            "color": "red"
-        },
-        "instruction": "First question First question First question",
-        "answer": "",
-        "points": "1",
-        "difficulty": "easy"
-    },
-    {
-        "id": 1,
-        "targetContainerHTML": "",
-        "objectContainerHTML": "",
-        "initialCSS": {
-            "display": "flex",
-            "color": "red"
-        },
-        "instruction": "First question First question First question",
-        "answer": "",
-        "points": "1",
-        "difficulty": "easy"
-    },
-    {
-        "id": 1,
-        "targetContainerHTML": "",
-        "objectContainerHTML": "",
-        "initialCSS": {
-            "display": "flex",
-            "color": "red"
-        },
-        "instruction": "First question First question First question",
-        "answer": "",
-        "points": "1",
-        "difficulty": "easy"
-    },
-    {
-        "id": 1,
-        "targetContainerHTML": "",
-        "objectContainerHTML": "",
-        "initialCSS": {
-            "display": "flex",
-            "color": "red"
-        },
-        "instruction": "First question First question First question",
-        "answer": "",
-        "points": "1",
-        "difficulty": "easy"
-    },
-    {
-        "id": 1,
-        "targetContainerHTML": "",
-        "objectContainerHTML": "",
-        "initialCSS": {
-            "display": "flex",
-            "color": "red"
-        },
-        "instruction": "First question First question First question",
-        "answer": "",
-        "points": "1",
-        "difficulty": "easy"
-    },
-    {
-        "id": 1,
-        "targetContainerHTML": "",
-        "objectContainerHTML": "",
-        "initialCSS": {
-            "display": "flex",
-            "color": "red"
-        },
-        "instruction": "First question First question First question",
-        "answer": "",
-        "points": "1",
-        "difficulty": "easy"
-    },
-    {
-        "id": 1,
-        "targetContainerHTML": "",
-        "objectContainerHTML": "",
-        "initialCSS": {
-            "display": "flex",
-            "color": "red"
-        },
-        "instruction": "First question First question First question",
-        "answer": "",
-        "points": "1",
-        "difficulty": "easy"
-    },
-    {
-        "id": 1,
-        "targetContainerHTML": "",
-        "objectContainerHTML": "",
-        "initialCSS": {
-            "display": "flex",
-            "color": "red"
-        },
-        "instruction": "First question First question First question",
-        "answer": "",
-        "points": "1",
-        "difficulty": "easy"
-    },
-    {
-        "id": 1,
-        "targetContainerHTML": "",
-        "objectContainerHTML": "",
-        "initialCSS": {
-            "display": "flex",
-            "color": "red"
-        },
-        "instruction": "First question First question First question",
-        "answer": "",
+        "instruction": "Arrange the items in a row.",
+        "answer": "Correct",
         "points": "1",
         "difficulty": "easy"
     },
     {
         "id": 2,
-        "targetContainerHTML": "",
-        "objectContainerHTML": "",
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
         "initialCSS": {
             "display": "flex",
-            "color": "green"
+            "color": "red"
         },
-        "instruction": "Second question Second question Second question ",
-        "answer": "",
-        "points": "2",
-        "difficulty": "difficult"
+        "instruction": "Change the text color to blue.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
     },
     {
         "id": 3,
-        "targetContainerHTML": "",
-        "objectContainerHTML": "",
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
         "initialCSS": {
             "display": "flex",
-            "color": "blue"
+            "color": "red"
         },
-        "instruction": "Third questioin Third questioin Third questioin ",
-        "answer": "",
-        "points": "3",
+        "instruction": "Align the objects to the center.",
+        "answer": "Correct",
+        "points": "1",
         "difficulty": "easy"
     },
     {
         "id": 4,
-        "targetContainerHTML": "",
-        "objectContainerHTML": "",
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Change the display to block.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 5,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Set the background color to yellow.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 6,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Add a margin of 10px.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 7,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Set the font size to 16px.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 8,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Change the font weight to bold.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 9,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Change the display to grid.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 10,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Set the grid template columns to 1fr 1fr.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 11,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Set the height to 100px.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 12,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Set the width to 200px.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 13,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Add a border of 1px solid black.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 14,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Set the padding to 20px.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 15,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Add a box shadow.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 16,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "green"
+        },
+        "instruction": "Center align the text.",
+        "answer": "Correct",
+        "points": "2",
+        "difficulty": "hard"
+    },
+    {
+        "id": 17,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "blue"
+        },
+        "instruction": "Create a flexbox container.",
+        "answer": "Correct",
+        "points": "3",
+        "difficulty": "easy"
+    },
+    {
+        "id": 18,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
         "initialCSS": {
             "display": "flex",
             "color": "pink"
         },
-        "instruction": "Fourth question Fourth question Fourth question ",
-        "answer": "",
+        "instruction": "Set the flex direction to column.",
+        "answer": "Correct",
         "points": "4",
-        "difficulty": "median"
+        "difficulty": "medium"
     },
     {
-        "id": 5,
-        "targetContainerHTML": "",
-        "objectContainerHTML": "",
+        "id": 19,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
         "initialCSS": {
             "display": "purple"
         },
-        "instruction": "Fifth question Fifth question Fifth question ",
-        "answer": "",
+        "instruction": "Set the display to none.",
+        "answer": "Correct",
         "points": "5",
-        "difficulty": "difficult"
+        "difficulty": "hard"
     }
 ]
