@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 
-body {
-    background-color: #FAF9F6;
+root {
+    background-color: whitesmoke;
 }
