@@ -34,83 +34,6 @@ const Main: React.FC = () => {
     const [userStyle, setUserStyle] = useState<StyleObject>({});
     const [cssInput, setCssInput] = useState('');
 
-    const renderPaginationItems = () => {
-        let items = [];
-        const totalPages = questions.length;
-
-        if (totalPages <= 3) {
-            for (let i = 0; i < totalPages; i++) {
-                items.push(
-                    <PaginationItem key={i}>
-                        <PaginationLink
-                            href="#"
-                            onClick={() => handlePageChange(i)}
-                            isActive={currentQuestionIndex === i}
-                        >
-                            {i + 1}
-                        </PaginationLink>
-                    </PaginationItem>
-                );
-            }
-        } else {
-            items.push(
-                <PaginationItem key={0}>
-                    <PaginationLink
-                        href="#"
-                        onClick={() => handlePageChange(0)}
-                        isActive={currentQuestionIndex === 0}
-                    >
-                        1
-                    </PaginationLink>
-                </PaginationItem>
-            );
-
-            if (currentQuestionIndex > 1) {
-                items.push(
-                    <PaginationItem key="ellipsis1">
-                        <PaginationEllipsis />
-                    </PaginationItem>
-                );
-            }
-
-            for (let i = Math.max(1, currentQuestionIndex - 1); i <= Math.min(currentQuestionIndex + 1, totalPages - 2); i++) {
-                items.push(
-                    <PaginationItem key={i}>
-                        <PaginationLink
-                            href="#"
-                            onClick={() => handlePageChange(i)}
-                            isActive={currentQuestionIndex === i}
-                        >
-                            {i + 1}
-                        </PaginationLink>
-                    </PaginationItem>
-                );
-            }
-
-            if (currentQuestionIndex < totalPages - 2) {
-                items.push(
-                    <PaginationItem key="ellipsis2">
-                        <PaginationEllipsis />
-                    </PaginationItem>
-                );
-            }
-
-            items.push(
-                <PaginationItem key={totalPages - 1}>
-                    <PaginationLink
-                        href="#"
-                        onClick={() => handlePageChange(totalPages - 1)}
-                        isActive={currentQuestionIndex === totalPages - 1}
-                    >
-                        {totalPages}
-                    </PaginationLink>
-                </PaginationItem>
-            );
-        }
-
-        return items;
-    };
-
     const handleStyleChange = (newStyle: StyleObject) => {
         setUserStyle(newStyle);
     }
@@ -145,17 +68,15 @@ const Main: React.FC = () => {
     }
 
     return (
-        <div className="flex flex-col md:flex-row py-20">
+        <div className="flex flex-col-reverse md:flex-row py-20 mx-2 md:mx-10">
             {/* Left Div */}
-            <div className="flex-1 justify-center">
-                <div className="px-20">
-                    <div className="flex justify-between items-center py-2">
-                        <div>
-                            <div className="gap-2 text-xl flex justify-around font-bold mb-5">
-                                <span>Points: {questions[currentQuestionIndex].points}</span>
-                            </div>
+            <div className="relative flex-1 justify-center top-14">
+                <div className="px-2 md:px-20">
+                    <div className="flex items-center py-2">
+                        <div className="flex-1 text-xl items-center font-bold ">
+                            <span>Points: {questions[currentQuestionIndex].points}</span>
                         </div>
-                        <div className="border-black rounded font-xs flex justify-center w-auto border-2 px-2 mt-10 md:my-2">
+                        <div className="flex border-black items-center rounded font-xs border-2">
                             <Pagination>
                                 <PaginationContent className="flex items-center space-x-2">
                                     <PaginationItem>
@@ -213,10 +134,9 @@ const Main: React.FC = () => {
                 </div>
             </div>
             {/* Right Div */}
-            <div className="md:w-1/2 mt-8 md:mt-0 flex-1 px-10">
-                <div className="justify-center p-4 border border-white" style={combinedStyle}>
-                    <h2>Flexbox Game</h2>
-                    <p>This text should change based on your CSS input.</p>
+            <div className="flex flex-1 items-center justify-center md:mx-52">
+                <div className="flex justify-center border w-full border-black aspect-square mb-8 md:mb-0" style={combinedStyle}>
+                    hello
                 </div>
             </div>
         </div>
