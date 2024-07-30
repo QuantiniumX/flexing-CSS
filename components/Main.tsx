@@ -171,18 +171,22 @@ const Main: React.FC = () => {
                         </div>
                         <div className="border-black rounded font-xs flex justify-center w-auto border-2 px-2 mt-10 md:my-2">
                             <Pagination>
-                                <PaginationContent>
+                                <PaginationContent className="flex items-center space-x-2">
                                     <PaginationItem>
                                         <PaginationPrevious
                                             href="#"
                                             onClick={() => handlePageChange(Math.max(0, currentQuestionIndex - 1))}
+                                            className="h-8 px-2 flex items-center justify-center text-sm"
                                         />
                                     </PaginationItem>
-                                    {renderPaginationItems()}
+                                    <span className="text-sm">
+                                        {currentQuestionIndex + 1} / {questions.length}
+                                    </span>
                                     <PaginationItem>
                                         <PaginationNext
                                             href="#"
                                             onClick={() => handlePageChange(Math.min(questions.length - 1, currentQuestionIndex + 1))}
+                                            className="h-8 px-2 flex items-center justify-center text-sm"
                                         />
                                     </PaginationItem>
                                 </PaginationContent>
