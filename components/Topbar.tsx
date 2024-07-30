@@ -39,16 +39,11 @@ const Topbar = () => {
                             </Avatar>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent>
-                            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                            <DropdownMenuLabel>Username</DropdownMenuLabel>
                             <DropdownMenuSeparator />
                             <DropdownMenuItem>
-                                <Link href="/profilea">
-                                    Profile
-                                </Link>
-                            </DropdownMenuItem>
-                            <DropdownMenuItem>
-                                <Link href="/auth">
-                                    Logout
+                                <Link href="/end-test">
+                                    End-Test
                                 </Link>
                             </DropdownMenuItem>
                         </DropdownMenuContent>
