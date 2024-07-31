@@ -13,21 +13,18 @@ interface QuestionDisplayProps {
 
 const QuestionDisplay: React.FC<QuestionDisplayProps> = ({ question, currentIndex, totalQuestions, onPageChange }) => {
     return (
-        <div>
-            <div className="flex items-center py-2">
-                <div className="flex-1 text-xl items-center font-bold ">
-                    <span>Points: {question.points}</span>
-                </div>
-                <PaginationControls 
+        <>
+            <div className="text-center text-xl font-bold tracking-wider lg:text-left">
+                <span>Points: {question.points}</span>
+            </div>
+            <div className="flex self-center border-black border-2 rounded mt-6 items-center bg-slate-200 bg-opacity-25 px-4 md:mt-0">
+                <PaginationControls
                     currentIndex={currentIndex}
                     totalQuestions={totalQuestions}
                     onPageChange={onPageChange}
                 />
             </div>
-            <div>
-                <p className="flex justify-center pb-4 ">{question.instruction}</p>
-            </div>
-        </div>
+        </>
     );
 }
 

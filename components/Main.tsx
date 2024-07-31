@@ -39,22 +39,30 @@ const Main: React.FC = () => {
     const combinedStyle = { ...baseStyle, ...userStyle };
 
     return (
-        <div className="flex flex-col-reverse md:flex-row py-20 mx-2 md:mx-10">
-            <div className="relative flex-1 justify-center top-14">
-                <div className="px-2 md:px-20">
+        <div className="grid grid-cols-1 md:grid-cols-2">
+            <div className="order-2 md:order-1 flex-1 justify-center mx-auto h-full w-[98%] max-w-[1000px] px-12 py-20 lg:ml-auto lg:mr-0">
+
+                <div className="mx-auto flex max-w-full flex-col items-center justify-between md:flex-row">
                     <QuestionDisplay
                         question={questions[currentQuestionIndex]}
                         currentIndex={currentQuestionIndex}
                         totalQuestions={questions.length}
                         onPageChange={handlePageChange}
                     />
+                </div>
+
+                <p className="flex justify-center mx-auto my-12 max-w-xl ">{questions[currentQuestionIndex].instruction}</p>
+
+                <div>
                     <CSSEditor
                         baseStyle={baseStyle}
                         onStyleChange={handleStyleChange}
                     />
                 </div>
             </div>
-            <PreviewBox style={combinedStyle} />
+            <div className="order-1 md:order-2">
+                <PreviewBox style={combinedStyle} />
+            </div>
         </div>
     );
 }

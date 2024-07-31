@@ -70,7 +70,7 @@ const Topbar = () => {
                             <DropdownMenuLabel>Username</DropdownMenuLabel>
                             <DropdownMenuSeparator />
                             <DropdownMenuItem>
-                                <Link href="/end-test">
+                                <Link  className="text-red-500 font-bold" href="/end-test">
                                     End-Test
                                 </Link>
                             </DropdownMenuItem>

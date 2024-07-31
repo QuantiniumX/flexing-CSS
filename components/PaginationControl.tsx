@@ -15,9 +15,9 @@ interface PaginationControlsProps {
 
 const PaginationControls: React.FC<PaginationControlsProps> = ({ currentIndex, totalQuestions, onPageChange }) => {
     return (
-        <div className="flex border-black items-center rounded min-w-fit font-xs border-2">
+        <>
             <Pagination>
-                <PaginationContent className="flex items-center min-w-fit">
+                <PaginationContent >
                     <PaginationItem className="flex">
                         <PaginationPrevious
                             href="#"
@@ -32,7 +32,7 @@ const PaginationControls: React.FC<PaginationControlsProps> = ({ currentIndex, t
                     </PaginationItem>
                 </PaginationContent>
             </Pagination>
-        </div>
+        </>
     );
 }
 
