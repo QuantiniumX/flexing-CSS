@@ -53,12 +53,10 @@ const Main: React.FC = () => {
 
                 <p className="flex justify-center mx-auto my-12 max-w-xl ">{questions[currentQuestionIndex].instruction}</p>
 
-                <div>
-                    <CSSEditor
-                        baseStyle={baseStyle}
-                        onStyleChange={handleStyleChange}
-                    />
-                </div>
+                <CSSEditor
+                    baseStyle={baseStyle}
+                    onStyleChange={handleStyleChange}
+                />
             </div>
             <div className="order-1 md:order-2">
                 <PreviewBox style={combinedStyle} />

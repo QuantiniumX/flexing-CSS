@@ -27,8 +27,8 @@ const CSSEditor: React.FC<CSSEditorProps> = ({ baseStyle, onStyleChange }) => {
     }
 
     return (
-        <div className="flex flex-col">
-            <div className="bg-gray-200 p-16 min-h-32 py-2 rounded border-black border-2">
+        <>
+            <div className="mx-auto mt-24 max-w-lg rounded bg-slate-400 px-8 py-5 shadow-2xl border-black border">
                 <pre>{'#container: {'}</pre>
                 <div className="css">
                     <div className="mx-10 ">
@@ -50,10 +50,8 @@ const CSSEditor: React.FC<CSSEditorProps> = ({ baseStyle, onStyleChange }) => {
                 </div>
                 <pre>{'}'}</pre>
             </div>
-            <div className="py-4 flex justify-center">
-                <Button variant="outline" onClick={handleApply} className="bg-slate-800 text-white w-20">Apply</Button>
-            </div>
-        </div>
+            <Button variant="outline" onClick={handleApply} className="mx-auto bg-black text-white transition-colors mt-8 block rounded px-6 py-2">Submit</Button>
+        </>
     );
 }
 
