@@ -1,5 +1,6 @@
 'use client'
 import Link from "next/link";
+import React, { useState } from 'react';
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -10,13 +11,28 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import CountdownTimer from "./CountdownTimer";
+import QuestionPalette from "@/components/QuestionPallete"
 
 const Topbar = () => {
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+    const [attemptedQuestions, setAttemptedQuestions] = useState<Set<number>>(new Set());
+    const [showPalette, setShowPalette] = useState(false);
     const handleTimeUp = () => {
         alert("Time's up");
     }
+
+    const totalQuestions = 10;
+
+    const handleQuestionSelect = (index: number) => {
+        setCurrentQuestionIndex(index);
+    };
+
+    const togglePalette = () => {
+        setShowPalette(!showPalette);
+    };
+
     return (
-        <div className="bg-primary bg-[#FAF9F6] py-2 px-5 flex items-center justify-between border-b-2 border-black">
+        <div className="bg-primary min-w-full bg-slate-50 py-2 px-5 flex items-center justify-between border-b border-black">
             <div className="items-center flex">
                 <Link href="/" className="font-bold text-xl flex items-center">
                     Flexing CSS
@@ -24,11 +40,23 @@ const Topbar = () => {
             </div>
 
             <div className="flex flex-row items-center">
-                <div className="mx-4 px-2 py-1 border-black border-2 rounded">
-                    <CountdownTimer initialTime={300} onTimeUp={handleTimeUp} />
-                </div>
                 <div>
-                    {/*Question pallete*/}
+                    <button
+                        onClick={togglePalette}
+                        className="mx-5 bg-black text-white px-3 py-1 rounded text-sm"
+                    >
+                        Show Questions
+                    </button>
+
+                    {showPalette && (
+                        <QuestionPalette
+                            totalQuestions={totalQuestions}
+                            currentQuestionIndex={currentQuestionIndex}
+                            attemptedQuestions={attemptedQuestions}
+                            onQuestionSelect={handleQuestionSelect}
+                            onClose={togglePalette}
+                        />
+                    )}
                 </div>
                 <div>
                     <DropdownMenu>
@@ -38,7 +66,7 @@ const Topbar = () => {
                                 <AvatarFallback>CN</AvatarFallback>
                             </Avatar>
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent>
+                        <DropdownMenuContent className="bg-slate-50 shadow-lg">
                             <DropdownMenuLabel>Username</DropdownMenuLabel>
                             <DropdownMenuSeparator />
                             <DropdownMenuItem>
@@ -48,6 +76,10 @@ const Topbar = () => {
                             </DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
+                </div>
+
+                <div className="mx-4 px-2 py-1 border-black border-2 rounded ">
+                    <CountdownTimer initialTime={300} onTimeUp={handleTimeUp} />
                 </div>
             </div>
         </div>

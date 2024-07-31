@@ -28,8 +28,9 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ initialTime, onTimeUp }
   const seconds = timeLeft % 60;
 
   return (
-    <div className="countdown-timer">
-      Time left: {minutes.toString().padStart(2, '0')}:{seconds.toString().padStart(2, '0')}
+    <div className="countdown-timer flex ">
+      <span className="hidden lg:block">Time left: </span>
+      <span>{minutes.toString().padStart(2, '0')}:{seconds.toString().padStart(2, '0')}</span>
     </div>
   );
 };
