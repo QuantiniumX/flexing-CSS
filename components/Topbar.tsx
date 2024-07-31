@@ -33,53 +33,56 @@ const Topbar = () => {
 
     return (
         <div className="bg-primary min-w-full bg-slate-50 py-2 px-5 flex items-center justify-between border-b border-black">
-            <div className="items-center flex">
+            {/* Just hide the name flexing css if the display is small. Can't seem to fit all stuff if display is small*/}
+            <div className="hidden md:block items-center flex">
                 <Link href="/" className="font-bold text-xl flex items-center">
                     Flexing CSS
                 </Link>
             </div>
 
-            <div className="flex flex-row items-center">
-                <div>
-                    <button
-                        onClick={togglePalette}
-                        className="mx-5 bg-black text-white px-3 py-1 rounded text-sm"
-                    >
-                        Show Questions
-                    </button>
+            <div className="flex justify-center">
+                <div className="flex flex-row items-center">
+                    <div>
+                        <button
+                            onClick={togglePalette}
+                            className="mr-4 bg-black text-white px-3 py-1 rounded text-sm"
+                        >
+                            Show Questions
+                        </button>
 
-                    {showPalette && (
-                        <QuestionPalette
-                            totalQuestions={totalQuestions}
-                            currentQuestionIndex={currentQuestionIndex}
-                            attemptedQuestions={attemptedQuestions}
-                            onQuestionSelect={handleQuestionSelect}
-                            onClose={togglePalette}
-                        />
-                    )}
-                </div>
-                <div>
-                    <DropdownMenu>
-                        <DropdownMenuTrigger className="focus:outline-none">
-                            <Avatar>
-                                <AvatarImage src="https://github.com/shadcn.png" />
-                                <AvatarFallback>CN</AvatarFallback>
-                            </Avatar>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent className="bg-slate-50 shadow-lg">
-                            <DropdownMenuLabel>Username</DropdownMenuLabel>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem>
-                                <Link  className="text-red-500 font-bold" href="/end-test">
-                                    End-Test
-                                </Link>
-                            </DropdownMenuItem>
-                        </DropdownMenuContent>
-                    </DropdownMenu>
-                </div>
+                        {showPalette && (
+                            <QuestionPalette
+                                totalQuestions={totalQuestions}
+                                currentQuestionIndex={currentQuestionIndex}
+                                attemptedQuestions={attemptedQuestions}
+                                onQuestionSelect={handleQuestionSelect}
+                                onClose={togglePalette}
+                            />
+                        )}
+                    </div>
+                    <div className="mx-2">
+                        <DropdownMenu>
+                            <DropdownMenuTrigger className="focus:outline-none">
+                                <Avatar>
+                                    <AvatarImage src="https://github.com/shadcn.png" />
+                                    <AvatarFallback>CN</AvatarFallback>
+                                </Avatar>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent className="bg-slate-50 shadow-lg">
+                                <DropdownMenuLabel>Username</DropdownMenuLabel>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem>
+                                    <Link className="text-red-500 font-bold" href="/end-test">
+                                        End-Test
+                                    </Link>
+                                </DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+                    </div>
 
-                <div className="mx-4 px-2 py-1 border-black border-2 rounded ">
-                    <CountdownTimer initialTime={300} onTimeUp={handleTimeUp} />
+                    <div className="ml-4 px-2 py-1 border-black border-2 rounded ">
+                        <CountdownTimer initialTime={300} onTimeUp={handleTimeUp} />
+                    </div>
                 </div>
             </div>
         </div>

@@ -6,11 +6,15 @@ interface PreviewBoxProps {
 
 const PreviewBox: React.FC<PreviewBoxProps> = ({ style }) => {
     return (
-        <div className="flex flex-1 items-center justify-center md:mx-52">
-            <div className="flex justify-center border w-full border-black aspect-square mb-8 md:mb-0" style={style}>
-                hello
+        <>
+            <div className="relative mx-auto h-full w-[98%] max-w-[1000px] lg:ml-0 lg:mr-auto">
+                <div className="flex h-full px-16 py-20 lg:p-24">
+                    <div className="apple h-[40px] lg:h-[70px] lg:w-[70px]" style={style}>
+                        <img src="https://labs.codehelp.in/fruitbox-flex/apple.webp" alt="apple" className="mx-auto h-[70%] w-[70%] animate-bounce drop-shadow-xl" />
+                    </div>
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 
