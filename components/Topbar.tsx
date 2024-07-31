@@ -12,23 +12,22 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import CountdownTimer from "./CountdownTimer";
 import QuestionPalette from "@/components/QuestionPallete"
+import questionsData from "@/public/objectStyle.json"
 
 const Topbar = () => {
+    const [showPalette, setShowPalette] = useState(false);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [attemptedQuestions, setAttemptedQuestions] = useState<Set<number>>(new Set());
-    const [showPalette, setShowPalette] = useState(false);
     const handleTimeUp = () => {
         alert("Time's up");
     }
 
-    const totalQuestions = 10;
-
-    const handleQuestionSelect = (index: number) => {
-        setCurrentQuestionIndex(index);
-    };
-
     const togglePalette = () => {
         setShowPalette(!showPalette);
+    };
+    const handleQuestionSelect = (index: number) => {
+        setCurrentQuestionIndex(index);
+        setAttemptedQuestions(prev => new Set(prev.add(index)));
     };
 
     return (
@@ -52,7 +51,7 @@ const Topbar = () => {
 
                         {showPalette && (
                             <QuestionPalette
-                                totalQuestions={totalQuestions}
+                                questions={questionsData}
                                 currentQuestionIndex={currentQuestionIndex}
                                 attemptedQuestions={attemptedQuestions}
                                 onQuestionSelect={handleQuestionSelect}
