@@ -1,0 +1,248 @@
+[
+    {
+        "id": 1,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Arrange the items in a row.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 2,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Change the text color to blue.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 3,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Align the objects to the center.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 4,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Change the display to block.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 5,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Set the background color to yellow.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 6,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Add a margin of 10px.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 7,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Set the font size to 16px.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 8,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Change the font weight to bold.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 9,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Change the display to grid.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 10,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Set the grid template columns to 1fr 1fr.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 11,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Set the height to 100px.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 12,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Set the width to 200px.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 13,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Add a border of 1px solid black.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 14,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Set the padding to 20px.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 15,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "red"
+        },
+        "instruction": "Add a box shadow.",
+        "answer": "Correct",
+        "points": "1",
+        "difficulty": "easy"
+    },
+    {
+        "id": 16,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "green"
+        },
+        "instruction": "Center align the text.",
+        "answer": "Correct",
+        "points": "2",
+        "difficulty": "hard"
+    },
+    {
+        "id": 17,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "blue"
+        },
+        "instruction": "Create a flexbox container.",
+        "answer": "Correct",
+        "points": "3",
+        "difficulty": "easy"
+    },
+    {
+        "id": 18,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "flex",
+            "color": "pink"
+        },
+        "instruction": "Set the flex direction to column.",
+        "answer": "Correct",
+        "points": "4",
+        "difficulty": "medium"
+    },
+    {
+        "id": 19,
+        "targetContainerHTML": "<div class='target'></div>",
+        "objectContainerHTML": "<div class='object'></div>",
+        "initialCSS": {
+            "display": "purple"
+        },
+        "instruction": "Set the display to none.",
+        "answer": "Correct",
+        "points": "5",
+        "difficulty": "hard"
+    }
+]
