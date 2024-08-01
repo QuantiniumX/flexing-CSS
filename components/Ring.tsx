@@ -5,7 +5,7 @@ function Ring({
   variant,
   className,
 }: {
-  variant: "blue" | "red" | "green";
+  variant: "blue" | "red" | "green" | "white";
   className?: String;
 }) {
   const ringVariant = cva(
@@ -16,6 +16,7 @@ function Ring({
           blue: "border-[rgba(0,0,255,0.7)]",
           green: "border-[rgba(0,128,0,1.0)]",
           red: "border-[rgba(128,0,0,0.7)]",
+          white: "border-[rgba(255,255,255,0.7)]",
         },
       },
     }

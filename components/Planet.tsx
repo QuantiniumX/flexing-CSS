@@ -5,7 +5,7 @@ function Planet({
   variant,
   className,
 }: {
-  variant: "blue" | "red" | "green";
+  variant: "blue" | "red" | "green" | "white";
   className?: String;
 }) {
   const planetVariants = cva(
@@ -16,6 +16,7 @@ function Planet({
           blue: "bg-[#0b3d91] shadow-blue",
           red: "bg-[#800000] shadow-red",
           green: "bg-[#008000] shadow-green",
+          white: "bg-white shadow-white",
         },
       },
     }
