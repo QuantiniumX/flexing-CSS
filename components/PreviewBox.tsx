@@ -1,21 +1,22 @@
 import React from "react";
+import Planet from "./Planet";
+import Ring from "./Ring";
 
 interface PreviewBoxProps {
-    style: { [key: string]: string };
+  style: { [key: string]: string };
 }
 
 const PreviewBox: React.FC<PreviewBoxProps> = ({ style }) => {
-    return (
-        <>
-            <div className="relative mx-auto h-full w-[98%] max-w-[1000px] lg:ml-0 lg:mr-auto">
-                <div className="flex h-full px-16 py-20 lg:p-24">
-                    <div className="apple h-[40px] lg:h-[70px] lg:w-[70px]" style={style}>
-                        <img src="https://labs.codehelp.in/fruitbox-flex/apple.webp" alt="apple" className="mx-auto h-[70%] w-[70%] animate-bounce drop-shadow-xl" />
-                    </div>
-                </div>
-            </div>
-        </>
-    );
-}
+  return (
+    <>
+      <div className="relative mx-auto h-[300px] w-[300px] rounded-xl  bg-cover lg:h-[500px] lg:w-[500px] xl:h-[550px] xl:w-[550px] bg-black bg-center">
+        <div className="relative mx-auto h-full w-[98%] max-w-[1000px] lg:ml-0 lg:mr-auto">
+          {/* {targetContainerHTML} */}
+          {/* {objectContainerHTML} */}
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default PreviewBox;

@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import React, { useState } from "react";
 import {
   DropdownMenu,
@@ -35,11 +34,7 @@ const Topbar = () => {
   return (
     <div className="bg-primary min-w-full bg-slate-50 py-2 px-5 flex items-center justify-between border-b border-black">
       {/* Just hide the name flexing css if the display is small. Can't seem to fit all stuff if display is small*/}
-      <div className="hidden md:block items-center sm:flex">
-        <Link href="/" className="font-bold text-xl flex items-center">
-          Flexing CSS
-        </Link>
-      </div>
+      <div className="hidden md:block items-center sm:flex">Flexing CSS</div>
 
       <div className="flex justify-center">
         <div className="flex flex-row items-center">
@@ -73,9 +68,7 @@ const Topbar = () => {
                 <DropdownMenuLabel>Username</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                  <Link className="text-red-500 font-bold" href="/end-test">
-                    End-Test
-                  </Link>
+                  <p className="text-red-800 font-bold">End-Test</p>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

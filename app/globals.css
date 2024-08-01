@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 root {
-    background-color: whitesmoke;
-}
-
-.playground {
-    background-image: url("https://cdn.thecodehelp.in/background_294b2f19db.webp");
+  background-color: whitesmoke;
 }
