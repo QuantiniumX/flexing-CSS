@@ -19,7 +19,7 @@ function Planet({
           white: "bg-white shadow-white",
         },
       },
-    }
+    },
   );
 
   return (

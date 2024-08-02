@@ -1,42 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import objectStyle from "@/public/objectStyle.json";
 import QuestionDisplay from "./QuestionDisplay";
 import CSSEditor from "./CSSEditor";
 import PreviewBox from "./PreviewBox";
-
-interface StyleObject {
-  [key: string]: string;
-}
-
-interface Question {
-  id: number;
-  targetContainerHTML: string;
-  objectContainerHTML: string;
-  initialCSS: StyleObject;
-  instruction: string;
-  answer: string;
-  points: string;
-  difficulty: string;
-}
+import { useQuestion } from "@/context/QuestionContext";
 
 const Main: React.FC = () => {
-  const questions: Question[] = objectStyle;
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [baseStyle, setBaseStyle] = useState<StyleObject>(
-    questions[0].initialCSS
-  );
-  const [userStyle, setUserStyle] = useState<StyleObject>({});
-
-  const handleStyleChange = (newStyle: StyleObject) => {
-    setUserStyle(newStyle);
-  };
-
-  const handlePageChange = (index: number) => {
-    setCurrentQuestionIndex(index);
-    setBaseStyle(questions[index].initialCSS);
-    setUserStyle({});
-  };
+  const { questions, currentQuestionIndex, baseStyle, userStyle } =
+    useQuestion();
 
   const combinedStyle = { ...baseStyle, ...userStyle };
   const fetchHtml = () => {
@@ -44,23 +15,18 @@ const Main: React.FC = () => {
   };
 
   return (
-    <div className="flex min-h-[100vh] select-none flex-col-reverse items-center justify-around py-10 lg:flex-row xl:py-0">
+    <div className="flex min-h-[100vh] select-none flex-col-reverse items-center justify-around py-10 lg:flex-row xl:py-0 mx-16">
       {/* Question editor */}
-      <div className="order-2 md:order-1 flex-1 justify-center mx-auto h-full w-[98%] max-w-[1000px] px-12 py-20 lg:ml-24 lg:mr-0">
-        <div className="mx-auto flex min-w-full flex-col items-center justify-between gap-8 md:flex-row">
-          <QuestionDisplay
-            question={questions[currentQuestionIndex]}
-            currentIndex={currentQuestionIndex}
-            totalQuestions={questions.length}
-            onPageChange={handlePageChange}
-          />
+      <div className="order-2 md:order-1 flex-1 justify-center mx-auto h-full w-[98%] max-w-[1000px] px-12 py-20 lg:ml-auto lg:mr-0">
+        <div className="mx-auto flex max-w-full flex-col items-center justify-between md:flex-row">
+          <QuestionDisplay />
         </div>
 
-        <p className="flex justify-center mx-auto my-12 max-w-xl">
+        <p className="flex justify-center mx-auto my-12 max-w-xl ">
           {questions[currentQuestionIndex].instruction}
         </p>
 
-        <CSSEditor baseStyle={baseStyle} onStyleChange={handleStyleChange} />
+        <CSSEditor />
       </div>
 
       {/* Playground */}

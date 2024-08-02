@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 import {
   DropdownMenu,
@@ -12,13 +13,17 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import CountdownTimer from "./CountdownTimer";
 import QuestionPalette from "@/components/QuestionPallete";
 import questionsData from "@/public/objectStyle.json";
+import { useQuestion } from "@/context/QuestionContext";
 
 const Topbar = () => {
   const [showPalette, setShowPalette] = useState(false);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [attemptedQuestions, setAttemptedQuestions] = useState<Set<number>>(
-    new Set()
-  );
+  const {
+    currentQuestionIndex,
+    setCurrentQuestionIndex,
+    attemptedQuestions,
+    setAttemptedQuestions,
+  } = useQuestion();
+
   const handleTimeUp = () => {
     alert("Time's up");
   };
@@ -26,6 +31,7 @@ const Topbar = () => {
   const togglePalette = () => {
     setShowPalette(!showPalette);
   };
+
   const handleQuestionSelect = (index: number) => {
     setCurrentQuestionIndex(index);
     setAttemptedQuestions((prev) => new Set(prev.add(index)));
@@ -34,7 +40,9 @@ const Topbar = () => {
   return (
     <div className="bg-primary min-w-full bg-slate-50 py-2 px-5 flex items-center justify-between border-b border-black">
       {/* Just hide the name flexing css if the display is small. Can't seem to fit all stuff if display is small*/}
-      <div className="hidden md:block items-center sm:flex">Flexing CSS</div>
+      <div className="hidden md:block items-center flex">
+        Flexing CSS
+      </div>
 
       <div className="flex justify-center">
         <div className="flex flex-row items-center">
@@ -68,7 +76,7 @@ const Topbar = () => {
                 <DropdownMenuLabel>Username</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                  <p className="text-red-800 font-bold">End-Test</p>
+                  <p className="text-red-800 font-bold">End Test</p>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

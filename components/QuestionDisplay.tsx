@@ -1,32 +1,23 @@
 import React from "react";
 import PaginationControls from "./PaginationControl";
+import { useQuestion } from "@/context/QuestionContext";
 
-interface QuestionDisplayProps {
-  question: {
-    points: string;
-    instruction: string;
-    id: number;
+const QuestionDisplay: React.FC<QuestionDisplayProps> = () => {
+  const { questions, currentQuestionIndex, setCurrentQuestionIndex } =
+    useQuestion();
+
+  const onPageChange = (index: number) => {
+    setCurrentQuestionIndex(index);
   };
-  currentIndex: number;
-  totalQuestions: number;
-  onPageChange: () => void;
-}
-
-const QuestionDisplay: React.FC<QuestionDisplayProps> = ({
-  question,
-  currentIndex,
-  totalQuestions,
-  onPageChange,
-}) => {
   return (
     <>
-      <div className="text-center min-w-fit text-xl font-bold tracking-wider lg:text-left">
-        <span>Question No: {currentIndex + 1}</span>
+      <div className="text-center text-xl font-bold tracking-wider lg:text-left">
+        <span>Question No: {currentQuestionIndex + 1}</span>
       </div>
       <div className="flex self-center border-black border-2 rounded mt-6 items-center bg-slate-200 bg-opacity-25 px-4 md:mt-0">
         <PaginationControls
-          currentIndex={currentIndex}
-          totalQuestions={totalQuestions}
+          currentIndex={currentQuestionIndex}
+          totalQuestions={questions.length}
           onPageChange={onPageChange}
         />
       </div>
