@@ -2,11 +2,7 @@ import React from "react";
 import Planet from "./Planet";
 import Ring from "./Ring";
 
-interface PreviewBoxProps {
-  style: { [key: string]: string };
-}
-
-const PreviewBox: React.FC<PreviewBoxProps> = ({ style }) => {
+const PreviewBox: React.FC = () => {
   return (
     <>
       <div className="relative mx-auto h-[300px] w-[300px] rounded-xl  bg-cover lg:h-[500px] lg:w-[500px] xl:h-[550px] xl:w-[550px] bg-black bg-center">

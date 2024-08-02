@@ -1,33 +1,16 @@
 "use client";
 import React, { createContext, useState, useContext } from "react";
 import questionsData from "@/public/objectStyle.json";
+import { Question } from "@/lib/types";
 
-interface StyleObject {
-  [key: string]: string;
-}
-
-interface Question {
-  id: number;
-  targetContainerHTML: string;
-  objectContainerHTML: string;
-  initialCSS: StyleObject;
-  instruction: string;
-  answer: string;
-  points: string;
-  difficulty: string;
-}
-
-interface QuestionContextType {
+type QuestionContextType = {
   questions: Question[];
+  setQuestions: React.Dispatch<React.SetStateAction<Question[]>>;
   currentQuestionIndex: number;
-  setCurrentQuestionIndex: (index: number) => void;
+  setCurrentQuestionIndex: React.Dispatch<React.SetStateAction<number>>;
   attemptedQuestions: Set<number>;
   setAttemptedQuestions: React.Dispatch<React.SetStateAction<Set<number>>>;
-  baseStyle: StyleObject;
-  setBaseStyle: React.Dispatch<React.SetStateAction<StyleObject>>;
-  userStyle: StyleObject;
-  setUserStyle: React.Dispatch<React.SetStateAction<StyleObject>>;
-}
+};
 
 const QuestionContext = createContext<QuestionContextType | undefined>(
   undefined,
@@ -36,25 +19,19 @@ const QuestionContext = createContext<QuestionContextType | undefined>(
 export const QuestionProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
+  const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [attemptedQuestions, setAttemptedQuestions] = useState<Set<number>>(
     new Set(),
   );
-  const [baseStyle, setBaseStyle] = useState<StyleObject>(
-    questionsData[0].initialCSS,
-  );
-  const [userStyle, setUserStyle] = useState<StyleObject>({});
 
   const value = {
-    questions: questionsData,
+    questions,
+    setQuestions,
     currentQuestionIndex,
     setCurrentQuestionIndex,
     attemptedQuestions,
     setAttemptedQuestions,
-    baseStyle,
-    setBaseStyle,
-    userStyle,
-    setUserStyle,
   };
 
   return (

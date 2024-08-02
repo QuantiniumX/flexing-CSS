@@ -40,9 +40,7 @@ const Topbar = () => {
   return (
     <div className="bg-primary min-w-full bg-slate-50 py-2 px-5 flex items-center justify-between border-b border-black">
       {/* Just hide the name flexing css if the display is small. Can't seem to fit all stuff if display is small*/}
-      <div className="hidden md:block items-center flex">
-        Flexing CSS
-      </div>
+      <div className="hidden md:block items-center sm:flex">Flexing CSS</div>
 
       <div className="flex justify-center">
         <div className="flex flex-row items-center">
