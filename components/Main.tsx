@@ -18,7 +18,7 @@ const Main: React.FC = () => {
     <div className="flex min-h-[100vh] select-none flex-col-reverse items-center justify-around py-10 lg:flex-row xl:py-0 mx-16">
       {/* Question editor */}
       <div className="order-2 md:order-1 flex-1 justify-center mx-auto h-full w-[98%] max-w-[1000px] px-12 py-20 lg:ml-auto lg:mr-0">
-        <div className="mx-auto flex max-w-full flex-col items-center justify-between md:flex-row">
+        <div className="mx-auto flex max-w-full flex-col items-center gap-8 justify-between md:flex-row">
           <QuestionDisplay />
         </div>
 

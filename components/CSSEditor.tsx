@@ -38,12 +38,12 @@ const CSSEditor: React.FC = () => {
 
   return (
     <>
-      <div className="mx-auto mt-24 max-w-lg rounded bg-slate-400 px-8 py-5 shadow-2xl border-black border">
+      <div className="mx-auto rounded flex flex-col bg-zinc-300 px-8 py-8 gap-2 shadow-2xl border-black border">
         <pre>{"#container: {"}</pre>
         <div className="css">
           <div className="mx-10 ">
             {Object.entries(baseStyle).map(([property, value]) => (
-              <div key={property}>{`${property}: ${value};`}</div>
+              <div key={property} className="leading-8">{`${property}: ${value};`}</div>
             ))}
           </div>
         </div>
