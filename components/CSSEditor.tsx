@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "./ui/button";
+import { useQuestion } from "@/context/QuestionContext";
 
-interface CSSEditorProps {
-  baseStyle: { [key: string]: string };
-  onStyleChange: (newStyle: { [key: string]: string }) => void;
-}
-
-const CSSEditor: React.FC<CSSEditorProps> = ({ baseStyle, onStyleChange }) => {
+const CSSEditor: React.FC = () => {
+  const {
+    questions,
+    currentQuestionIndex,
+    baseStyle,
+    setBaseStyle,
+    setUserStyle,
+  } = useQuestion();
   const [cssInput, setCssInput] = useState("");
+
+  useEffect(() => {
+    setBaseStyle(questions[currentQuestionIndex].initialCSS);
+    setUserStyle({});
+  }, [currentQuestionIndex, questions, setBaseStyle, setUserStyle]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCssInput(event.target.value);
@@ -21,7 +29,7 @@ const CSSEditor: React.FC<CSSEditorProps> = ({ baseStyle, onStyleChange }) => {
     const value = valueParts.join(":").trim();
 
     if (property && value) {
-      onStyleChange({ [property]: value });
+      setUserStyle((prev) => ({ ...prev, [property]: value }));
       setCssInput("");
     } else {
       alert('Invalid CSS input. Please use format "property: value"');
@@ -30,15 +38,12 @@ const CSSEditor: React.FC<CSSEditorProps> = ({ baseStyle, onStyleChange }) => {
 
   return (
     <>
-      <div className="mx-auto rounded flex flex-col bg-zinc-300 px-8 py-8 gap-2 shadow-2xl border-black border">
+      <div className="mx-auto mt-24 max-w-lg rounded bg-slate-400 px-8 py-5 shadow-2xl border-black border">
         <pre>{"#container: {"}</pre>
         <div className="css">
-          <div className="mx-10">
+          <div className="mx-10 ">
             {Object.entries(baseStyle).map(([property, value]) => (
-              <div
-                key={property}
-                className="leading-8"
-              >{`${property}: ${value};`}</div>
+              <div key={property}>{`${property}: ${value};`}</div>
             ))}
           </div>
         </div>
