@@ -1,5 +1,6 @@
 import React from "react";
 import { useQuestion } from "@/context/QuestionContext";
+import { useAttempted } from "@/context/AttemptedContext";
 
 interface Question {
   id: number;
@@ -13,17 +14,12 @@ interface QuestionPaletteProps {
 }
 
 const QuestionPalette: React.FC<QuestionPaletteProps> = ({ onClose }) => {
-  const {
-    questions,
-    currentQuestionIndex,
-    setCurrentQuestionIndex,
-    attemptedQuestions,
-    setAttemptedQuestions,
-  } = useQuestion();
+  const { attemptedQuestions } = useAttempted();
+  const { questions, currentQuestionIndex, setCurrentQuestionIndex } =
+    useQuestion();
 
   const handleQuestionSelect = (index: number) => {
     setCurrentQuestionIndex(index);
-    setAttemptedQuestions((prev) => new Set(prev.add(index)));
     onClose();
   };
 
@@ -48,7 +44,7 @@ const QuestionPalette: React.FC<QuestionPaletteProps> = ({ onClose }) => {
                                 ${
                                   currentQuestionIndex === index
                                     ? "bg-blue-500 text-white"
-                                    : attemptedQuestions.has(index)
+                                    : attemptedQuestions.includes(question._id)
                                       ? "bg-green-500 text-white"
                                       : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                                 }`}

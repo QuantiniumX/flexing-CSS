@@ -19,10 +19,14 @@ export function AttemptedProvider({
   const [attemptedQuestions, setAttemptedQuestions] = useState<string[]>(
     attemptedQuestionsData,
   );
+
+  const value = {
+    attemptedQuestions,
+    setAttemptedQuestions,
+  };
+
   return (
-    <AttemptedContext.Provider
-      value={{ attemptedQuestions, setAttemptedQuestions }}
-    >
+    <AttemptedContext.Provider value={value}>
       {children}
     </AttemptedContext.Provider>
   );
@@ -30,7 +34,7 @@ export function AttemptedProvider({
 
 export const useAttempted = () => {
   const context = useContext(AttemptedContext);
-  if (context === undefined) {
+  if (context === null) {
     throw new Error("useAttempted must be used within a AttemptedProvider");
   }
   return context;
