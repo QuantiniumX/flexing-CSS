@@ -7,8 +7,6 @@ type QuestionContextType = {
   setQuestions: React.Dispatch<React.SetStateAction<Question[]>>;
   currentQuestionIndex: number;
   setCurrentQuestionIndex: React.Dispatch<React.SetStateAction<number>>;
-  attemptedQuestions: Set<number>;
-  setAttemptedQuestions: React.Dispatch<React.SetStateAction<Set<number>>>;
   currentQuestion: Question;
 };
 
@@ -22,9 +20,6 @@ export const QuestionProvider: React.FC<{
 }> = ({ children, questionsData }) => {
   const [questions, setQuestions] = useState<Question[]>(questionsData);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [attemptedQuestions, setAttemptedQuestions] = useState<Set<number>>(
-    new Set(),
-  );
   const currentQuestion = questions[currentQuestionIndex];
 
   const value = {
@@ -32,8 +27,6 @@ export const QuestionProvider: React.FC<{
     setQuestions,
     currentQuestionIndex,
     setCurrentQuestionIndex,
-    attemptedQuestions,
-    setAttemptedQuestions,
     currentQuestion,
   };
 
