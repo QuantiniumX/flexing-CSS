@@ -44,7 +44,7 @@ const CSSEditor: React.FC = () => {
 
   const sendPostRequest = async (data: string) => {
     try {
-      const response = await fetch("http://localhost:8000/api/v1/submissions", {
+      const response = await fetch("/api/v1/submissions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

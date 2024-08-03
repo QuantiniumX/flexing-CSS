@@ -5,19 +5,23 @@ import { QuestionProvider } from "@/context/QuestionContext";
 import { Question } from "@/lib/types";
 
 async function getQuestions() {
-  const res = await fetch("http://localhost:8000/api/v1/questions/clerk123");
+  const res = await fetch(
+    process.env.BACKEND_URL + "/api/v1/questions/clerk123",
+  );
   const { data } = await res.json();
   return data.questions;
 }
 
 async function getAttemptedQuestions() {
-  const res = await fetch("http://localhost:8000/api/v1/submissions/clerk123");
+  const res = await fetch(
+    process.env.BACKEND_URL + "/api/v1/submissions/clerk123",
+  );
   const { data } = await res.json();
   return data;
 }
 
 async function getTime() {
-  const res = await fetch("http://localhost:8000/api/v1/clock/getClock", {
+  const res = await fetch(process.env.BACKEND_URL + "/api/v1/clock/getClock", {
     cache: "no-store",
   });
   const { data } = await res.json();
