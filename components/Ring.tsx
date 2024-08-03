@@ -26,8 +26,6 @@ function Ring({
   return (
     <div
       style={{
-        transform: "rotateX(45deg)",
-        clipPath: "inset(50% 0 0 0)",
         ...twj(cn(ringVariant({ variant }), className)),
       }}
     ></div>
