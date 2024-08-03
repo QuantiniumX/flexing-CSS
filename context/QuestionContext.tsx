@@ -1,6 +1,5 @@
 "use client";
 import React, { createContext, useState, useContext, useEffect } from "react";
-import questionsData from "@/public/objectStyle.json";
 import { Question } from "@/lib/types";
 
 type QuestionContextType = {

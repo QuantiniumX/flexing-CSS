@@ -1,5 +1,5 @@
-import React from "react";
-import PaginationControls from "./PaginationControl";
+"use client";
+import PaginationControls from "../topbar/PaginationControl";
 import { useQuestion } from "@/context/QuestionContext";
 
 const QuestionDisplay: React.FC = () => {
@@ -9,6 +9,7 @@ const QuestionDisplay: React.FC = () => {
   const onPageChange = (index: number) => {
     setCurrentQuestionIndex(index);
   };
+
   return (
     <>
       <div className="text-center text-xl min-w-fit font-bold tracking-wider lg:text-left">

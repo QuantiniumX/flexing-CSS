@@ -29,7 +29,7 @@ const QuestionPalette: React.FC<QuestionPaletteProps> = ({ onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-white rounded-lg p-6 w-full max-w-4xl max-h-[90vh] overflow-y-auto mx-28">
+      <div className="bg-white rounded-lg p-6 w-full max-w-md max-h-[90vh] overflow-y-auto mx-28">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-xl font-bold">Question Palette</h3>
           <button
@@ -39,10 +39,10 @@ const QuestionPalette: React.FC<QuestionPaletteProps> = ({ onClose }) => {
             ✕
           </button>
         </div>
-        <div className="flex gap-5 ">
+        <div className="flex gap-5 items-center justify-around">
           {questions.map((question, index) => (
             <button
-              key={question.id}
+              key={question.questionId}
               onClick={() => handleQuestionSelect(index)}
               className={`w-8 h-8 flex justify-center items-center rounded
                                 ${
@@ -53,7 +53,7 @@ const QuestionPalette: React.FC<QuestionPaletteProps> = ({ onClose }) => {
                                       : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                                 }`}
             >
-              {question.id}
+              {index + 1}
             </button>
           ))}
         </div>

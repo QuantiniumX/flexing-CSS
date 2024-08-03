@@ -1,5 +1,5 @@
 export type Question = {
-  questionId: String;
+  questionId: string;
   targetContainerHTML: string;
   objectContainerHTML: string;
   initialCSS: string;

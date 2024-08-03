@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Planet from "./Planet";
 import Ring from "./Ring";

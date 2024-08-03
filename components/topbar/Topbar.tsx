@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+
 import React, { useState } from "react";
 import {
   DropdownMenu,
@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import CountdownTimer from "./CountdownTimer";
-import QuestionPalette from "@/components/QuestionPallete";
+import QuestionPalette from "@/components/topbar/QuestionPallete";
 import { useQuestion } from "@/context/QuestionContext";
 
 const Topbar = () => {
@@ -39,7 +39,9 @@ const Topbar = () => {
   return (
     <div className="bg-primary min-w-full bg-slate-50 py-2 px-5 flex items-center justify-between border-b border-black">
       {/* Just hide the name flexing css if the display is small. Can't seem to fit all stuff if display is small*/}
-      <div className="hidden md:block items-center sm:flex">Flexing CSS</div>
+      <div className="hidden md:block font-semibold text-lg items-center sm:flex">
+        Flexing CSS
+      </div>
 
       <div className="flex justify-center">
         <div className="flex flex-row items-center">
@@ -50,15 +52,7 @@ const Topbar = () => {
             >
               Show Questions
             </button>
-            {showPalette && (
-              <QuestionPalette
-                questions={questionsData}
-                currentQuestionIndex={currentQuestionIndex}
-                attemptedQuestions={attemptedQuestions}
-                onQuestionSelect={handleQuestionSelect}
-                onClose={togglePalette}
-              />
-            )}
+            {showPalette && <QuestionPalette onClose={togglePalette} />}
           </div>
           <div className="mx-2">
             <DropdownMenu>
@@ -79,7 +73,7 @@ const Topbar = () => {
           </div>
 
           <div className="ml-4 px-2 py-1 border-black border-2 rounded ">
-            <CountdownTimer initialTime={300} onTimeUp={handleTimeUp} />
+            <CountdownTimer initialTime={13000} onTimeUp={handleTimeUp} />
           </div>
         </div>
       </div>

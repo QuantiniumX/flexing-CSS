@@ -1,5 +1,5 @@
 import Main from "@/components/Main";
-import Topbar from "@/components/Topbar";
+import Topbar from "@/components/topbar/Topbar";
 import { QuestionProvider } from "@/context/QuestionContext";
 import { Question } from "@/lib/types";
 
