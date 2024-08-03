@@ -12,16 +12,9 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import CountdownTimer from "./CountdownTimer";
 import QuestionPalette from "@/components/topbar/QuestionPallete";
-import { useQuestion } from "@/context/QuestionContext";
 
-const Topbar = () => {
+const Topbar = ({ time }: { time: number }) => {
   const [showPalette, setShowPalette] = useState(false);
-  const {
-    currentQuestionIndex,
-    setCurrentQuestionIndex,
-    attemptedQuestions,
-    setAttemptedQuestions,
-  } = useQuestion();
 
   const handleTimeUp = () => {
     alert("Time's up");
@@ -29,11 +22,6 @@ const Topbar = () => {
 
   const togglePalette = () => {
     setShowPalette(!showPalette);
-  };
-
-  const handleQuestionSelect = (index: number) => {
-    setCurrentQuestionIndex(index);
-    setAttemptedQuestions((prev) => new Set(prev.add(index)));
   };
 
   return (
@@ -73,7 +61,7 @@ const Topbar = () => {
           </div>
 
           <div className="ml-4 px-2 py-1 border-black border-2 rounded ">
-            <CountdownTimer initialTime={13000} onTimeUp={handleTimeUp} />
+            <CountdownTimer initialTime={time} onTimeUp={handleTimeUp} />
           </div>
         </div>
       </div>

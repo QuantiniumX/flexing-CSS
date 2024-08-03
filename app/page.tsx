@@ -16,15 +16,28 @@ async function getAttemptedQuestions() {
   return data;
 }
 
+async function getTime() {
+  const res = await fetch("http://localhost:8000/api/v1/clock/getClock", {
+    cache: "no-store",
+  });
+  const { data } = await res.json();
+  const endTime = new Date(data);
+  return Math.floor((endTime.getTime() - Date.now() - 5000) / 1000);
+}
+
 export default async function Home() {
   const questions: Question[] = await getQuestions();
   const attemptedQuestions: string[] = await getAttemptedQuestions();
+  const time: number = await getTime();
+
+  if (time < 0)
+    return <p>The Quiz has ended!!! See You soon in some other contest.</p>;
 
   return (
     <>
       <QuestionProvider questionsData={questions}>
         <AttemptedProvider attemptedQuestionsData={attemptedQuestions}>
-          <Topbar />
+          <Topbar time={time} />
           <Main />
         </AttemptedProvider>
       </QuestionProvider>
