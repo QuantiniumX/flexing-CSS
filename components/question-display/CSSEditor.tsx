@@ -3,9 +3,11 @@ import InitialCSS from "./InitialCSS";
 import { Button } from "../ui/button";
 import AnswerBox from "./AnswerBox";
 import { useQuestion } from "@/context/QuestionContext";
+import { useAttempted } from "@/context/AttemptedContext";
 
 const CSSEditor: React.FC = () => {
   const { currentQuestion, currentQuestionIndex } = useQuestion();
+  const { setAttemptedQuestions } = useAttempted();
   const [cssInput, setCssInput] = useState("");
 
   useEffect(() => {
@@ -53,8 +55,13 @@ const CSSEditor: React.FC = () => {
           answer: data,
         }),
       });
+      const responseData = await response.json();
       if (response.ok) {
         alert("CSS submitted successfully");
+        if (responseData.isCorrect) {
+          setAttemptedQuestions((prev) => [...prev, currentQuestion._id]);
+          setCssInput("");
+        }
       } else {
         alert("Failed to submit CSS");
       }
