@@ -4,18 +4,11 @@ import QuestionDisplay from "./QuestionDisplay";
 import CSSEditor from "./CSSEditor";
 import PreviewBox from "./PreviewBox";
 import { useQuestion } from "@/context/QuestionContext";
-import { Question } from "@/lib/types";
 
-type MainProps = {
-  questions: Question[];
-};
+type MainProps = {};
 
-const Main: React.FC<MainProps> = ({ questions }) => {
-  const { setQuestions, currentQuestionIndex } = useQuestion();
-
-  useEffect(() => {
-    setQuestions(questions);
-  }, [questions, setQuestions]);
+const Main: React.FC<MainProps> = () => {
+  const { currentQuestion } = useQuestion();
 
   return (
     <div className="flex min-h-[100vh] select-none flex-col-reverse items-center justify-around py-10 lg:flex-row xl:py-0 mx-16">
@@ -26,7 +19,7 @@ const Main: React.FC<MainProps> = ({ questions }) => {
         </div>
 
         <p className="flex justify-center mx-auto my-12 max-w-xl ">
-          {questions[currentQuestionIndex]?.instructions}
+          {currentQuestion?.instructions}
         </p>
 
         <CSSEditor />

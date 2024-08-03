@@ -2,7 +2,7 @@ import React from "react";
 import PaginationControls from "./PaginationControl";
 import { useQuestion } from "@/context/QuestionContext";
 
-const QuestionDisplay: React.FC<QuestionDisplayProps> = () => {
+const QuestionDisplay: React.FC = () => {
   const { questions, currentQuestionIndex, setCurrentQuestionIndex } =
     useQuestion();
 

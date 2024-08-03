@@ -1,37 +1,14 @@
-import React, { useState, useEffect } from "react";
+import InitialCSS from "./InitialCSS";
 import { Button } from "./ui/button";
-import { useQuestion } from "@/context/QuestionContext";
 
 const CSSEditor: React.FC = () => {
-  const { questions, currentQuestionIndex } = useQuestion();
-
-  // const handleApply = () => {
-  //   const cleanInput = cssInput.replace(/;$/, "");
-  //   const [property, ...valueParts] = cleanInput
-  //     .split(":")
-  //     .map((item) => item.trim());
-  //   const value = valueParts.join(":").trim();
-
-  //   if (property && value) {
-  //     setUserStyle((prev) => ({ ...prev, [property]: value }));
-  //     setCssInput("");
-  //   } else {
-  //     alert('Invalid CSS input. Please use format "property: value"');
-  //   }
-  // };
-
   return (
     <>
       <div className="mx-auto rounded flex flex-col bg-zinc-300 px-8 py-8 gap-2 shadow-2xl border-black border">
         <pre>{"#container: {"}</pre>
         <div className="css">
           <div className="mx-10 ">
-            {Object.entries({}).map(([property, value]) => (
-              <div
-                key={property}
-                className="leading-8"
-              >{`${property}: ${value};`}</div>
-            ))}
+            <InitialCSS />
           </div>
         </div>
         <div className="flex w-full">

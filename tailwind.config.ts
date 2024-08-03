@@ -24,12 +24,6 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        boxShadow: {
-          blue: "0 0 30px rgba(0, 0, 255, 0.7)",
-          red: "0 0 30px rgba(128, 0, 0, 0.7)",
-          green: "0 0 30px rgba(0, 128, 0, 0.7)",
-          white: "0 0 30px rgba(255,255,255,0.7)",
-        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

@@ -1,5 +1,6 @@
 import { cva } from "class-variance-authority";
 import { cn } from "../lib/utils";
+import { tailwindToCSS } from "tw-to-css";
 
 function Planet({
   variant,
@@ -8,6 +9,22 @@ function Planet({
   variant: "blue" | "red" | "green" | "white";
   className?: String;
 }) {
+  const { twj } = tailwindToCSS({
+    config: {
+      theme: {
+        extend: {
+          colors: {
+            boxShadow: {
+              blue: "0 0 30px rgba(0, 0, 255, 0.7)",
+              red: "0 0 30px rgba(128, 0, 0, 0.7)",
+              green: "0 0 30px rgba(0, 128, 0, 0.7)",
+              white: "0 0 30px rgba(255,255,255,0.7)",
+            },
+          },
+        },
+      },
+    },
+  });
   const planetVariants = cva(
     "h-[45px] w-[45px] lg:h-[60px] lg:w-[60px] rounded-[50%] animate-bounce",
     {
@@ -24,8 +41,10 @@ function Planet({
 
   return (
     <div
-      className={cn(planetVariants({ variant }), className)}
-      style={{ transformStyle: "preserve-3d" }}
+      style={{
+        transformStyle: "preserve-3d",
+        ...twj(cn(planetVariants({ variant }), className)),
+      }}
     ></div>
   );
 }

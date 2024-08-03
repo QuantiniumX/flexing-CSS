@@ -12,7 +12,6 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import CountdownTimer from "./CountdownTimer";
 import QuestionPalette from "@/components/QuestionPallete";
-import questionsData from "@/public/objectStyle.json";
 import { useQuestion } from "@/context/QuestionContext";
 
 const Topbar = () => {
@@ -51,7 +50,6 @@ const Topbar = () => {
             >
               Show Questions
             </button>
-
             {showPalette && (
               <QuestionPalette
                 questions={questionsData}

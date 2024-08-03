@@ -1,5 +1,5 @@
 "use client";
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useEffect } from "react";
 import questionsData from "@/public/objectStyle.json";
 import { Question } from "@/lib/types";
 
@@ -10,20 +10,23 @@ type QuestionContextType = {
   setCurrentQuestionIndex: React.Dispatch<React.SetStateAction<number>>;
   attemptedQuestions: Set<number>;
   setAttemptedQuestions: React.Dispatch<React.SetStateAction<Set<number>>>;
+  currentQuestion: Question;
 };
 
 const QuestionContext = createContext<QuestionContextType | undefined>(
   undefined,
 );
 
-export const QuestionProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
-  const [questions, setQuestions] = useState<Question[]>([]);
+export const QuestionProvider: React.FC<{
+  children: React.ReactNode;
+  questionsData: Question[];
+}> = ({ children, questionsData }) => {
+  const [questions, setQuestions] = useState<Question[]>(questionsData);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [attemptedQuestions, setAttemptedQuestions] = useState<Set<number>>(
     new Set(),
   );
+  const currentQuestion = questions[currentQuestionIndex];
 
   const value = {
     questions,
@@ -32,6 +35,7 @@ export const QuestionProvider: React.FC<{ children: React.ReactNode }> = ({
     setCurrentQuestionIndex,
     attemptedQuestions,
     setAttemptedQuestions,
+    currentQuestion,
   };
 
   return (

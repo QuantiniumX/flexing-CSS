@@ -20,7 +20,8 @@
     "react-countdown": "^2.3.5",
     "react-dom": "^18",
     "tailwind-merge": "^2.4.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "tw-to-css": "^0.0.12"
   },
   "devDependencies": {
     "@types/node": "^20",

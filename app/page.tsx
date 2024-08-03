@@ -4,9 +4,9 @@ import { QuestionProvider } from "@/context/QuestionContext";
 import { Question } from "@/lib/types";
 
 async function getQuestions() {
-  const res = await fetch("localhost:8000/api/v1/questions");
-  const data = await res.json();
-  return data;
+  const res = await fetch("http://localhost:8000/api/v1/questions/clerk123");
+  const { data } = await res.json();
+  return data.questions;
 }
 
 export default async function Home() {
@@ -14,9 +14,9 @@ export default async function Home() {
 
   return (
     <>
-      <QuestionProvider>
+      <QuestionProvider questionsData={questions}>
         <Topbar />
-        <Main questions={questions} />
+        <Main />
       </QuestionProvider>
     </>
   );

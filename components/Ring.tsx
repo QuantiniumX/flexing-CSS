@@ -1,5 +1,6 @@
 import { cva } from "class-variance-authority";
 import { cn } from "../lib/utils";
+import { twj } from "tw-to-css";
 
 function Ring({
   variant,
@@ -24,10 +25,10 @@ function Ring({
 
   return (
     <div
-      className={cn(ringVariant({ variant }), className)}
       style={{
         transform: "rotateX(45deg)",
         clipPath: "inset(50% 0 0 0)",
+        ...twj(cn(ringVariant({ variant }), className)),
       }}
     ></div>
   );
