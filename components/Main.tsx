@@ -9,6 +9,7 @@ import { useAttempted } from "@/context/AttemptedContext";
 const Main: React.FC = () => {
   const { currentQuestion } = useQuestion();
   const { attemptedQuestions } = useAttempted();
+  const { currentQuestionIndex } = useQuestion();
   return (
     <div className="flex min-h-[100vh] select-none flex-col-reverse items-center justify-around py-10 lg:flex-row xl:py-0 ">
       <div className="relative flex min-h-[50vh] w-full flex-col items-center justify-center lg:min-h-screen lg:w-1/2">
@@ -16,9 +17,12 @@ const Main: React.FC = () => {
           <div className="mx-auto flex max-w-xl flex-col items-center justify-between md:flex-row">
             <QuestionDisplay />
           </div>
-          <p className="mx-auto my-12 max-w-xl">
-            {currentQuestion?.instructions}
-          </p>
+          <div className="relative mx-auto px-4 my-12 max-w-xl">
+            <p className="text-base font-bold absolute top-[-12px] left-[15%] bg-white px-[10px]">Question No: {currentQuestionIndex + 1}</p>
+            <p className="border-black border rounded p-4">
+              {currentQuestion?.instructions}
+            </p>
+          </div>
           {attemptedQuestions.includes(currentQuestion._id) ? (
             <p>
               You have successfully attempted this question please try another one
