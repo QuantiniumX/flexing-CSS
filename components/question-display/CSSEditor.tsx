@@ -4,11 +4,13 @@ import { Button } from "../ui/button";
 import AnswerBox from "./AnswerBox";
 import { useQuestion } from "@/context/QuestionContext";
 import { useAttempted } from "@/context/AttemptedContext";
+import { useToast } from "@/components/ui/use-toast"
 
 const CSSEditor: React.FC = () => {
   const { currentQuestion, currentQuestionIndex } = useQuestion();
   const { setAttemptedQuestions } = useAttempted();
   const [cssInput, setCssInput] = useState("");
+  const { toast } = useToast();
 
   useEffect(() => {
     setCssInput;
@@ -17,7 +19,9 @@ const CSSEditor: React.FC = () => {
   const handleSubmit = () => {
     const isValid = validateCSS(cssInput);
     if (!isValid) {
-      alert("Invalid CSS format");
+      toast({
+        title: "Invalid CSS Format"
+      })
       return;
     }
     const cssObject = parseCSS(cssInput);
@@ -57,42 +61,50 @@ const CSSEditor: React.FC = () => {
       });
       const responseData = await response.json();
       if (response.ok) {
-        alert("CSS submitted successfully");
+        toast({
+          title: "CSS submitted successfully"
+        })
         if (responseData.isCorrect) {
           setAttemptedQuestions((prev) => [...prev, currentQuestion._id]);
           setCssInput("");
         }
       } else {
-        alert("Failed to submit CSS");
+        toast({
+          title: "Failed to submit CSS"
+        })
       }
     } catch (error) {
-      alert("An error occurred while submitting CSS");
+      toast({
+        title: "An error occurred while submitting CSS"
+      })
     }
   };
 
   return (
     <>
-      <div className="mx-auto rounded flex flex-col bg-zinc-300 px-8 py-8 gap-2 max-w-sm shadow-2xl border-black border">
+      <div className="mx-auto mt-24 max-w-lg rounded-md bg-slate-400 px-8 py-5 shadow-2xl">
         <pre>{"#container: {"}</pre>
-        <div className="css">
-          <div className="mx-10 ">
-            <InitialCSS />
+        <div className="ml-6">
+          <div className="css">
+            <div className="">
+              <InitialCSS />
+            </div>
           </div>
-        </div>
-        <div className="flex w-full">
-          <label htmlFor="css-input" className="sr-only">
-            Enter CSS
-          </label>
-          <AnswerBox
-            value={cssInput}
-            onChange={(e) => setCssInput(e.target.value.toLowerCase())}
-          />
+          <div className="">
+            <label htmlFor="css-input" className="sr-only">
+              Enter CSS
+            </label>
+            <AnswerBox
+              value={cssInput}
+              onChange={(e) => setCssInput(e.target.value.toLowerCase())}
+            />
+          </div>
         </div>
         <pre>{"}"}</pre>
       </div>
       <Button
         variant="outline"
-        className="mx-auto bg-black text-white transition-colors mt-8 block rounded px-6 py-2"
+        className="mx-auto text-white mt-8 block cursor-pointer rounded-md px-6 py-2"
         onClick={handleSubmit}
       >
         Submit

@@ -3,6 +3,7 @@ import Topbar from "@/components/topbar/Topbar";
 import { AttemptedProvider } from "@/context/AttemptedContext";
 import { QuestionProvider } from "@/context/QuestionContext";
 import { Question } from "@/lib/types";
+import QuizEnd from "@/components/QuizEnd"
 
 async function getQuestions() {
   const res = await fetch(
@@ -35,7 +36,7 @@ export default async function Home() {
   const time: number = await getTime();
 
   if (time < 0)
-    return <p>The Quiz has ended!!! See You soon in some other contest.</p>;
+    return <QuizEnd />
 
   return (
     <>
