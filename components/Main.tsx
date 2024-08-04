@@ -23,8 +23,8 @@ const Main: React.FC = () => {
               {currentQuestion?.instructions}
             </p>
           </div>
-          {attemptedQuestions.includes(currentQuestion._id) ? (
-            <p>
+          {(attemptedQuestions.includes(currentQuestion._id)) ? (
+            <p className="mx-auto px-4 max-w-xl font-semibold text-lg my-12 py-12">
               You have successfully attempted this question please try another one
             </p>
           ) : (
