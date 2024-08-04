@@ -4,11 +4,13 @@ import { Button } from "../ui/button";
 import AnswerBox from "./AnswerBox";
 import { useQuestion } from "@/context/QuestionContext";
 import { useAttempted } from "@/context/AttemptedContext";
+import { useToast } from "@/components/ui/use-toast"
 
 const CSSEditor: React.FC = () => {
   const { currentQuestion, currentQuestionIndex } = useQuestion();
   const { setAttemptedQuestions } = useAttempted();
   const [cssInput, setCssInput] = useState("");
+  const { toast } = useToast();
 
   useEffect(() => {
     setCssInput;
@@ -17,7 +19,9 @@ const CSSEditor: React.FC = () => {
   const handleSubmit = () => {
     const isValid = validateCSS(cssInput);
     if (!isValid) {
-      alert("Invalid CSS format");
+      toast({
+        title: "Invalid CSS Format"
+      })
       return;
     }
     const cssObject = parseCSS(cssInput);
@@ -57,16 +61,22 @@ const CSSEditor: React.FC = () => {
       });
       const responseData = await response.json();
       if (response.ok) {
-        alert("CSS submitted successfully");
+        toast({
+          title: "CSS submitted successfully"
+        })
         if (responseData.isCorrect) {
           setAttemptedQuestions((prev) => [...prev, currentQuestion._id]);
           setCssInput("");
         }
       } else {
-        alert("Failed to submit CSS");
+        toast({
+          title: "Failed to submit CSS"
+        })
       }
     } catch (error) {
-      alert("An error occurred while submitting CSS");
+      toast({
+        title: "An error occurred while submitting CSS"
+      })
     }
   };
 

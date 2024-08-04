@@ -3,6 +3,7 @@ import Topbar from "@/components/topbar/Topbar";
 import { AttemptedProvider } from "@/context/AttemptedContext";
 import { QuestionProvider } from "@/context/QuestionContext";
 import { Question } from "@/lib/types";
+import QuizEnd from "@/components/QuizEnd"
 
 async function getQuestions() {
   const res = await fetch(
@@ -32,12 +33,10 @@ async function getTime() {
 export default async function Home() {
   const questions: Question[] = await getQuestions();
   const attemptedQuestions: string[] = await getAttemptedQuestions();
-  // -FIX:   UNCOMMENT BELOW AND REMOVE THE HARDCODED TIME
-  //   const time: number = await getTime();
-  const time: number = 3000;
+  const time: number = await getTime();
 
   if (time < 0)
-    return <p>The Quiz has ended!!! See You soon in some other contest.</p>;
+    return <QuizEnd />
 
   return (
     <>

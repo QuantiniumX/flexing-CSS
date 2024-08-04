@@ -12,12 +12,16 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import CountdownTimer from "./CountdownTimer";
 import QuestionPalette from "@/components/topbar/QuestionPallete";
+import { useToast } from "../ui/use-toast";
 
 const Topbar = ({ time }: { time: number }) => {
   const [showPalette, setShowPalette] = useState(false);
+  const { toast } = useToast();
 
   const handleTimeUp = () => {
-    alert("Time's up");
+    toast({
+      title: "Time's Up"
+    })
   };
 
   const togglePalette = () => {
