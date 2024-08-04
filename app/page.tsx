@@ -32,7 +32,9 @@ async function getTime() {
 export default async function Home() {
   const questions: Question[] = await getQuestions();
   const attemptedQuestions: string[] = await getAttemptedQuestions();
-  const time: number = await getTime();
+  // -FIX:   UNCOMMENT BELOW AND REMOVE THE HARDCODED TIME
+  //   const time: number = await getTime();
+  const time: number = 3000;
 
   if (time < 0)
     return <p>The Quiz has ended!!! See You soon in some other contest.</p>;
