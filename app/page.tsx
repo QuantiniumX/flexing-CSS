@@ -36,7 +36,8 @@ async function getTime() {
 export default async function Home() {
   const questions: Question[] = await getQuestions();
   const attemptedQuestions: string[] = await getAttemptedQuestions();
-  const time: number = await getTime();
+  // const time: number = await getTime();
+  const time = 10000000000;
 
   if (time < 0) return <QuizEnd />;
 
