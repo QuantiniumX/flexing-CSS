@@ -18,6 +18,13 @@ const config = {
       },
     },
     extend: {
+      transform: {
+        "rotate-x": "rotateX(var(--tw-rotate-x))",
+        "translate-z": "translateZ(var(--tw-translate-z))",
+      },
+      perspective: {
+        "1000": "1000px",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -53,11 +60,7 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
+
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -74,7 +77,34 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  variants: {
+    extend: {
+      transform: ["responsive", "hover", "focus"],
+    },
+  },
+  plugins: [
+    require("tailwindcss-animate"),
+    function ({
+      addUtilities,
+    }: {
+      addUtilities: (utilities: any, variants?: string[]) => void;
+    }) {
+      const newUtilities = {
+        ".rotate-x-45": {
+          "--tw-rotate-x": "45deg",
+          transform: "rotateX(var(--tw-rotate-x))",
+        },
+        ".translate-z-50": {
+          "--tw-translate-z": "50px",
+          transform: "translateZ(var(--tw-translate-z))",
+        },
+        ".perspective-1000": {
+          perspective: "1000px",
+        },
+      };
+      addUtilities(newUtilities, ["responsive", "hover"]);
+    },
+  ],
 } satisfies Config;
 
 export default config;

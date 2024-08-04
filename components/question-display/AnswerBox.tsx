@@ -14,7 +14,7 @@ const AnswerBox: React.FC<AnswerBoxProps> = ({ value, onChange }) => {
       onChange={onChange}
       placeholder="Enter CSS"
       className={
-        "mt-2 w-full resize-none rounded-md p-1 no-scrollbar text-nowrap text-sm border-black border-2"
+        "mt-2 w-full resize-none rounded-md p-2 no-scrollbar text-nowrap text-sm border-black border-2"
       }
       style={{ minHeight: `${noOfAnswerLines * 32}px` }}
     />
