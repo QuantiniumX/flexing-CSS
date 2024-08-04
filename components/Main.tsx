@@ -18,14 +18,17 @@ const Main: React.FC = () => {
             <QuestionDisplay />
           </div>
           <div className="relative mx-auto px-4 my-12 max-w-xl">
-            <p className="text-base font-bold absolute top-[-12px] left-[15%] bg-white px-[10px]">Question No: {currentQuestionIndex + 1}</p>
+            <p className="text-base font-bold absolute top-[-12px] left-[15%] bg-white px-[10px]">
+              Question No: {currentQuestionIndex + 1}
+            </p>
             <p className="border-black border rounded p-4">
               {currentQuestion?.instructions}
             </p>
           </div>
-          {(attemptedQuestions.includes(currentQuestion._id)) ? (
+          {attemptedQuestions.includes(currentQuestion._id) ? (
             <p className="mx-auto px-4 max-w-xl font-semibold text-lg my-12 py-12">
-              You have successfully attempted this question please try another one
+              You have successfully attempted this question please try another
+              one
             </p>
           ) : (
             <CSSEditor />

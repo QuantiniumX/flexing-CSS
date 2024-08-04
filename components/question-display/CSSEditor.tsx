@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 import AnswerBox from "./AnswerBox";
 import { useQuestion } from "@/context/QuestionContext";
 import { useAttempted } from "@/context/AttemptedContext";
-import { useToast } from "@/components/ui/use-toast"
+import { useToast } from "@/components/ui/use-toast";
 
 const CSSEditor: React.FC = () => {
   const { currentQuestion, currentQuestionIndex } = useQuestion();
@@ -23,6 +23,7 @@ const CSSEditor: React.FC = () => {
         variant: "destructive",
         title: "Invalid CSS Format"
       })
+
       return;
     }
     const cssObject = parseCSS(cssInput);
@@ -63,8 +64,8 @@ const CSSEditor: React.FC = () => {
       const responseData = await response.json();
       if (response.ok) {
         toast({
-          title: "CSS submitted successfully"
-        })
+          title: "CSS submitted successfully",
+        });
         if (responseData.isCorrect) {
           setAttemptedQuestions((prev) => [...prev, currentQuestion._id]);
           setCssInput("");
@@ -85,7 +86,7 @@ const CSSEditor: React.FC = () => {
 
   return (
     <>
-      <div className="mx-auto mt-24 max-w-lg rounded-md bg-slate-400 px-8 py-5 shadow-2xl">
+      <div className="mx-auto mt-24 max-w-lg rounded-md bg-gray-200 px-8 py-5 shadow-lg">
         <pre>{"#container: {"}</pre>
         <div className="ml-6">
           <div className="css">

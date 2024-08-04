@@ -3,7 +3,7 @@ import Topbar from "@/components/topbar/Topbar";
 import { AttemptedProvider } from "@/context/AttemptedContext";
 import { QuestionProvider } from "@/context/QuestionContext";
 import { Question } from "@/lib/types";
-import QuizEnd from "@/components/QuizEnd"
+import QuizEnd from "@/components/QuizEnd";
 
 async function getQuestions() {
   const res = await fetch(
@@ -16,6 +16,9 @@ async function getQuestions() {
 async function getAttemptedQuestions() {
   const res = await fetch(
     process.env.BACKEND_URL + "/api/v1/submissions/clerk123",
+    {
+      cache: "no-store",
+    },
   );
   const { data } = await res.json();
   return data;
@@ -33,10 +36,10 @@ async function getTime() {
 export default async function Home() {
   const questions: Question[] = await getQuestions();
   const attemptedQuestions: string[] = await getAttemptedQuestions();
-  const time: number = await getTime();
+  // const time: number = await getTime();
+  const time = 10000000000;
 
-  if (time < 0)
-    return <QuizEnd />
+  if (time < 0) return <QuizEnd />;
 
   return (
     <>
