@@ -10,6 +10,7 @@ const CSSEditor: React.FC = () => {
   const { currentQuestion, currentQuestionIndex } = useQuestion();
   const { setAttemptedQuestions } = useAttempted();
   const [cssInput, setCssInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -21,9 +22,8 @@ const CSSEditor: React.FC = () => {
     if (!isValid) {
       toast({
         variant: "destructive",
-        title: "Invalid CSS Format"
-      })
-
+        title: "Invalid CSS Format",
+      });
       return;
     }
     const cssObject = parseCSS(cssInput);
@@ -50,6 +50,7 @@ const CSSEditor: React.FC = () => {
 
   const sendPostRequest = async (data: string) => {
     try {
+      setIsLoading(true);
       const response = await fetch("/api/v1/submissions", {
         method: "POST",
         headers: {
@@ -63,24 +64,29 @@ const CSSEditor: React.FC = () => {
       });
       const responseData = await response.json();
       if (response.ok) {
-        toast({
-          title: "CSS submitted successfully",
-        });
         if (responseData.isCorrect) {
           setAttemptedQuestions((prev) => [...prev, currentQuestion._id]);
+          toast({ title: "Submitted successfully!!!" });
           setCssInput("");
+        } else {
+          toast({
+            title: "Wrong Answer! Please try again!",
+            variant: "destructive",
+          });
         }
       } else {
         toast({
           variant: "destructive",
-          title: "Failed to submit CSS"
-        })
+          title: "Failed to submit CSS",
+        });
       }
     } catch (error) {
       toast({
-        variant: "destructive", 
-        title: "An error occurred while submitting CSS"
-      })
+        variant: "destructive",
+        title: "An error occurred while submitting CSS",
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -109,6 +115,7 @@ const CSSEditor: React.FC = () => {
       <Button
         variant="outline"
         className="mx-auto text-white mt-8 block cursor-pointer rounded-md px-6 py-2"
+        disabled={isLoading}
         onClick={handleSubmit}
       >
         Submit
