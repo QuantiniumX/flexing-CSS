@@ -5,17 +5,55 @@ import AnswerBox from "./AnswerBox";
 import { useQuestion } from "@/context/QuestionContext";
 import { useAttempted } from "@/context/AttemptedContext";
 import { useToast } from "@/components/ui/use-toast";
+import { useInput } from "@/context/InputContext";
+
+function convertCssStringToCamelCase(cssString: string) {
+  // Split the input string by semicolons to get individual property-value pairs
+  const pairs = cssString.split(";").filter(Boolean);
+
+  // Convert each property-value pair to camelCase and join them back into a string
+  const camelCaseString = pairs
+    .map((pair) => {
+      const [property, value] = pair.split(":").map((s) => s.trim());
+
+      // Convert hyphenated property to camelCase
+      const camelCasedProperty = property
+        .split("-")
+        .map((part, index) =>
+          index === 0 ? part : part.charAt(0).toUpperCase() + part.slice(1),
+        )
+        .join("");
+
+      // Return the camelCased property with the value
+      return `${camelCasedProperty}: ${value}`;
+    })
+    .join("; "); // Join the pairs back into a string with '; '
+
+  return camelCaseString;
+}
 
 const CSSEditor: React.FC = () => {
   const { currentQuestion, currentQuestionIndex } = useQuestion();
   const { setAttemptedQuestions } = useAttempted();
+  const { setInputStyle } = useInput();
   const [cssInput, setCssInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
   useEffect(() => {
-    setCssInput;
-  }, [currentQuestionIndex]);
+    setCssInput("");
+    setInputStyle("");
+  }, [currentQuestionIndex, setInputStyle]);
+
+  useEffect(() => {
+    if (validateCSS(cssInput)) {
+      const camelCaseString = convertCssStringToCamelCase(cssInput);
+      const cssObject = parseCSS(camelCaseString);
+      const cssString = JSON.stringify(cssObject);
+      setInputStyle(cssString);
+    }
+    if (cssInput === "") setInputStyle("");
+  }, [cssInput, setInputStyle]);
 
   const handleSubmit = () => {
     const isValid = validateCSS(cssInput);
