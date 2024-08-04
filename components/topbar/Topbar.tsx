@@ -20,6 +20,7 @@ const Topbar = ({ time }: { time: number }) => {
 
   const handleTimeUp = () => {
     toast({
+      variant: "destructive",
       title: "Time's Up"
     })
   };

@@ -20,6 +20,7 @@ const CSSEditor: React.FC = () => {
     const isValid = validateCSS(cssInput);
     if (!isValid) {
       toast({
+        variant: "destructive",
         title: "Invalid CSS Format"
       })
       return;
@@ -70,11 +71,13 @@ const CSSEditor: React.FC = () => {
         }
       } else {
         toast({
+          variant: "destructive",
           title: "Failed to submit CSS"
         })
       }
     } catch (error) {
       toast({
+        variant: "destructive", 
         title: "An error occurred while submitting CSS"
       })
     }
