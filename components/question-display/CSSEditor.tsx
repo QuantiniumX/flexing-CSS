@@ -20,8 +20,10 @@ const CSSEditor: React.FC = () => {
     const isValid = validateCSS(cssInput);
     if (!isValid) {
       toast({
-        title: "Invalid CSS Format",
-      });
+        variant: "destructive",
+        title: "Invalid CSS Format"
+      })
+
       return;
     }
     const cssObject = parseCSS(cssInput);
@@ -70,13 +72,15 @@ const CSSEditor: React.FC = () => {
         }
       } else {
         toast({
-          title: "Failed to submit CSS",
-        });
+          variant: "destructive",
+          title: "Failed to submit CSS"
+        })
       }
     } catch (error) {
       toast({
-        title: "An error occurred while submitting CSS",
-      });
+        variant: "destructive", 
+        title: "An error occurred while submitting CSS"
+      })
     }
   };
 
