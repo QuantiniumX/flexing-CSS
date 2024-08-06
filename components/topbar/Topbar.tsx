@@ -13,9 +13,14 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import CountdownTimer from "./CountdownTimer";
 import QuestionPalette from "@/components/topbar/QuestionPallete";
 import { Toaster, toast } from "react-hot-toast";
+import Modal from "@/components/EndTestModal";
+import { useUser } from "@clerk/nextjs";
 
 const Topbar = ({ time }: { time: number }) => {
   const [showPalette, setShowPalette] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { user } = useUser();
+
 
   const handleTimeUp = () => {
     toast.error("Time's Up", {
@@ -26,6 +31,36 @@ const Topbar = ({ time }: { time: number }) => {
 
   const togglePalette = () => {
     setShowPalette(!showPalette);
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+
+  const endTest = async () => {
+    // -NOTE: SHOULD ADD A WAY TO BAN REQUEST. WILL BE ADDED IN THE BACKEND. 
+  }
+
+  const confirmEndTest = () => {
+    try {
+      endTest(); // end test function
+      closeModal();
+      toast.success("Test Ended", {
+        duration: 4000,
+        position: "top-center",
+      });
+    } catch (err) {
+      console.error("Failed to end test:", err);
+      toast.error("Failed to end test. Please try again.", {
+        duration: 4000,
+        position: "top-center",
+      });
+    }
   };
 
   return (
@@ -58,8 +93,10 @@ const Topbar = ({ time }: { time: number }) => {
                 <DropdownMenuContent className="bg-slate-50 shadow-lg">
                   <DropdownMenuLabel>Username</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem>
-                    <p className="text-red-800 font-bold">End Test</p>
+                  <DropdownMenuItem onSelect={openModal}>
+                    <DropdownMenuItem>
+                      <p className="text-red-800 font-bold">End Test</p>
+                    </DropdownMenuItem>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -71,6 +108,7 @@ const Topbar = ({ time }: { time: number }) => {
           </div>
         </div>
       </div>
+      <Modal isOpen={isModalOpen} onClose={closeModal} onConfirm={confirmEndTest} />
       <Toaster />
     </>
   );
