@@ -3,16 +3,16 @@
 import React, { useState, useEffect } from "react";
 
 interface CountdownTimerProps {
-  initialTime: number;
+  timeLeft: number;
   onTimeUp: () => void;
+  setTimeLeft: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const CountdownTimer: React.FC<CountdownTimerProps> = ({
-  initialTime,
   onTimeUp,
+  timeLeft,
+  setTimeLeft,
 }) => {
-  const [timeLeft, setTimeLeft] = useState(initialTime);
-
   useEffect(() => {
     if (timeLeft <= 0) {
       onTimeUp();
@@ -24,7 +24,7 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [timeLeft, onTimeUp]);
+  }, [timeLeft, onTimeUp, setTimeLeft]);
 
   const minutes = Math.floor(timeLeft / 60);
   const seconds = timeLeft % 60;

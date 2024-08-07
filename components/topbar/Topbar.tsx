@@ -14,19 +14,22 @@ import CountdownTimer from "./CountdownTimer";
 import QuestionPalette from "@/components/topbar/QuestionPallete";
 import { Toaster, toast } from "react-hot-toast";
 import Modal from "@/components/EndTestModal";
-import { useUser } from "@clerk/nextjs";
+import { useUser, useClerk } from "@clerk/nextjs";
 
 const Topbar = ({ time }: { time: number }) => {
   const [showPalette, setShowPalette] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { user } = useUser();
+  const [timeLeft, setTimeLeft] = useState(time);
 
+  const { user } = useUser();
+  const { signOut } = useClerk();
 
   const handleTimeUp = () => {
-    toast.error("Time's Up", {
+    toast("Time's Up", {
       duration: 4000,
       position: "top-center",
     });
+    confirmEndTest();
   };
 
   const togglePalette = () => {
@@ -41,19 +44,35 @@ const Topbar = ({ time }: { time: number }) => {
     setIsModalOpen(false);
   };
 
-
-  const endTest = async () => {
-    // -NOTE: SHOULD ADD A WAY TO BAN REQUEST. WILL BE ADDED IN THE BACKEND. 
-  }
-
-  const confirmEndTest = () => {
+  const confirmEndTest = async () => {
     try {
-      endTest(); // end test function
+      const res = await fetch("/api/delete-user", {
+        method: "delete",
+      });
+
       closeModal();
+
+      if (!res.ok) {
+        return toast.error("Not Successful!! Please Try Again!!", {
+          position: "top-center",
+        });
+      }
+
+      const endRes: Response = await fetch("/api/v1/users/end", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: "66acd4c06c7faa3f82ed321d",
+          timeLeft,
+        }),
+      });
+
       toast.success("Test Ended", {
         duration: 4000,
         position: "top-center",
       });
+
+      // signOut();
     } catch (err) {
       console.error("Failed to end test:", err);
       toast.error("Failed to end test. Please try again.", {
@@ -66,7 +85,6 @@ const Topbar = ({ time }: { time: number }) => {
   return (
     <>
       <div className="bg-primary min-w-full bg-slate-50 py-2 px-5 flex items-center justify-between border-b border-black">
-        {/* Just hide the name flexing css if the display is small. Can't seem to fit all stuff if display is small*/}
         <div className="hidden md:block font-semibold text-lg items-center sm:flex">
           Flexing CSS
         </div>
@@ -86,16 +104,22 @@ const Topbar = ({ time }: { time: number }) => {
               <DropdownMenu>
                 <DropdownMenuTrigger className="focus:outline-none">
                   <Avatar>
-                    <AvatarImage src="https://github.com/shadcn.png" />
-                    <AvatarFallback>CN</AvatarFallback>
+                    <AvatarImage src={user?.imageUrl} />
+                    <AvatarFallback>
+                      {user?.firstName?.substring(0, 1)}
+                    </AvatarFallback>
                   </Avatar>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="bg-slate-50 shadow-lg">
-                  <DropdownMenuLabel>Username</DropdownMenuLabel>
+                  <DropdownMenuLabel>
+                    {user?.unsafeMetadata?.rollNumber as String}
+                  </DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem onSelect={openModal}>
                     <DropdownMenuItem>
-                      <p className="text-red-800 font-bold">End Test</p>
+                      <p className="text-red-800 font-bold cursor-pointer">
+                        End Test
+                      </p>
                     </DropdownMenuItem>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -103,12 +127,20 @@ const Topbar = ({ time }: { time: number }) => {
             </div>
 
             <div className="ml-4 px-2 py-1 border-black border-2 rounded ">
-              <CountdownTimer initialTime={time} onTimeUp={handleTimeUp} />
+              <CountdownTimer
+                timeLeft={timeLeft}
+                setTimeLeft={setTimeLeft}
+                onTimeUp={handleTimeUp}
+              />
             </div>
           </div>
         </div>
       </div>
-      <Modal isOpen={isModalOpen} onClose={closeModal} onConfirm={confirmEndTest} />
+      <Modal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        onConfirm={confirmEndTest}
+      />
       <Toaster />
     </>
   );

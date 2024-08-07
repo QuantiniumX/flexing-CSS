@@ -88,7 +88,7 @@ const CSSEditor: React.FC = () => {
   const sendPostRequest = async (data: string) => {
     try {
       setIsLoading(true);
-      const response = await fetch("/api/v1/submissions", {
+      const response: Response = await fetch(`/api/v1/submissions`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -111,19 +111,19 @@ const CSSEditor: React.FC = () => {
         } else {
           toast.error("Wrong Answer! Please try again!", {
             duration: 4000,
-            position: "bottom-right",
+            position: "bottom-center",
           });
         }
       } else {
         toast.error("Failed to submit CSS", {
           duration: 4000,
-          position: "bottom-right",
+          position: "bottom-center",
         });
       }
     } catch (error) {
       toast.error("An error occurred while submitting CSS", {
         duration: 4000,
-        position: 'bottom-right',
+        position: "bottom-center",
       });
     } finally {
       setIsLoading(false);
