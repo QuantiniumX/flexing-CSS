@@ -4,18 +4,19 @@ import Topbar from "@/components/topbar/Topbar";
 import { AttemptedProvider } from "@/context/AttemptedContext";
 import { QuestionProvider } from "@/context/QuestionContext";
 import { Question } from "@/lib/types";
+import { auth } from "@clerk/nextjs/server";
 
-async function getQuestions() {
+async function getQuestions(userId: string) {
   const res = await fetch(
-    process.env.BACKEND_URL + "/api/v1/questions/clerk123",
+    process.env.BACKEND_URL + "/api/v1/questions/" + userId,
   );
   const { data } = await res.json();
   return data.questions;
 }
 
-async function getAttemptedQuestions() {
+async function getAttemptedQuestions(userId: string) {
   const res = await fetch(
-    process.env.BACKEND_URL + "/api/v1/submissions/clerk123",
+    process.env.BACKEND_URL + "/api/v1/submissions/" + userId,
     {
       cache: "no-store",
     },
@@ -34,18 +35,18 @@ async function getTime() {
 }
 
 export default async function Page() {
-  // const questions: Question[] = await getQuestions();
-  // const attemptedQuestions: string[] = await getAttemptedQuestions();
-  // -FIX: REMOVE THE CONST TIME TO GET THE CORRECT TIME AND UNCOMMENT getTime()
-  // const time: number = await getTime();
-  console.log()
-  const time = 100000;
+  const { userId } = auth();
+  if (!userId) return;
+
+  const questions: Question[] = await getQuestions(userId);
+  const attemptedQuestions: string[] = await getAttemptedQuestions(userId);
+  const time: number = await getTime();
 
   if (time <= 0) return <QuizEnd />;
 
   return (
-    <QuestionProvider questionsData={[]}>
-      <AttemptedProvider attemptedQuestionsData={[]}>
+    <QuestionProvider questionsData={questions}>
+      <AttemptedProvider attemptedQuestionsData={attemptedQuestions}>
         <Topbar time={time} />
         <Main />
       </AttemptedProvider>
