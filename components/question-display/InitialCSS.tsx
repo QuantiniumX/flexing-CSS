@@ -7,14 +7,14 @@ export default function InitialCSS() {
 
   return (
     <>
-      {Object.entries(JSON.parse(currentQuestion?.initialCSS)).map(
+      {/* /*{ {Object.entries(JSON.parse(currentQuestion?.initialCSS)).map(
         ([property, value]) => (
           <div
             key={property}
             className="leading-8"
           >{`${property}: ${value};`}</div>
         ),
-      )}
+      )} */} 
     </>
   );
 }
