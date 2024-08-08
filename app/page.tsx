@@ -34,17 +34,18 @@ async function getTime() {
 }
 
 export default async function Page() {
-  const questions: Question[] = await getQuestions();
-  const attemptedQuestions: string[] = await getAttemptedQuestions();
+  // const questions: Question[] = await getQuestions();
+  // const attemptedQuestions: string[] = await getAttemptedQuestions();
   // -FIX: REMOVE THE CONST TIME TO GET THE CORRECT TIME AND UNCOMMENT getTime()
   // const time: number = await getTime();
-  const time = 1000;
+  console.log()
+  const time = 100000;
 
   if (time <= 0) return <QuizEnd />;
 
   return (
-    <QuestionProvider questionsData={questions}>
-      <AttemptedProvider attemptedQuestionsData={attemptedQuestions}>
+    <QuestionProvider questionsData={[]}>
+      <AttemptedProvider attemptedQuestionsData={[]}>
         <Topbar time={time} />
         <Main />
       </AttemptedProvider>

@@ -83,13 +83,77 @@ export const Questions: QuestionsType = {
           <Planet variant="blue" />
         </div>
         <div id="master" className="absolute inset-0 p-16">
-          <Ring variant="blue" className="top-[8%] left-[43.5%]" />
+          <Ring variant="blue" className="top-[9%] left-[43.5%]" />
           <Ring variant="green" className="top-[41%] left-[43.5%]" />
-          <Ring variant="red" className="top-[74%] left-[43.5%]" />
+          <Ring variant="red" className="top-[73%] left-[43.5%]" />
         </div>
       </>
     );
   },
+  easy_2: ({ inputStyle }: { inputStyle: string }) => {
+    return (
+      <>
+        <div
+          id="container"
+          className="flex h-full p-16"
+          style={inputStyle ? JSON.parse(inputStyle) : {}}
+        >
+          <Planet variant="red" />
+          <Planet variant="green" />
+          <Planet variant="blue" />
+        </div>
+        <div id="master" className="absolute inset-0 flex p-16">
+          <Ring variant="blue" className="bottom-[12%] left-[12.5%]" />
+          <Ring variant="green" className="bottom-[12%] left-[43%]" />
+          <Ring variant="red" className="bottom-[12%] right-[12.5%]" />
+        </div>
+      </>
+    );
+  },
+  easy_3: ({ inputStyle }: { inputStyle: string }) => {
+    return (
+      <>
+        <div
+          id="container"
+          className="flex h-full p-16"
+          style={inputStyle ? JSON.parse(inputStyle) : {}}
+        >
+          <Planet variant="red" />
+          <Planet variant="green" />
+          <Planet variant="blue" />
+        </div>
+        <div id="master" className="absolute inset-0 flex p-16 ">
+          <Ring variant="red" className="bottom-[38%] right-[11.5%]" />
+          <Ring variant="green" className="bottom-[26%] right-[11.5%]" />
+          <Ring variant="blue" className="bottom-[14%] right-[11.5%]" />
+        </div>
+      </>
+    );
+  },
+
+  easy_4: ({ inputStyle }: { inputStyle: string }) => {
+    return (
+      <>
+        <div
+          id="container"
+          className="flex h-full p-16"
+          style={inputStyle ? JSON.parse(inputStyle) : {}}
+        >
+           <Planet variant="red" />
+          <Planet variant="green" />
+          <Planet variant="blue" />
+          <Planet variant="white" />
+        </div>
+        <div id="master" className="absolute inset-0 flex p-16 ">
+          <Ring variant="red" className="bottom-[28%] right-[4.5%]" />
+          <Ring variant="green" className="bottom-[17%] right-[4.5%]" />
+          <Ring variant="blue" className="bottom-[7%] right-[4.5%]" />
+          <Ring variant="white" className="bottom-[2%] right-[4.5%]" />
+        </div>
+      </>
+    );
+  },
+
   easy_8: ({ inputStyle }: { inputStyle: string }) => {
     return (
       <>
@@ -206,4 +270,124 @@ export const Questions: QuestionsType = {
       </>
     );
   },
+  easy_14: ({ inputStyle }: { inputStyle: string }) => {
+    return (
+      <>
+        <div
+          id="container"
+          className="absolute inset-0 flex p-16"
+          style={inputStyle ? JSON.parse(inputStyle) : {}}
+        >
+          <Planet variant="blue" />
+          <Planet variant="white" />
+          <Planet variant="red" />
+        </div>
+        <div id="master" className="absolute inset-0 flex p-16">
+          <Ring variant="red" className="top-[16%] left-[25.5%]" />
+          <Ring variant="white" className="top-[16%] left-[50%]" />
+          <Ring variant="blue" className="top-[16%] left-[74.7%]" />
+        </div>
+      </>
+    );
+  },
+
+  easy_15: ({ inputStyle }: { inputStyle: string }) => {
+    return (
+      <>
+        <div
+          id="container"
+          className="absolute inset-0 flex p-16"
+          style={inputStyle ? JSON.parse(inputStyle) : {}}
+        >
+           <Planet variant="red" />
+          <Planet variant="green" />
+          <Planet variant="blue" />
+        </div>
+        <div id="master" className="absolute inset-0 flex p-16 ">
+          <Ring variant="blue" className="top-[11%] right-[32%]" />
+          <Ring variant="green" className="top-[11%] right-[42%]" />
+          <Ring variant="red" className="top-[11%] right-[54%]" />
+        </div>
+      </>
+    );
+  },
+  easy_16: ({ inputStyle }: { inputStyle: string }) => {
+    return (
+      <>
+        <div
+          id="container"
+          className="absolute inset-0 flex p-16"
+          style={inputStyle ? JSON.parse(inputStyle) : {}}
+        >
+          <Planet variant="red" />
+          <Planet variant="green" />
+          <Planet variant="blue" />
+        </div>
+        <div id="master" className="absolute inset-0 flex p-16">
+          <Ring variant="blue" className="top-[72%] left-[50%]" />
+          <Ring variant="green" className="top-[72%] left-[61.5%]" />
+          <Ring variant="red" className="top-[72%] left-[75%]" />
+        </div>
+      </>
+    );
+  },
+  easy_17: ({ inputStyle }: { inputStyle: string }) => {
+    return (
+      <>
+        <div
+          id="container"
+          className="absolute inset-0 flex p-16"
+          style={inputStyle ? JSON.parse(inputStyle) : {}}
+        >
+           <Planet variant="red" />
+          <Planet variant="green" />
+          <Planet variant="blue" />
+        </div>
+        <div id="master" className="absolute inset-0 flex p-16">
+          <Ring variant="blue" className="top-[73%] right-[56%]" />
+          <Ring variant="green" className="top-[73%] right-[42%]" />
+          <Ring variant="red" className="top-[73%] right-[29.5%]" />
+        </div>
+      </>
+    );
+  },
+  easy_18: ({ inputStyle }: { inputStyle: string }) => {
+    return (
+      <>
+        <div
+          id="container"
+          className="absolute inset-0 flex p-16"
+          style={inputStyle ? JSON.parse(inputStyle) : {}}
+        >
+           <Planet variant="red" />
+        </div>
+        <div id="master" className="absolute inset-0 flex p-16">
+          <Ring variant="red" className="top-[10.9%] right-[12%]" />
+        </div>
+      </>
+    );
+  },
+  easy_19: ({ inputStyle }: { inputStyle: string }) => {
+    return (
+      <>
+        <div
+          id="container"
+          className="absolute inset-0 flex p-16"
+          style={inputStyle ? JSON.parse(inputStyle) : {}}
+        >
+        <Planet variant="blue" />
+          <Planet variant="green" />
+          <Planet variant="red" />
+        </div>
+        <div id="master" className="absolute inset-0 flex p-16">
+          <Ring variant="green" className="top-[11%] right-[43.6%]" /> 
+          <Ring variant="red" className="top-[11%] right-[12%]" />
+          <Ring variant="blue" className="top-[11%] right-[73.5%]" />
+        </div>
+      </>
+    );
+  },
+
 };
+
+
