@@ -46,6 +46,15 @@ const Topbar = ({ time }: { time: number }) => {
 
   const confirmEndTest = async () => {
     try {
+      const endRes: Response = await fetch("/api/v1/users/end", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: user?.unsafeMetadata.userId,
+          timeLeft,
+        }),
+      });
+
       const res = await fetch("/api/delete-user", {
         method: "delete",
       });
@@ -58,21 +67,12 @@ const Topbar = ({ time }: { time: number }) => {
         });
       }
 
-      const endRes: Response = await fetch("/api/v1/users/end", {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          id: "66acd4c06c7faa3f82ed321d",
-          timeLeft,
-        }),
-      });
-
       toast.success("Test Ended", {
         duration: 4000,
         position: "top-center",
       });
 
-      // signOut();
+      signOut();
     } catch (err) {
       console.error("Failed to end test:", err);
       toast.error("Failed to end test. Please try again.", {

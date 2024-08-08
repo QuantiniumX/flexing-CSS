@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import InitialCSS from "./InitialCSS";
 import { Button } from "../ui/button";
@@ -6,6 +7,8 @@ import { useQuestion } from "@/context/QuestionContext";
 import { useAttempted } from "@/context/AttemptedContext";
 import { useInput } from "@/context/InputContext";
 import toast from "react-hot-toast";
+import { useUser } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 
 function convertCssStringToCamelCase(cssString: string) {
   // Split the input string by semicolons to get individual property-value pairs
@@ -33,6 +36,7 @@ function convertCssStringToCamelCase(cssString: string) {
 }
 
 const CSSEditor: React.FC = () => {
+  const { isLoaded, user } = useUser();
   const { currentQuestion, currentQuestionIndex } = useQuestion();
   const { setAttemptedQuestions } = useAttempted();
   const { setInputStyle } = useInput();
@@ -53,6 +57,10 @@ const CSSEditor: React.FC = () => {
     }
     if (cssInput === "") setInputStyle("");
   }, [cssInput, setInputStyle]);
+
+  if (!isLoaded) return;
+
+  if (user === null) return redirect("/sign-in");
 
   const handleSubmit = () => {
     const isValid = validateCSS(cssInput);
@@ -94,7 +102,7 @@ const CSSEditor: React.FC = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          userId: "66acd4c06c7faa3f82ed321d",
+          userId: user?.unsafeMetadata?.userId,
           questionId: currentQuestion._id,
           answer: data,
         }),
