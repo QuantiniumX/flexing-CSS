@@ -140,7 +140,7 @@ export const Questions: QuestionsType = {
     );
   },
 
-  easy_8: ({ inputStyle }: { inputStyle: string }) => {
+  easy_4: ({ inputStyle }: { inputStyle: string }) => {
     return (
       <>
         <div
@@ -153,14 +153,14 @@ export const Questions: QuestionsType = {
           <Planet variant="red" />
         </div>
         <div id="master" className="absolute inset-0 flex p-16">
-          <Ring variant="red" className="top-[78.5%] left-[19%]" />
-          <Ring variant="green" className="top-[78.5%] left-[50%]" />
-          <Ring variant="blue" className="top-[78.5%] left-[81%]" />
+          <Ring variant="red" className="top-[72.5%] left-[13%]" />
+          <Ring variant="green" className="top-[72.5%] left-[43%]" />
+          <Ring variant="blue" className="top-[72.5%] left-[74%]" />
       </div>
       </>
     );
   },
-  easy_9: ({ inputStyle }: { inputStyle: string }) => {
+  easy_5: ({ inputStyle }: { inputStyle: string }) => {
     return (
       <>
         <div
@@ -180,7 +180,7 @@ export const Questions: QuestionsType = {
       </>
     );
   },
-  easy_10: ({ inputStyle }: { inputStyle: string }) => {
+  easy_6: ({ inputStyle }: { inputStyle: string }) => {
     return (
       <>
         <div
@@ -198,7 +198,7 @@ export const Questions: QuestionsType = {
       </>
     );
   },
-  easy_11: ({ inputStyle }: { inputStyle: string }) => {
+  easy_7: ({ inputStyle }: { inputStyle: string }) => {
     return (
       <>
         <div
@@ -218,7 +218,7 @@ export const Questions: QuestionsType = {
       </>
     );
   },
-  easy_12: ({ inputStyle }: { inputStyle: string }) => {
+  easy_8: ({ inputStyle }: { inputStyle: string }) => {
     return (
       <>
         <div
@@ -238,7 +238,7 @@ export const Questions: QuestionsType = {
       </>
     );
   },
-  easy_13: ({ inputStyle }: { inputStyle: string }) => {
+  easy_9: ({ inputStyle }: { inputStyle: string }) => {
     return (
       <>
         <div
@@ -258,7 +258,7 @@ export const Questions: QuestionsType = {
       </>
     );
   },
-  easy_14: ({ inputStyle }: { inputStyle: string }) => {
+  easy_10: ({ inputStyle }: { inputStyle: string }) => {
     return (
       <>
         <div
@@ -271,15 +271,15 @@ export const Questions: QuestionsType = {
           <Planet variant="red" />
         </div>
         <div id="master" className="absolute inset-0 flex p-16">
-          <Ring variant="red" className="top-[16%] left-[25.5%]" />
-          <Ring variant="white" className="top-[16%] left-[50%]" />
-          <Ring variant="blue" className="top-[16%] left-[74.7%]" />
+          <Ring variant="red" className="top-[11%] left-[12.5%]" />
+          <Ring variant="white" className="top-[11%] left-[42%]" />
+          <Ring variant="blue" className="top-[11%] left-[73.7%]" />
         </div>
       </>
     );
   },
 
-  easy_15: ({ inputStyle }: { inputStyle: string }) => {
+  easy_11: ({ inputStyle }: { inputStyle: string }) => {
     return (
       <>
         <div
@@ -299,7 +299,7 @@ export const Questions: QuestionsType = {
       </>
     );
   },
-  easy_16: ({ inputStyle }: { inputStyle: string }) => {
+  easy_12: ({ inputStyle }: { inputStyle: string }) => {
     return (
       <>
         <div
@@ -319,7 +319,7 @@ export const Questions: QuestionsType = {
       </>
     );
   },
-  easy_17: ({ inputStyle }: { inputStyle: string }) => {
+  easy_13: ({ inputStyle }: { inputStyle: string }) => {
     return (
       <>
         <div
@@ -339,7 +339,7 @@ export const Questions: QuestionsType = {
       </>
     );
   },
-  easy_18: ({ inputStyle }: { inputStyle: string }) => {
+  easy_14: ({ inputStyle }: { inputStyle: string }) => {
     return (
       <>
         <div
@@ -355,7 +355,7 @@ export const Questions: QuestionsType = {
       </>
     );
   },
-  easy_19: ({ inputStyle }: { inputStyle: string }) => {
+  easy_15: ({ inputStyle }: { inputStyle: string }) => {
     return (
       <>
         <div
@@ -375,7 +375,7 @@ export const Questions: QuestionsType = {
       </>
     );
   },
-  easy_20: ({ inputStyle }: { inputStyle: string }) => {
+  easy_16: ({ inputStyle }: { inputStyle: string }) => {
     return (
       <>
         <div
@@ -397,7 +397,7 @@ export const Questions: QuestionsType = {
     );
   },
 
-  easy_21: ({ inputStyle }: { inputStyle: string }) => {
+  easy_17: ({ inputStyle }: { inputStyle: string }) => {
     return (
       <>
         <div
