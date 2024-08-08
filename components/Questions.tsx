@@ -68,10 +68,8 @@ function Ring({
       style={{
         transformStyle: "preserve-3d", // Adjust or remove if unnecessary
       }}
-    >
-
-  </div>
-  );
+    ></div>
+  );
 }
 
 interface QuestionsType {
@@ -139,7 +137,6 @@ export const Questions: QuestionsType = {
       </>
     );
   },
-
   easy_4: ({ inputStyle }: { inputStyle: string }) => {
     return (
       <>
@@ -148,7 +145,7 @@ export const Questions: QuestionsType = {
           className="absolute inset-0 flex p-16"
           style={inputStyle ? JSON.parse(inputStyle) : {}}
         >
-         <Planet variant="blue" />
+          <Planet variant="blue" />
           <Planet variant="green" />
           <Planet variant="red" />
         </div>
@@ -156,7 +153,7 @@ export const Questions: QuestionsType = {
           <Ring variant="red" className="top-[72.5%] left-[13%]" />
           <Ring variant="green" className="top-[72.5%] left-[43%]" />
           <Ring variant="blue" className="top-[72.5%] left-[74%]" />
-      </div>
+        </div>
       </>
     );
   },
@@ -188,12 +185,10 @@ export const Questions: QuestionsType = {
           className="absolute inset-0 flex p-16"
           style={inputStyle ? JSON.parse(inputStyle) : {}}
         >
-       <Planet variant="blue" />
- 
+          <Planet variant="blue" />
         </div>
         <div id="master" className="absolute inset-0 flex p-16">
           <Ring variant="blue" className="top-[42%] left-[43%]" />
-    
         </div>
       </>
     );
@@ -206,7 +201,7 @@ export const Questions: QuestionsType = {
           className="absolute inset-0 flex p-16"
           style={inputStyle ? JSON.parse(inputStyle) : {}}
         >
-         <Planet variant="white" />
+          <Planet variant="white" />
           <Planet variant="green" />
           <Planet variant="red" />
         </div>
@@ -278,7 +273,6 @@ export const Questions: QuestionsType = {
       </>
     );
   },
-
   easy_11: ({ inputStyle }: { inputStyle: string }) => {
     return (
       <>
@@ -287,7 +281,7 @@ export const Questions: QuestionsType = {
           className="absolute inset-0 flex p-16"
           style={inputStyle ? JSON.parse(inputStyle) : {}}
         >
-           <Planet variant="red" />
+          <Planet variant="red" />
           <Planet variant="green" />
           <Planet variant="blue" />
         </div>
@@ -327,7 +321,7 @@ export const Questions: QuestionsType = {
           className="absolute inset-0 flex p-16"
           style={inputStyle ? JSON.parse(inputStyle) : {}}
         >
-           <Planet variant="red" />
+          <Planet variant="red" />
           <Planet variant="green" />
           <Planet variant="blue" />
         </div>
@@ -347,7 +341,7 @@ export const Questions: QuestionsType = {
           className="absolute inset-0 flex p-16"
           style={inputStyle ? JSON.parse(inputStyle) : {}}
         >
-           <Planet variant="red" />
+          <Planet variant="red" />
         </div>
         <div id="master" className="absolute inset-0 flex p-16">
           <Ring variant="red" className="top-[10.9%] right-[12%]" />
@@ -363,12 +357,12 @@ export const Questions: QuestionsType = {
           className="absolute inset-0 flex p-16"
           style={inputStyle ? JSON.parse(inputStyle) : {}}
         >
-        <Planet variant="blue" />
+          <Planet variant="blue" />
           <Planet variant="green" />
           <Planet variant="red" />
         </div>
         <div id="master" className="absolute inset-0 flex p-16">
-          <Ring variant="green" className="top-[11%] right-[43.6%]" /> 
+          <Ring variant="green" className="top-[11%] right-[43.6%]" />
           <Ring variant="red" className="top-[11%] right-[12%]" />
           <Ring variant="blue" className="top-[11%] right-[73.5%]" />
         </div>
@@ -388,15 +382,13 @@ export const Questions: QuestionsType = {
           <Planet variant="red" />
         </div>
         <div id="master" className="absolute inset-0 flex p-16">
-          <Ring variant="green" className="top-[72%] right-[61%]" /> 
+          <Ring variant="green" className="top-[72%] right-[61%]" />
           <Ring variant="red" className="top-[72%] right-[49%]" />
           <Ring variant="blue" className="top-[72%] right-[73.5%]" />
-
         </div>
       </>
     );
   },
-
   easy_17: ({ inputStyle }: { inputStyle: string }) => {
     return (
       <>
@@ -405,24 +397,1587 @@ export const Questions: QuestionsType = {
           className="absolute inset-0 flex p-16"
           style={inputStyle ? JSON.parse(inputStyle) : {}}
         >
-           <Planet variant="blue" />
+          <Planet variant="blue" />
           <Planet variant="green" />
           <Planet variant="red" />
         </div>
         <div id="master" className="absolute inset-0 flex p-16">
-          <Ring variant="green" className="top-[11%] right-[23.5%]" /> 
+          <Ring variant="green" className="top-[11%] right-[23.5%]" />
           <Ring variant="red" className="top-[11%] right-[37%]" />
           <Ring variant="blue" className="top-[11%] right-[10.8%]" />
-
         </div>
       </>
     );
   },
+  medium_1: ({ inputStyle }: { inputStyle: string }) => {
+    return (
+      <>
+        <div
+          id="container"
+          className="absolute inset-0 flex p-16"
+          style={inputStyle ? JSON.parse(inputStyle) : {}}
+        >
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+        </div>
+        <div
+          id="master"
+          className="absolute inset-0 flex flex-col-reverse flex-wrap content-start p-16"
+        >
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
 
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className=" lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+        </div>
+      </>
+    );
+  },
+  medium_2: ({ inputStyle }: { inputStyle: string }) => {
+    return (
+      <>
+        <div
+          id="container"
+          className="absolute inset-0 flex p-16"
+          style={inputStyle ? JSON.parse(inputStyle) : {}}
+        >
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+        </div>
+        <div
+          id="master"
+          className="absolute inset-0 flex flex-col-reverse flex-wrap content-between p-16"
+        >
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+        </div>
+      </>
+    );
+  },
+  medium_3: ({ inputStyle }: { inputStyle: string }) => {
+    return (
+      <>
+        <div
+          id="container"
+          className="absolute inset-0 grid p-16 h-full"
+          style={inputStyle ? JSON.parse(inputStyle) : {}}
+        >
+          {/* Green Planets */}
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+
+          {/* Red Planets */}
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+
+          {/* Blue Planets */}
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+        </div>
+
+        <div
+          id="master"
+          className="absolute inset-0 p-16 grid grid-cols-4 content-start"
+        >
+          {/* Green Rings */}
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+
+          {/* Red Rings */}
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+
+          {/* Blue Rings */}
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+        </div>
+      </>
+    );
+  },
+  medium_4: ({ inputStyle }: { inputStyle: string }) => {
+    return (
+      <>
+        <div
+          id="container"
+          className="grid p-16 h-full"
+          style={inputStyle ? JSON.parse(inputStyle) : {}}
+        >
+          {/* Green Planets */}
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+
+          {/* Red Planets */}
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+
+          {/* Blue Planets */}
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+        </div>
+
+        <div id="master" className="absolute inset-0 p-16 grid grid-cols-6">
+          {/* Green Rings */}
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+
+          {/* Red Rings */}
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+
+          {/* Blue Rings */}
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+        </div>
+      </>
+    );
+  },
+  medium_5: ({ inputStyle }: { inputStyle: string }) => {
+    return (
+      <>
+        <div
+          id="container"
+          className="grid p-16 h-full"
+          style={inputStyle ? JSON.parse(inputStyle) : {}}
+        >
+          {/* Green Planets */}
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+
+          {/* Red Planets */}
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+
+          {/* Blue Planets */}
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+        </div>
+
+        <div id="master" className="absolute inset-0 p-16 grid grid-cols-5">
+          {/* Green Rings */}
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+
+          {/* Red Rings */}
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+
+          {/* Blue Rings */}
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+        </div>
+      </>
+    );
+  },
+  medium_6: ({ inputStyle }: { inputStyle: string }) => {
+    return (
+      <>
+        <div
+          id="container"
+          className="flex p-16 h-full"
+          style={inputStyle ? JSON.parse(inputStyle) : {}}
+        >
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+        </div>
+
+        <div
+          id="master"
+          className="absolute inset-0 p-16 flex  flex-wrap-reverse content-between"
+        >
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+        </div>
+      </>
+    );
+  },
+  medium_7: ({ inputStyle }: { inputStyle: string }) => {
+    return (
+      <>
+        <div
+          id="container"
+          className="flex p-16 h-full"
+          style={inputStyle ? JSON.parse(inputStyle) : {}}
+        >
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+        </div>
+
+        <div
+          id="master"
+          className="absolute inset-0 p-16 flex flex-wrap-reverse"
+        >
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+        </div>
+      </>
+    );
+  },
+  medium_8: ({ inputStyle }: { inputStyle: string }) => {
+    return (
+      <>
+        <div
+          id="container"
+          className="flex p-16 h-full"
+          style={inputStyle ? JSON.parse(inputStyle) : {}}
+        >
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+        </div>
+
+        <div
+          id="master"
+          className="absolute inset-0 p-16 flex flex-wrap content-end"
+        >
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+        </div>
+      </>
+    );
+  },
+  medium_9: ({ inputStyle }: { inputStyle: string }) => {
+    return (
+      <>
+        <div
+          id="container"
+          className="flex p-16 h-full"
+          style={inputStyle ? JSON.parse(inputStyle) : {}}
+        >
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+        </div>
+
+        <div
+          id="master"
+          className="absolute inset-0 p-16 flex flex-wrap-reverse flex-col"
+        >
+          <Ring
+            type="normal"
+            variant="white"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="white"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="white"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+        </div>
+      </>
+    );
+  },
+  medium_10: ({ inputStyle }: { inputStyle: string }) => {
+    return (
+      <>
+        <div
+          id="container"
+          className="flex p-16 h-full"
+          style={inputStyle ? JSON.parse(inputStyle) : {}}
+        >
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+        </div>
+
+        <div
+          id="master"
+          className="absolute inset-0 p-16 flex flex-wrap flex-col"
+        >
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />{" "}
+        </div>
+      </>
+    );
+  },
+  medium_11: ({ inputStyle }: { inputStyle: string }) => {
+    return (
+      <>
+        <div
+          id="container"
+          className="absolute inset-0 flex p-16  h-full"
+          style={inputStyle ? JSON.parse(inputStyle) : {}}
+        >
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+        </div>
+
+        <div
+          id="master"
+          className="absolute inset-0 p-16 flex flex-wrap justify-center"
+        >
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            variant="white"
+            type="normal"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+        </div>
+      </>
+    );
+  },
+  medium_12: ({ inputStyle }: { inputStyle: string }) => {
+    return (
+      <>
+        <div
+          id="container"
+          className="flex p-16 h-full"
+          style={inputStyle ? JSON.parse(inputStyle) : {}}
+        >
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="blue" />
+          <Planet variant="red" />
+          <Planet variant="red" />
+          <Planet variant="white" />
+          <Planet variant="white" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+          <Planet variant="green" />
+        </div>
+
+        <div
+          id="master"
+          className="absolute inset-0 p-16 flex flex-wrap flex-col"
+        >
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="white"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="white"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="blue"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="red"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="white"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="white"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+          <Ring
+            type="normal"
+            variant="green"
+            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+          />
+        </div>
+      </>
+    );
+  },
 };
-
-
-
-
-
-
