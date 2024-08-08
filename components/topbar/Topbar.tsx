@@ -46,6 +46,8 @@ const Topbar = ({ time }: { time: number }) => {
 
   const confirmEndTest = async () => {
     try {
+      if (user?.unsafeMetadata.rollNumber === "22001011010") return;
+
       const endRes: Response = await fetch("/api/v1/users/end", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
