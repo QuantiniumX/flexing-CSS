@@ -7,7 +7,6 @@ import { useQuestion } from "@/context/QuestionContext";
 import { useAttempted } from "@/context/AttemptedContext";
 import { useInput } from "@/context/InputContext";
 import toast from "react-hot-toast";
-import { useUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
 function convertCssStringToCamelCase(cssString: string) {
@@ -36,7 +35,6 @@ function convertCssStringToCamelCase(cssString: string) {
 }
 
 const CSSEditor: React.FC = () => {
-  const { isLoaded, user } = useUser();
   const { currentQuestion, currentQuestionIndex } = useQuestion();
   const { setAttemptedQuestions } = useAttempted();
   const { setInputStyle } = useInput();
@@ -58,10 +56,6 @@ const CSSEditor: React.FC = () => {
     if (cssInput === "") setInputStyle("");
   }, [cssInput, setInputStyle]);
 
-  if (!isLoaded) return;
-
-  if (user === null) return redirect("/sign-in");
-
   const handleSubmit = () => {
     const isValid = validateCSS(cssInput);
     if (!isValid) {
@@ -73,7 +67,8 @@ const CSSEditor: React.FC = () => {
     }
     const cssObject = parseCSS(cssInput);
     const cssString = JSON.stringify(cssObject);
-    sendPostRequest(cssString);
+// -NOTE: just create an array that will contain the id's(just indexes is fine) and we'll do Attemptedquestion in that
+//    sendPostRequest(cssString);
   };
 
   const validateCSS = (css: string) => {
@@ -93,50 +88,50 @@ const CSSEditor: React.FC = () => {
     }, {});
   };
 
-  const sendPostRequest = async (data: string) => {
-    try {
-      setIsLoading(true);
-      const response: Response = await fetch(`/api/v1/submissions`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userId: user?.unsafeMetadata?.userId,
-          questionId: currentQuestion._id,
-          answer: data,
-        }),
-      });
-      const responseData = await response.json();
-      if (response.ok) {
-        if (responseData.isCorrect) {
-          setAttemptedQuestions((prev) => [...prev, currentQuestion._id]);
-          toast.success("Submitted successfully!!!", {
-            duration: 4000,
-            position: "top-center",
-          });
-          setCssInput("");
-        } else {
-          toast.error("Wrong Answer! Please try again!", {
-            duration: 4000,
-            position: "bottom-center",
-          });
-        }
-      } else {
-        toast.error("Failed to submit CSS", {
-          duration: 4000,
-          position: "bottom-center",
-        });
-      }
-    } catch (error) {
-      toast.error("An error occurred while submitting CSS", {
-        duration: 4000,
-        position: "bottom-center",
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
+//  const sendPostRequest = async (data: string) => {
+//    try {
+//      setIsLoading(true);
+//      const response: Response = await fetch(`/api/v1/submissions`, {
+//        method: "POST",
+//        headers: {
+//          "Content-Type": "application/json",
+//        },
+//        body: JSON.stringify({
+//          userId: user?.unsafeMetadata?.userId,
+//          questionId: currentQuestion._id,
+//          answer: data,
+//        }),
+//      });
+//      const responseData = await response.json();
+//      if (response.ok) {
+//        if (responseData.isCorrect) {
+//          setAttemptedQuestions((prev) => [...prev, currentQuestion._id]);
+//          toast.success("Submitted successfully!!!", {
+//            duration: 4000,
+//            position: "top-center",
+//          });
+//          setCssInput("");
+//        } else {
+//          toast.error("Wrong Answer! Please try again!", {
+//            duration: 4000,
+//            position: "bottom-center",
+//          });
+//        }
+//      } else {
+//        toast.error("Failed to submit CSS", {
+//          duration: 4000,
+//          position: "bottom-center",
+//        });
+//      }
+//    } catch (error) {
+//      toast.error("An error occurred while submitting CSS", {
+//        duration: 4000,
+//        position: "bottom-center",
+//      });
+//    } finally {
+//      setIsLoading(false);
+//    }
+//  };
 
   return (
     <>

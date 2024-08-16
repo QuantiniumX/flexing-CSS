@@ -10,7 +10,7 @@ function Planet({
   className?: String;
 }) {
   const planetVariants = cva(
-    "h-[45px] w-[45px] lg:h-[60px] lg:w-[60px] rounded-[50%] animate-bounce",
+    "h-[45px] w-[45px] lg:h-[60px] lg:w-[60px] rounded-[50%]",
     {
       variants: {
         variant: {

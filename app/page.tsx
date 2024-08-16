@@ -1,10 +1,9 @@
 import Main from "@/components/Main";
-import QuizEnd from "@/components/QuizEnd";
 import Topbar from "@/components/topbar/Topbar";
 import { AttemptedProvider } from "@/context/AttemptedContext";
 import { QuestionProvider } from "@/context/QuestionContext";
 import { Question } from "@/lib/types";
-import { auth } from "@clerk/nextjs/server";
+import objectStyle from "../public/objectStyle.json"
 
 /*
 * return the question from the backend
@@ -20,34 +19,32 @@ import { auth } from "@clerk/nextjs/server";
 *   points: int;
 *   __v: int -> idk what this means;
 *   id: string;
+*   completed: boolean;
 */
-async function getQuestions(userId: string) {
-  const res = await fetch(
-    process.env.BACKEND_URL + "/api/v1/questions/" + userId,
-  );
-  const { data } = await res.json();
-  console.log(data);
-  return data.questions;
-}
-
-async function getAttemptedQuestions(userId: string) {
-  const res = await fetch(
-    process.env.BACKEND_URL + "/api/v1/submissions/" + userId,
-    {
-      cache: "no-store",
-    },
-  );
-  const { data } = await res.json();
+async function getQuestions() {
+  const data = objectStyle.questions;
   console.log(data);
   return data;
 }
 
+async function getAttemptedQuestions(userId: string) {
+  const data = [
+    "1",
+    "2"
+  ]
+  return data;
+}
+
+const getUserId = () => {
+  return "7";
+}
+
 
 export default async function Page() {
-  const { userId } = auth();
+  const userId = getUserId();
   if (!userId) return;
 
-  const questions: Question[] = await getQuestions(userId);
+  const questions: Question[] = await getQuestions();
   const attemptedQuestions: string[] = await getAttemptedQuestions(userId);
 
   return (

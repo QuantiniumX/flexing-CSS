@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
-import { ClerkLoaded, ClerkLoading, ClerkProvider } from "@clerk/nextjs";
-import Image from "next/image";
-import loadingSVG from "@/public/loading.svg";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,19 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ClerkProvider>
-          <ClerkLoading>
-            <div className="flex justify-center items-center h-[100vh]">
-              <Image src={loadingSVG} width={30} height={30} alt="loading" />
-              <span className="ml-4 text-2xl">Loading</span>
-            </div>
-          </ClerkLoading>
-          <ClerkLoaded>
-            {children}
-            <Toaster />
-          </ClerkLoaded>
-        </ClerkProvider>
-      </body>
-    </html>
+        {children}
+        <Toaster />
+      </body >
+    </html >
   );
 }

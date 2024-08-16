@@ -13,14 +13,10 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import QuestionPalette from "@/components/topbar/QuestionPallete";
 import { Toaster, toast } from "react-hot-toast";
 import Modal from "@/components/EndTestModal";
-import { useUser, useClerk } from "@clerk/nextjs";
 
 const Topbar = () => {
   const [showPalette, setShowPalette] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const { user } = useUser();
-  const { signOut } = useClerk();
 
   const togglePalette = () => {
     setShowPalette(!showPalette);
@@ -35,42 +31,40 @@ const Topbar = () => {
   };
 
   const confirmEndTest = async () => {
-    try {
-      if (user?.unsafeMetadata.rollNumber === "22001011010") return;
-
-      const endRes: Response = await fetch("/api/v1/users/end", {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          id: user?.unsafeMetadata.userId,
-        }),
-      });
-
-      const res = await fetch("/api/delete-user", {
-        method: "delete",
-      });
-
-      closeModal();
-
-      if (!res.ok) {
-        return toast.error("Not Successful!! Please Try Again!!", {
-          position: "top-center",
-        });
-      }
-
-      toast.success("Test Ended", {
-        duration: 4000,
-        position: "top-center",
-      });
-
-      signOut();
-    } catch (err) {
-      console.error("Failed to end test:", err);
-      toast.error("Failed to end test. Please try again.", {
-        duration: 4000,
-        position: "top-center",
-      });
-    }
+    //    try {
+    //      const endRes: Response = await fetch("/api/v1/users/end", {
+    //        method: "PATCH",
+    //        headers: { "Content-Type": "application/json" },
+    //        body: JSON.stringify({
+    //          id: user?.unsafeMetadata.userId,
+    //        }),
+    //      });
+    //
+    //      const res = await fetch("/api/delete-user", {
+    //        method: "delete",
+    //      });
+    //
+    //      closeModal();
+    //
+    //      if (!res.ok) {
+    //        return toast.error("Not Successful!! Please Try Again!!", {
+    //          position: "top-center",
+    //        });
+    //      }
+    //
+    //      toast.success("Test Ended", {
+    //        duration: 4000,
+    //        position: "top-center",
+    //      });
+    //
+    //      signOut();
+    //    } catch (err) {
+    //      console.error("Failed to end test:", err);
+    //      toast.error("Failed to end test. Please try again.", {
+    //        duration: 4000,
+    //        position: "top-center",
+    //      });
+    //    }
   };
 
   return (
@@ -95,15 +89,15 @@ const Topbar = () => {
               <DropdownMenu>
                 <DropdownMenuTrigger className="focus:outline-none">
                   <Avatar>
-                    <AvatarImage src={user?.imageUrl} />
+                    <AvatarImage src="https://github.com" />
                     <AvatarFallback>
-                      {user?.firstName?.substring(0, 1)}
+                      username
                     </AvatarFallback>
                   </Avatar>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="bg-slate-50 shadow-lg">
                   <DropdownMenuLabel>
-                    {user?.unsafeMetadata?.rollNumber as String}
+                    username
                   </DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem onSelect={openModal}>
@@ -119,11 +113,6 @@ const Topbar = () => {
           </div>
         </div>
       </div>
-      <Modal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        onConfirm={confirmEndTest}
-      />
       <Toaster />
     </>
   );
