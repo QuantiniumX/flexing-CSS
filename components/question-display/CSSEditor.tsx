@@ -98,7 +98,7 @@ const CSSEditor: React.FC = () => {
         return;
     }
 
-    // Normalize the input by sorting characters or words
+
     const normalize = (str: string) => str.split('').sort().join('');
     
     const normalizedData = normalize(data);
@@ -110,7 +110,7 @@ const CSSEditor: React.FC = () => {
             duration: 4000,
             position: "top-center",
         });
-        setCssInput(""); // Reset the input
+        setCssInput(""); 
     } else {
         toast.error("Wrong Answer! Please try again!", {
             duration: 4000,
