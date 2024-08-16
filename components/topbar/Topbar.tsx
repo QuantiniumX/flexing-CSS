@@ -10,27 +10,17 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import CountdownTimer from "./CountdownTimer";
 import QuestionPalette from "@/components/topbar/QuestionPallete";
 import { Toaster, toast } from "react-hot-toast";
 import Modal from "@/components/EndTestModal";
 import { useUser, useClerk } from "@clerk/nextjs";
 
-const Topbar = ({ time }: { time: number }) => {
+const Topbar = () => {
   const [showPalette, setShowPalette] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(time);
 
   const { user } = useUser();
   const { signOut } = useClerk();
-
-  const handleTimeUp = () => {
-    toast("Time's Up", {
-      duration: 4000,
-      position: "top-center",
-    });
-    confirmEndTest();
-  };
 
   const togglePalette = () => {
     setShowPalette(!showPalette);
@@ -53,7 +43,6 @@ const Topbar = ({ time }: { time: number }) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           id: user?.unsafeMetadata.userId,
-          timeLeft,
         }),
       });
 
@@ -126,14 +115,6 @@ const Topbar = ({ time }: { time: number }) => {
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-            </div>
-
-            <div className="ml-4 px-2 py-1 border-black border-2 rounded ">
-              <CountdownTimer
-                timeLeft={timeLeft}
-                setTimeLeft={setTimeLeft}
-                onTimeUp={handleTimeUp}
-              />
             </div>
           </div>
         </div>

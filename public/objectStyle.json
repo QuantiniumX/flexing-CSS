@@ -1,248 +1,381 @@
-[
-  {
-    "id": 1,
-    "targetContainerHTML": "<div class='target'></div>",
-    "objectContainerHTML": "<div class='object'></div>",
-    "initialCSS": {
-      "display": "flex",
-      "color": "red"
+{
+  "questions": [
+    {
+      "_id": "66b4f7eaeb814f411785bd4a",
+      "questionId": "easy_1",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Place the planets to their respective rings using CSS properties. Use only three properties.",
+      "answer": "{\"flex-direction\":\"column-reverse\",\"align-items\":\"center\",\"justify-content\":\"space-between\"}",
+      "difficulty": "easy",
+      "createdAt": "2024-08-08T16:52:58.759Z",
+      "updatedAt": "2024-08-08T16:52:58.759Z",
+      "points": 100,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd4a"
     },
-    "instruction": "Arrange the items in a row.",
-    "answer": "Correct",
-    "points": "1",
-    "difficulty": "easy"
-  },
-  {
-    "id": 2,
-    "targetContainerHTML": "<div class='target'></div>",
-    "objectContainerHTML": "<div class='object'></div>",
-    "initialCSS": {
-      "display": "flex",
-      "color": "red"
+    {
+      "_id": "66b4f7eaeb814f411785bd4b",
+      "questionId": "easy_2",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Place the planets to their respective rings using CSS properties. Use only three properties.",
+      "answer": "{\"flex-direction\":\"row-reverse\",\"align-items\":\"end\",\"justify-content\":\"space-between\"}",
+      "difficulty": "easy",
+      "createdAt": "2024-08-08T16:52:58.760Z",
+      "updatedAt": "2024-08-08T16:52:58.760Z",
+      "points": 100,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd4b"
     },
-    "instruction": "Change the text color to blue.",
-    "answer": "Correct",
-    "points": "1",
-    "difficulty": "easy"
-  },
-  {
-    "id": 3,
-    "targetContainerHTML": "<div class='target'></div>",
-    "objectContainerHTML": "<div class='object'></div>",
-    "initialCSS": {
-      "display": "flex",
-      "color": "red"
+    {
+      "_id": "66b4f7eaeb814f411785bd4c",
+      "questionId": "easy_3",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Place the planets to their respective rings using CSS properties.Use three properties.",
+      "answer": "{\"flex-direction\":\"column\",\"align-items\":\"flex-end\",\"justify-content\":\"flex-end\"}",
+      "difficulty": "easy",
+      "createdAt": "2024-08-08T16:52:58.760Z",
+      "updatedAt": "2024-08-08T16:52:58.760Z",
+      "points": 100,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd4c"
     },
-    "instruction": "Align the objects to the center.",
-    "answer": "Correct",
-    "points": "1",
-    "difficulty": "easy"
-  },
-  {
-    "id": 4,
-    "targetContainerHTML": "<div class='target'></div>",
-    "objectContainerHTML": "<div class='object'></div>",
-    "initialCSS": {
-      "display": "flex",
-      "color": "red"
+    {
+      "_id": "66b4f7eaeb814f411785bd4f",
+      "questionId": "easy_6",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Place the planets to their respective rings using CSS property. Use only two properties",
+      "answer": "{\"align-items\":\"center\",\"justify-content\":\"center\"}",
+      "difficulty": "easy",
+      "createdAt": "2024-08-08T16:52:58.761Z",
+      "updatedAt": "2024-08-08T16:52:58.761Z",
+      "points": 100,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd4f"
     },
-    "instruction": "Change the display to block.",
-    "answer": "Correct",
-    "points": "1",
-    "difficulty": "easy"
-  },
-  {
-    "id": 5,
-    "targetContainerHTML": "<div class='target'></div>",
-    "objectContainerHTML": "<div class='object'></div>",
-    "initialCSS": {
-      "display": "flex",
-      "color": "red"
+    {
+      "_id": "66b4f7eaeb814f411785bd50",
+      "questionId": "easy_7",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Place the planets to their respective rings using CSS properties.Use only two properties",
+      "answer": "{\"flex-direction\":\"row-reverse\",\"justify-content\":\"start\"}",
+      "difficulty": "easy",
+      "createdAt": "2024-08-08T16:52:58.761Z",
+      "updatedAt": "2024-08-08T16:52:58.761Z",
+      "points": 100,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd50"
     },
-    "instruction": "Set the background color to yellow.",
-    "answer": "Correct",
-    "points": "1",
-    "difficulty": "easy"
-  },
-  {
-    "id": 6,
-    "targetContainerHTML": "<div class='target'></div>",
-    "objectContainerHTML": "<div class='object'></div>",
-    "initialCSS": {
-      "display": "flex",
-      "color": "red"
+    {
+      "_id": "66b4f7eaeb814f411785bd51",
+      "questionId": "easy_8",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Place the planets to their respective rings using CSS properties. Use only two properties.",
+      "answer": "{\"flex-direction\":\"column-reverse\",\"justify-content\":\"space-between\"}",
+      "difficulty": "easy",
+      "createdAt": "2024-08-08T16:52:58.761Z",
+      "updatedAt": "2024-08-08T16:52:58.761Z",
+      "points": 100,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd51"
     },
-    "instruction": "Add a margin of 10px.",
-    "answer": "Correct",
-    "points": "1",
-    "difficulty": "easy"
-  },
-  {
-    "id": 7,
-    "targetContainerHTML": "<div class='target'></div>",
-    "objectContainerHTML": "<div class='object'></div>",
-    "initialCSS": {
-      "display": "flex",
-      "color": "red"
+    {
+      "_id": "66b4f7eaeb814f411785bd52",
+      "questionId": "easy_9",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Place the planets to their respective rings using CSS properties. Use only three properties.",
+      "answer": "{\"flex-direction\":\"column\",\"justify-content\":\"center\",\"align-items\":\"flex-end\"}",
+      "difficulty": "easy",
+      "createdAt": "2024-08-08T16:52:58.761Z",
+      "updatedAt": "2024-08-08T16:52:58.761Z",
+      "points": 100,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd52"
     },
-    "instruction": "Set the font size to 16px.",
-    "answer": "Correct",
-    "points": "1",
-    "difficulty": "easy"
-  },
-  {
-    "id": 8,
-    "targetContainerHTML": "<div class='target'></div>",
-    "objectContainerHTML": "<div class='object'></div>",
-    "initialCSS": {
-      "display": "flex",
-      "color": "red"
+    {
+      "_id": "66b4f7eaeb814f411785bd53",
+      "questionId": "easy_10",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Place the planets to their respective rings using CSS properties. Use only two properties.",
+      "answer": "{\"flex-direction\":\"row-reverse\",\"justify-content\":\"space-between\"}",
+      "difficulty": "easy",
+      "createdAt": "2024-08-08T16:52:58.761Z",
+      "updatedAt": "2024-08-08T16:52:58.761Z",
+      "points": 100,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd53"
     },
-    "instruction": "Change the font weight to bold.",
-    "answer": "Correct",
-    "points": "1",
-    "difficulty": "easy"
-  },
-  {
-    "id": 9,
-    "targetContainerHTML": "<div class='target'></div>",
-    "objectContainerHTML": "<div class='object'></div>",
-    "initialCSS": {
-      "display": "flex",
-      "color": "red"
+    {
+      "_id": "66b4f7eaeb814f411785bd54",
+      "questionId": "easy_11",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Place the planets to their respective rings using CSS properties. Use only one property of css.",
+      "answer": "{\"justify-content\":\"center\"}",
+      "difficulty": "easy",
+      "createdAt": "2024-08-08T16:52:58.761Z",
+      "updatedAt": "2024-08-08T16:52:58.761Z",
+      "points": 100,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd54"
     },
-    "instruction": "Change the display to grid.",
-    "answer": "Correct",
-    "points": "1",
-    "difficulty": "easy"
-  },
-  {
-    "id": 10,
-    "targetContainerHTML": "<div class='target'></div>",
-    "objectContainerHTML": "<div class='object'></div>",
-    "initialCSS": {
-      "display": "flex",
-      "color": "red"
+    {
+      "_id": "66b4f7eaeb814f411785bd55",
+      "questionId": "easy_12",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Place the planets to their respective rings using CSS properties. Use only two properties.",
+      "answer": "{\"flex-direction\":\"row-reverse\",\"align-items\":\"flex-end\"}",
+      "difficulty": "easy",
+      "createdAt": "2024-08-08T16:52:58.761Z",
+      "updatedAt": "2024-08-08T16:52:58.761Z",
+      "points": 100,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd55"
     },
-    "instruction": "Set the grid template columns to 1fr 1fr.",
-    "answer": "Correct",
-    "points": "1",
-    "difficulty": "easy"
-  },
-  {
-    "id": 11,
-    "targetContainerHTML": "<div class='target'></div>",
-    "objectContainerHTML": "<div class='object'></div>",
-    "initialCSS": {
-      "display": "flex",
-      "color": "red"
+    {
+      "_id": "66b4f7eaeb814f411785bd56",
+      "questionId": "easy_13",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Place the planets to their respective rings using CSS properties. Use only three properties",
+      "answer": "{\"justify-content\":\"center\",\"flex-direction\":\"row-reverse\",\"align-items\":\"flex-end\"}",
+      "difficulty": "easy",
+      "createdAt": "2024-08-08T16:52:58.761Z",
+      "updatedAt": "2024-08-08T16:52:58.761Z",
+      "points": 100,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd56"
     },
-    "instruction": "Set the height to 100px.",
-    "answer": "Correct",
-    "points": "1",
-    "difficulty": "easy"
-  },
-  {
-    "id": 12,
-    "targetContainerHTML": "<div class='target'></div>",
-    "objectContainerHTML": "<div class='object'></div>",
-    "initialCSS": {
-      "display": "flex",
-      "color": "red"
+    {
+      "_id": "66b4f7eaeb814f411785bd57",
+      "questionId": "easy_14",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Use only one CSS property for solving this Problem. Use only one property. Use justify property.",
+      "answer": "{\"justify-content\":\"end\"}",
+      "difficulty": "easy",
+      "createdAt": "2024-08-08T16:52:58.761Z",
+      "updatedAt": "2024-08-08T16:52:58.761Z",
+      "points": 100,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd57"
     },
-    "instruction": "Set the width to 200px.",
-    "answer": "Correct",
-    "points": "1",
-    "difficulty": "easy"
-  },
-  {
-    "id": 13,
-    "targetContainerHTML": "<div class='target'></div>",
-    "objectContainerHTML": "<div class='object'></div>",
-    "initialCSS": {
-      "display": "flex",
-      "color": "red"
+    {
+      "_id": "66b4f7eaeb814f411785bd58",
+      "questionId": "easy_15",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Place the planets to their respective rings using CSS properties. Use only one property",
+      "answer": "{\"justify-content\":\"space-between\"}",
+      "difficulty": "easy",
+      "createdAt": "2024-08-08T16:52:58.761Z",
+      "updatedAt": "2024-08-08T16:52:58.761Z",
+      "points": 100,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd58"
     },
-    "instruction": "Add a border of 1px solid black.",
-    "answer": "Correct",
-    "points": "1",
-    "difficulty": "easy"
-  },
-  {
-    "id": 14,
-    "targetContainerHTML": "<div class='target'></div>",
-    "objectContainerHTML": "<div class='object'></div>",
-    "initialCSS": {
-      "display": "flex",
-      "color": "red"
+    {
+      "_id": "66b4f7eaeb814f411785bd59",
+      "questionId": "easy_16",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Place the planets to their respective rings using CSS properties.Use only one property.",
+      "answer": "{\"align-items\":\"flex-end\"}",
+      "difficulty": "easy",
+      "createdAt": "2024-08-08T16:52:58.761Z",
+      "updatedAt": "2024-08-08T16:52:58.761Z",
+      "points": 100,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd59"
     },
-    "instruction": "Set the padding to 20px.",
-    "answer": "Correct",
-    "points": "1",
-    "difficulty": "easy"
-  },
-  {
-    "id": 15,
-    "targetContainerHTML": "<div class='target'></div>",
-    "objectContainerHTML": "<div class='object'></div>",
-    "initialCSS": {
-      "display": "flex",
-      "color": "red"
+    {
+      "_id": "66b4f7eaeb814f411785bd5a",
+      "questionId": "easy_17",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Place the planets to their respective rings using CSS properties. Use only one CSS property.",
+      "answer": "{\"flex-direction\":\"row-reverse\"}",
+      "difficulty": "easy",
+      "createdAt": "2024-08-08T16:52:58.761Z",
+      "updatedAt": "2024-08-08T16:52:58.761Z",
+      "points": 100,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd5a"
     },
-    "instruction": "Add a box shadow.",
-    "answer": "Correct",
-    "points": "1",
-    "difficulty": "easy"
-  },
-  {
-    "id": 16,
-    "targetContainerHTML": "<div class='target'></div>",
-    "objectContainerHTML": "<div class='object'></div>",
-    "initialCSS": {
-      "display": "flex",
-      "color": "green"
+    {
+      "_id": "66b4f7eaeb814f411785bd5b",
+      "questionId": "medium_8",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Place the planets to their respective rings using CSS properties. Use only two CSS properties. Use wrap property.",
+      "answer": "{\"flex-wrap\":\"wrap\",\"align-content\":\"flex-end\"}",
+      "difficulty": "medium",
+      "createdAt": "2024-08-08T16:52:58.761Z",
+      "updatedAt": "2024-08-08T16:52:58.761Z",
+      "points": 200,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd5b"
     },
-    "instruction": "Center align the text.",
-    "answer": "Correct",
-    "points": "2",
-    "difficulty": "hard"
-  },
-  {
-    "id": 17,
-    "targetContainerHTML": "<div class='target'></div>",
-    "objectContainerHTML": "<div class='object'></div>",
-    "initialCSS": {
-      "display": "flex",
-      "color": "blue"
+    {
+      "_id": "66b4f7eaeb814f411785bd5c",
+      "questionId": "medium_7",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Place the planets to their respective rings using CSS properties. You have to use only one property of css. Use wrap property..",
+      "answer": "{\"flex-wrap\":\"wrap-reverse\"}",
+      "difficulty": "medium",
+      "createdAt": "2024-08-08T16:52:58.762Z",
+      "updatedAt": "2024-08-08T16:52:58.762Z",
+      "points": 200,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd5c"
     },
-    "instruction": "Create a flexbox container.",
-    "answer": "Correct",
-    "points": "3",
-    "difficulty": "easy"
-  },
-  {
-    "id": 18,
-    "targetContainerHTML": "<div class='target'></div>",
-    "objectContainerHTML": "<div class='object'></div>",
-    "initialCSS": {
-      "display": "flex",
-      "color": "pink"
+    {
+      "_id": "66b4f7eaeb814f411785bd5d",
+      "questionId": "medium_6",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Place the planets to their respective rings using CSS properties. Use only two properties of css",
+      "answer": "{\"flex-wrap\":\"wrap-reverse\",\"align-content\":\"space-between\"}",
+      "difficulty": "medium",
+      "createdAt": "2024-08-08T16:52:58.762Z",
+      "updatedAt": "2024-08-08T16:52:58.762Z",
+      "points": 200,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd5d"
     },
-    "instruction": "Set the flex direction to column.",
-    "answer": "Correct",
-    "points": "4",
-    "difficulty": "medium"
-  },
-  {
-    "id": 19,
-    "targetContainerHTML": "<div class='target'></div>",
-    "objectContainerHTML": "<div class='object'></div>",
-    "initialCSS": {
-      "display": "purple"
+    {
+      "_id": "66b4f7eaeb814f411785bd4d",
+      "questionId": "easy_4",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Place the planets to their respective rings using CSS properties. Use only three properties.",
+      "answer": "{\"flex-direction\":\"row-reverse\",\"align-items\":\"flex-end\",\"justify-content\":\"space-between\"}",
+      "difficulty": "easy",
+      "createdAt": "2024-08-08T16:52:58.760Z",
+      "updatedAt": "2024-08-08T16:52:58.760Z",
+      "points": 100,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd4d"
     },
-    "instruction": "Set the display to none.",
-    "answer": "Correct",
-    "points": "5",
-    "difficulty": "hard"
-  }
-]
+    {
+      "_id": "66b4f7eaeb814f411785bd5f",
+      "questionId": "medium_2",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Place the planets to their respective rings using CSS properties. Use only three properties of css",
+      "answer": "{\"flex-direction\":\"column-reverse\",\"flex-wrap\":\"wrap\",\"align-content\":\"space-between\"}",
+      "difficulty": "medium",
+      "createdAt": "2024-08-08T16:52:58.762Z",
+      "updatedAt": "2024-08-08T16:52:58.762Z",
+      "points": 200,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd5f"
+    },
+    {
+      "_id": "66b4f7eaeb814f411785bd60",
+      "questionId": "medium_3",
+      "initialCSS": "{\"display\":\"grid\"}",
+      "instructions": "Place the planets to their respective rings using CSS properties. Use only two properties of css",
+      "answer": "{\"align-content\":\"flex-start\",\"grid-template-columns\":\"repeat(4, minmax(0, 1fr))\"}",
+      "difficulty": "medium",
+      "createdAt": "2024-08-08T16:52:58.762Z",
+      "updatedAt": "2024-08-08T16:52:58.762Z",
+      "points": 200,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd60"
+    },
+    {
+      "_id": "66b4f7eaeb814f411785bd61",
+      "questionId": "medium_1",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Place the planets to their respective rings using CSS properties. Use exactly three properties of css",
+      "answer": "{\"flex-direction\":\"column-reverse\",\"flex-wrap\":\"wrap\",\"align-content\":\"flex-start\"}",
+      "difficulty": "medium",
+      "createdAt": "2024-08-08T16:52:58.762Z",
+      "updatedAt": "2024-08-08T16:52:58.762Z",
+      "points": 200,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd61"
+    },
+    {
+      "_id": "66b4f7eaeb814f411785bd4e",
+      "questionId": "easy_5",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Place the planets to their respective rings using CSS properties.Use only two css properties",
+      "answer": "{\"flex-direction\":\"column\",\"justify-content\":\"flex-end\"}",
+      "difficulty": "easy",
+      "createdAt": "2024-08-08T16:52:58.760Z",
+      "updatedAt": "2024-08-08T16:52:58.760Z",
+      "points": 100,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd4e"
+    },
+    {
+      "_id": "66b4f7eaeb814f411785bd63",
+      "questionId": "medium_4",
+      "initialCSS": "{\"display\":\"grid\"}",
+      "instructions": "Place the planets to their respective rings using CSS properties.Use only one property of css",
+      "answer": "{\"grid-template-columns\":\"repeat(6, minmax(0, 1fr))\"}",
+      "difficulty": "medium",
+      "createdAt": "2024-08-08T16:52:58.762Z",
+      "updatedAt": "2024-08-08T16:52:58.762Z",
+      "points": 200,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd63"
+    },
+    {
+      "_id": "66b4f7eaeb814f411785bd64",
+      "questionId": "medium_10",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Place the planets to their respective rings using CSS property.Use only one css property",
+      "answer": "{\"flex-flow\":\"column wrap\"}",
+      "difficulty": "medium",
+      "createdAt": "2024-08-08T16:52:58.762Z",
+      "updatedAt": "2024-08-08T16:52:58.762Z",
+      "points": 200,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd64"
+    },
+    {
+      "_id": "66b4f7eaeb814f411785bd65",
+      "questionId": "medium_9",
+      "initialCSS": "{}",
+      "instructions": "Place the planets to their respective rings using CSS property. Use only two CSS properties",
+      "answer": "{\"flex-direction\":\"column\",\"flex-wrap\":\"wrap-reverse\"}",
+      "difficulty": "medium",
+      "createdAt": "2024-08-08T16:52:58.762Z",
+      "updatedAt": "2024-08-08T16:52:58.762Z",
+      "points": 200,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd65"
+    },
+    {
+      "_id": "66b4f7eaeb814f411785bd66",
+      "questionId": "medium_11",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Place the planets to their respective rings using CSS property.Using only two properties. Use wrap property.",
+      "answer": "{\"justify-content\":\"center\",\"flex-wrap\":\"wrap\"}",
+      "difficulty": "medium",
+      "createdAt": "2024-08-08T16:52:58.762Z",
+      "updatedAt": "2024-08-08T16:52:58.762Z",
+      "points": 200,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd66"
+    },
+    {
+      "_id": "66b4f7eaeb814f411785bd5e",
+      "questionId": "medium_12",
+      "initialCSS": "{\"display\":\"flex\"}",
+      "instructions": "Place the planets to their respective rings using CSS properties. Use only two properties of css",
+      "answer": "{\"flex-direction\":\"column\",\"flex-wrap\":\"wrap\"}",
+      "difficulty": "medium",
+      "createdAt": "2024-08-08T16:52:58.762Z",
+      "updatedAt": "2024-08-08T16:52:58.762Z",
+      "points": 200,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd5e"
+    },
+    {
+      "_id": "66b4f7eaeb814f411785bd62",
+      "questionId": "medium_5",
+      "initialCSS": "{\"display\":\"grid\"}",
+      "instructions": "Place the planets to their respective rings using CSS properties. Use only one property of css",
+      "answer": "{\"grid-template-columns\":\"repeat(5, minmax(0, 1fr))\"}",
+      "difficulty": "medium",
+      "createdAt": "2024-08-08T16:52:58.762Z",
+      "updatedAt": "2024-08-08T16:52:58.762Z",
+      "points": 200,
+      "__v": 0,
+      "id": "66b4f7eaeb814f411785bd62"
+    }
+  ]
+}
