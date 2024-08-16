@@ -8,6 +8,7 @@ import { useAttempted } from "@/context/AttemptedContext";
 import { useInput } from "@/context/InputContext";
 import toast from "react-hot-toast";
 import { redirect } from "next/navigation";
+import objectStyle from "../../public/objectStyle.json"
 
 function convertCssStringToCamelCase(cssString: string) {
   // Split the input string by semicolons to get individual property-value pairs
@@ -68,7 +69,7 @@ const CSSEditor: React.FC = () => {
     const cssObject = parseCSS(cssInput);
     const cssString = JSON.stringify(cssObject);
 // -NOTE: just create an array that will contain the id's(just indexes is fine) and we'll do Attemptedquestion in that
-//    sendPostRequest(cssString);
+   sendPostRequest(cssString);
   };
 
   const validateCSS = (css: string) => {
@@ -88,50 +89,37 @@ const CSSEditor: React.FC = () => {
     }, {});
   };
 
-//  const sendPostRequest = async (data: string) => {
-//    try {
-//      setIsLoading(true);
-//      const response: Response = await fetch(`/api/v1/submissions`, {
-//        method: "POST",
-//        headers: {
-//          "Content-Type": "application/json",
-//        },
-//        body: JSON.stringify({
-//          userId: user?.unsafeMetadata?.userId,
-//          questionId: currentQuestion._id,
-//          answer: data,
-//        }),
-//      });
-//      const responseData = await response.json();
-//      if (response.ok) {
-//        if (responseData.isCorrect) {
-//          setAttemptedQuestions((prev) => [...prev, currentQuestion._id]);
-//          toast.success("Submitted successfully!!!", {
-//            duration: 4000,
-//            position: "top-center",
-//          });
-//          setCssInput("");
-//        } else {
-//          toast.error("Wrong Answer! Please try again!", {
-//            duration: 4000,
-//            position: "bottom-center",
-//          });
-//        }
-//      } else {
-//        toast.error("Failed to submit CSS", {
-//          duration: 4000,
-//          position: "bottom-center",
-//        });
-//      }
-//    } catch (error) {
-//      toast.error("An error occurred while submitting CSS", {
-//        duration: 4000,
-//        position: "bottom-center",
-//      });
-//    } finally {
-//      setIsLoading(false);
-//    }
-//  };
+  const sendPostRequest = (data: string) => {
+    if (!data || !currentQuestion?.answer) {
+        toast.error("Invalid input or question data!", {
+            duration: 4000,
+            position: "bottom-center",
+        });
+        return;
+    }
+
+    // Normalize the input by sorting characters or words
+    const normalize = (str: string) => str.split('').sort().join('');
+    
+    const normalizedData = normalize(data);
+    const normalizedAnswer = normalize(currentQuestion.answer);
+
+    if (normalizedData === normalizedAnswer) {
+        setAttemptedQuestions((prev) => [...prev, currentQuestion._id]);
+        toast.success("Submitted successfully!!!", {
+            duration: 4000,
+            position: "top-center",
+        });
+        setCssInput(""); // Reset the input
+    } else {
+        toast.error("Wrong Answer! Please try again!", {
+            duration: 4000,
+            position: "bottom-center",
+        });
+    }
+};
+
+
 
   return (
     <>
