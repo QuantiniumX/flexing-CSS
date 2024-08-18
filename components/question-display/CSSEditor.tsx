@@ -21,7 +21,7 @@ function convertCssStringToCamelCase(cssString: string) {
         .join("");
       return `${camelCasedProperty}: ${value}`;
     })
-    .join("; ");
+    .join("; "); 
 
   return camelCaseString;
 }
@@ -49,56 +49,23 @@ const CSSEditor: React.FC = () => {
   }, [cssInput, setInputStyle]);
 
   const handleSubmit = () => {
-    try {
-      if (!validateCSS(cssInput)) {
-        toast.error("Invalid CSS Format", {
-          duration: 4000,
-          position: "bottom-right",
-        });
-        return;
-      }
-
-      const cssObject = parseCSS(cssInput);
-      const cssString = JSON.stringify(cssObject);
-      sendPostRequest(cssString);
-    } finally {
-      setIsLoading(false);
+    const isValid = validateCSS(cssInput);
+    if (!isValid) {
+      toast.error("Invalid CSS Format", {
+        duration: 4000,
+        position: "bottom-right",
+      });
+      return;
     }
-  };
-
-  const normalizeCSSValue = (value: string) => {
-    const valueMap: Record<string, string> = {
-      'end': 'flex-end',
-      'start': 'flex-start',
-      'space-between': 'space-between',
-      'center': 'center',
-      'stretch': 'stretch',
-    };
-
-    return valueMap[value] || value;
-  };
-
-  const normalizeCSS = (cssString: string) => {
-    const cssObject = cssString.split(';').reduce((acc: Record<string, string>, rule) => {
-      const [property, value] = rule
-        .split(':')
-        .map((item) => item.trim());
-      if (property && value) {
-        acc[property] = normalizeCSSValue(value);
-      }
-      return acc;
-    }, {});
-
-    return Object.fromEntries(
-      Object.entries(cssObject).sort(([a], [b]) => a.localeCompare(b))
-    );
+    const cssObject = parseCSS(cssInput);
+    const cssString = JSON.stringify(cssObject);
+    sendPostRequest(cssString);
   };
 
   const validateCSS = (css: string) => {
     const cssPattern = /^(?:\s*[a-zA-Z-]+\s*:\s*[^;]+\s*;\s*)*$/;
     return cssPattern.test(css.trim().replace(/\s+/g, " "));
   };
-
 
   const parseCSS = (css: string) => {
     return css.split(";").reduce((acc: Record<string, string>, rule) => {
@@ -113,6 +80,7 @@ const CSSEditor: React.FC = () => {
   };
 
   const sendPostRequest = (data: string) => {
+    setIsLoading(true);
     if (!data || !currentQuestion?.answer) {
       toast.error("Invalid input or question data!", {
         duration: 4000,
@@ -121,11 +89,15 @@ const CSSEditor: React.FC = () => {
       return;
     }
 
-    const normalizedData = JSON.stringify(normalizeCSS(data));
-    const normalizedAnswer = JSON.stringify(normalizeCSS(currentQuestion.answer));
+
+    const normalize = (str: string) => str.split('').sort().join('');
+
+    const normalizedData = normalize(data);
+    const normalizedAnswer = normalize(currentQuestion.answer);
 
     if (normalizedData === normalizedAnswer) {
       setAttemptedQuestions((prev) => [...prev, currentQuestion.id]);
+      currentQuestion.completed = true;
       toast.success("Submitted successfully!!!", {
         duration: 4000,
         position: "top-center",
@@ -138,6 +110,7 @@ const CSSEditor: React.FC = () => {
       });
     }
   };
+
 
 
   return (
