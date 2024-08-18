@@ -7,37 +7,28 @@ import { useQuestion } from "@/context/QuestionContext";
 import { useAttempted } from "@/context/AttemptedContext";
 import { useInput } from "@/context/InputContext";
 import toast from "react-hot-toast";
-import { redirect } from "next/navigation";
-import objectStyle from "../../public/objectStyle.json"
 
 function convertCssStringToCamelCase(cssString: string) {
-  // Split the input string by semicolons to get individual property-value pairs
   const pairs = cssString.split(";").filter(Boolean);
-
-  // Convert each property-value pair to camelCase and join them back into a string
   const camelCaseString = pairs
     .map((pair) => {
       const [property, value] = pair.split(":").map((s) => s.trim());
-
-      // Convert hyphenated property to camelCase
       const camelCasedProperty = property
         .split("-")
         .map((part, index) =>
           index === 0 ? part : part.charAt(0).toUpperCase() + part.slice(1),
         )
         .join("");
-
-      // Return the camelCased property with the value
       return `${camelCasedProperty}: ${value}`;
     })
-    .join("; "); // Join the pairs back into a string with '; '
+    .join("; ");
 
   return camelCaseString;
 }
 
 const CSSEditor: React.FC = () => {
   const { currentQuestion, currentQuestionIndex } = useQuestion();
-  const { setAttemptedQuestions } = useAttempted();
+  const { attemptedQuestions, setAttemptedQuestions } = useAttempted();
   const { setInputStyle } = useInput();
   const [cssInput, setCssInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -57,6 +48,9 @@ const CSSEditor: React.FC = () => {
     if (cssInput === "") setInputStyle("");
   }, [cssInput, setInputStyle]);
 
+  useEffect(() => {
+  }, [attemptedQuestions]);
+
   const handleSubmit = () => {
     const isValid = validateCSS(cssInput);
     if (!isValid) {
@@ -68,8 +62,7 @@ const CSSEditor: React.FC = () => {
     }
     const cssObject = parseCSS(cssInput);
     const cssString = JSON.stringify(cssObject);
-// -NOTE: just create an array that will contain the id's(just indexes is fine) and we'll do Attemptedquestion in that
-   sendPostRequest(cssString);
+    sendPostRequest(cssString);
   };
 
   const validateCSS = (css: string) => {
@@ -91,33 +84,33 @@ const CSSEditor: React.FC = () => {
 
   const sendPostRequest = (data: string) => {
     if (!data || !currentQuestion?.answer) {
-        toast.error("Invalid input or question data!", {
-            duration: 4000,
-            position: "bottom-center",
-        });
-        return;
+      toast.error("Invalid input or question data!", {
+        duration: 4000,
+        position: "bottom-center",
+      });
+      return;
     }
 
 
     const normalize = (str: string) => str.split('').sort().join('');
-    
+
     const normalizedData = normalize(data);
     const normalizedAnswer = normalize(currentQuestion.answer);
 
     if (normalizedData === normalizedAnswer) {
-        setAttemptedQuestions((prev) => [...prev, currentQuestion._id]);
-        toast.success("Submitted successfully!!!", {
-            duration: 4000,
-            position: "top-center",
-        });
-        setCssInput(""); 
+      setAttemptedQuestions((prev) => [...prev, currentQuestion.id]);
+      toast.success("Submitted successfully!!!", {
+        duration: 4000,
+        position: "top-center",
+      });
+      setCssInput("");
     } else {
-        toast.error("Wrong Answer! Please try again!", {
-            duration: 4000,
-            position: "bottom-center",
-        });
+      toast.error("Wrong Answer! Please try again!", {
+        duration: 4000,
+        position: "bottom-center",
+      });
     }
-};
+  };
 
 
 

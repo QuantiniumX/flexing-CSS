@@ -4,11 +4,14 @@ import QuestionDisplay from "./question-display/QuestionDisplay";
 import CSSEditor from "./question-display/CSSEditor";
 import PreviewBox from "./preview-box/PreviewBox";
 import { useQuestion } from "@/context/QuestionContext";
+import { useAttempted } from "@/context/AttemptedContext";
 import { InputProvider } from "@/context/InputContext";
 
 const Main: React.FC = () => {
   const { currentQuestion } = useQuestion();
+  const { attemptedQuestions } = useAttempted();
   const { currentQuestionIndex } = useQuestion();
+
   return (
     <div className="flex min-h-[100vh] select-none flex-col-reverse items-center justify-around py-10 lg:flex-row xl:py-0 ">
       <InputProvider>
@@ -25,7 +28,7 @@ const Main: React.FC = () => {
                 {currentQuestion?.instructions}
               </p>
             </div>
-            {(currentQuestion?.completed) ? (
+            {attemptedQuestions.includes(currentQuestion?._id) ? (
               <p className="mx-auto px-4 max-w-xl font-semibold text-lg my-12 py-12 text-green-500">
                 You have successfully attempted this question please try another
                 one !!

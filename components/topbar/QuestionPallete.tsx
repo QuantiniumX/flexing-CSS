@@ -2,13 +2,6 @@ import React from "react";
 import { useQuestion } from "@/context/QuestionContext";
 import { useAttempted } from "@/context/AttemptedContext";
 
-interface Question {
-  id: number;
-  instruction: string;
-  difficulty: string;
-  points: string;
-}
-
 interface QuestionPaletteProps {
   onClose: () => void;
 }
@@ -38,13 +31,13 @@ const QuestionPalette: React.FC<QuestionPaletteProps> = ({ onClose }) => {
         <div className="grid grid-cols-5 gap-5 items-center justify-around p-6">
           {questions.map((question, index) => (
             <button
-              key={question.questionId}
+              key={question.id}
               onClick={() => handleQuestionSelect(index)}
               className={`w-8 h-8 flex justify-center items-center rounded
                                 ${
                                   currentQuestionIndex === index
                                     ? "bg-blue-500 text-white"
-                                    : attemptedQuestions.includes(question._id)
+                                    : attemptedQuestions.includes(question.id)
                                       ? "bg-green-500 text-white"
                                       : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                                 }`}

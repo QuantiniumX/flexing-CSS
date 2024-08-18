@@ -1,6 +1,5 @@
 "use client";
-
-import React, { createContext, ReactNode, useContext, useState } from "react";
+import React, { createContext, ReactNode, useContext, useState, useEffect } from "react";
 
 type AttemptedContextType = {
   attemptedQuestions: string[];
@@ -11,14 +10,22 @@ const AttemptedContext = createContext<AttemptedContextType | null>(null);
 
 export function AttemptedProvider({
   children,
-  attemptedQuestionsData,
 }: {
   children: ReactNode;
-  attemptedQuestionsData: string[];
 }) {
-  const [attemptedQuestions, setAttemptedQuestions] = useState<string[]>(
-    attemptedQuestionsData,
-  );
+  const [attemptedQuestions, setAttemptedQuestions] = useState<string[]>([]);
+
+  useEffect(() => {
+    const storedQuestions = localStorage.getItem('attemptedQuestions');
+    if (storedQuestions) {
+      const parsedQuestions = JSON.parse(storedQuestions);
+      setAttemptedQuestions(parsedQuestions);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('attemptedQuestions', JSON.stringify(attemptedQuestions));
+  }, [attemptedQuestions]);
 
   const value = {
     attemptedQuestions,
@@ -39,3 +46,4 @@ export const useAttempted = () => {
   }
   return context;
 };
+

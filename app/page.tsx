@@ -1,6 +1,7 @@
+"use client"
 import Main from "@/components/Main";
 import Topbar from "@/components/topbar/Topbar";
-import { AttemptedProvider } from "@/context/AttemptedContext";
+import { useAttempted, AttemptedProvider } from "@/context/AttemptedContext";
 import { QuestionProvider } from "@/context/QuestionContext";
 import { Question } from "@/lib/types";
 import objectStyle from "../public/objectStyle.json"
@@ -21,34 +22,17 @@ import objectStyle from "../public/objectStyle.json"
 *   id: string;
 *   completed: boolean;
 */
-async function getQuestions() {
+function getQuestions() {
   const data = objectStyle.questions;
   return data;
 }
 
-async function getAttemptedQuestions(userId: string) {
-  const data = [
-    "1",
-    "2"
-  ]
-  return data;
-}
-
-const getUserId = () => {
-  return "7";
-}
-
-
-export default async function Page() {
-  const userId = getUserId();
-  if (!userId) return;
-
-  const questions: Question[] = await getQuestions();
-  const attemptedQuestions: string[] = await getAttemptedQuestions(userId);
+export default function Page() {
+  const questions: Question[] = getQuestions();
 
   return (
     <QuestionProvider questionsData={questions}>
-      <AttemptedProvider attemptedQuestionsData={attemptedQuestions}>
+      <AttemptedProvider>
         <Topbar />
         <Main />
       </AttemptedProvider>
