@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, } from "react";
 import InitialCSS from "./InitialCSS";
 import { Button } from "../ui/button";
 import AnswerBox from "./AnswerBox";
@@ -21,7 +21,7 @@ function convertCssStringToCamelCase(cssString: string) {
         .join("");
       return `${camelCasedProperty}: ${value}`;
     })
-    .join("; "); 
+    .join("; ");
 
   return camelCaseString;
 }
@@ -49,31 +49,38 @@ const CSSEditor: React.FC = () => {
   }, [cssInput, setInputStyle]);
 
   const handleSubmit = () => {
-    const isValid = validateCSS(cssInput);
-    if (!isValid) {
-      toast.error("Invalid CSS Format", {
-        duration: 4000,
-        position: "bottom-right",
-      });
-      return;
+    try {
+      if (!validateCSS(cssInput)) {
+        toast.error("Invalid CSS Format", {
+          duration: 4000,
+          position: "bottom-right",
+        });
+        return;
+      }
+
+      const cssObject = parseCSS(cssInput);
+      const cssString = JSON.stringify(cssObject);
+      sendPostRequest(cssString);
+    } finally {
+      setIsLoading(false);
     }
-    const cssObject = parseCSS(cssInput);
-    const cssString = JSON.stringify(cssObject);
-    sendPostRequest(cssString);
   };
+
 
   const validateCSS = (css: string) => {
     const cssPattern = /^(?:\s*[a-zA-Z-]+\s*:\s*[^;]+\s*;\s*)*$/;
-    return cssPattern.test(css.trim().replace(/\s+/g, " "));
+    return cssPattern.test(css.trim());
   };
 
   const parseCSS = (css: string) => {
-    return css.split(";").reduce((acc: Record<string, string>, rule) => {
-      const [property, value] = rule
-        .split(":")
-        .map((item) => item.trim().replace(/\s+/g, " "));
-      if (property && value) {
-        acc[property] = value;
+    return css.split(/;(?![^(]*\))/).reduce((acc: Record<string, string>, rule) => {
+      const colonIndex = rule.indexOf(':');
+      if (colonIndex > -1) {
+        const property = rule.slice(0, colonIndex).trim();
+        const value = rule.slice(colonIndex + 1).trim();
+        if (property && value) {
+          acc[property] = value.toLowerCase();
+        }
       }
       return acc;
     }, {});
@@ -82,36 +89,56 @@ const CSSEditor: React.FC = () => {
   const sendPostRequest = (data: string) => {
     setIsLoading(true);
     if (!data || !currentQuestion?.answer) {
-      toast.error("Invalid input or question data!", {
-        duration: 4000,
-        position: "bottom-center",
-      });
+      toast.error("Invalid input or question data!");
+      setIsLoading(false);
       return;
     }
 
 
-    const normalize = (str: string) => str.split('').sort().join('');
+    const normalizeCSS = (cssString: string) => {
+      const parsed = JSON.parse(cssString);
+      // Normalize values
+      Object.keys(parsed).forEach(key => {
+        parsed[key] = normalizeValue(key, parsed[key]);
+      });
+      // Sort the properties and their values
+      return Object.entries(parsed)
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(([prop, value]) => `${prop}:${value}`)
+        .join(';');
+    };
 
-    const normalizedData = normalize(data);
-    const normalizedAnswer = normalize(currentQuestion.answer);
+    const normalizeValue = (property: string, value: string) => {
+      const valueMap: Record<string, string> = {
+        'end': 'flex-end',
+        'start': 'flex-start',
+        'between': 'space-between',
+        'around': 'space-around',
+        'evenly': 'space-evenly',
+        // Add other mappings as needed
+      };
+      if (['align-items', 'justify-content', 'align-content', 'align-self'].includes(property)) {
+        return valueMap[value] || value;
+      }
+      // For grid properties, remove all spaces to ensure consistent matching
+      if (property.startsWith('grid-')) {
+        return value.replace(/\s+/g, '');
+      }
+      return value;
+    };
+    const normalizedData = normalizeCSS(data);
+    const normalizedAnswer = normalizeCSS(currentQuestion.answer);
 
     if (normalizedData === normalizedAnswer) {
       setAttemptedQuestions((prev) => [...prev, currentQuestion.id]);
       currentQuestion.completed = true;
-      toast.success("Submitted successfully!!!", {
-        duration: 4000,
-        position: "top-center",
-      });
+      toast.success("Submitted successfully!!!");
       setCssInput("");
     } else {
-      toast.error("Wrong Answer! Please try again!", {
-        duration: 4000,
-        position: "bottom-center",
-      });
+      toast.error("Wrong Answer! Please try again!");
     }
+    setIsLoading(false);
   };
-
-
 
   return (
     <>

@@ -5,6 +5,7 @@ import { useAttempted, AttemptedProvider } from "@/context/AttemptedContext";
 import { QuestionProvider } from "@/context/QuestionContext";
 import { Question } from "@/lib/types";
 import objectStyle from "../public/objectStyle.json"
+import { useEffect } from "react";
 
 /*
 * return the question from the backend
@@ -27,15 +28,30 @@ function getQuestions() {
   return data;
 }
 
-export default function Page() {
+function Content() {
   const questions: Question[] = getQuestions();
+  const { attemptedQuestions } = useAttempted();
+
+  useEffect(() => {
+    if (attemptedQuestions.length === questions.length) {
+      console.log("YOU WIN");
+    }
+  }, [attemptedQuestions, questions.length]);
 
   return (
-    <QuestionProvider questionsData={questions}>
-      <AttemptedProvider>
-        <Topbar />
-        <Main />
-      </AttemptedProvider>
-    </QuestionProvider>
+    <>
+      <Topbar />
+      <Main />
+    </>
+  );
+}
+
+export default function Page() {
+  return (
+    <AttemptedProvider>
+      <QuestionProvider questionsData={getQuestions()}>
+        <Content />
+      </QuestionProvider>
+    </AttemptedProvider>
   );
 }
