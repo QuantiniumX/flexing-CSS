@@ -1,14 +1,14 @@
 export type Question = {
-  _id: String;
-  questionId: String;
-  initialCSS: String;
-  instructions: String;
-  answer: String;
-  difficulty: String;
-  createdAt: String;
-  updatedAt: String;
-  points: Number;
-  __v: Number;
-  id: String;
+  _id: string;
+  questionId: string;
+  initialCSS: string;
+  instructions: string;
+  answer: string;
+  difficulty: string;
+  createdAt: string;
+  updatedAt: string;
+  points: number;
+  __v: number;
+  id: string;
   completed: boolean
 };

@@ -7,9 +7,9 @@ function Planet({
   className,
 }: {
   variant: "blue" | "red" | "green" | "white";
-  className?: String;
+  className?: string;
 }) {
-  const planetVariants = cva(
+  const Planetvariants = cva(
     "h-[45px] w-[45px] lg:h-[60px] lg:w-[60px] rounded-[50%]",
     {
       variants: {
@@ -25,7 +25,7 @@ function Planet({
 
   return (
     <div
-      className={cn(planetVariants({ variant }), className)}
+      className={cn(Planetvariants({ variant }), className)}
       style={{ transformStyle: "preserve-3d" }}
     ></div>
   );
@@ -38,9 +38,9 @@ function Ring({
 }: {
   type?: "absolute" | "normal";
   variant: "blue" | "red" | "green" | "white";
-  className?: String;
+  className?: string;
 }) {
-  const ringVariant = cva(
+  const Ringvariant = cva(
     "border-[5px] border-solid rounded-full w-[50px] h-[50px] lg:w-[70px] lg:h-[70px] transform translate-x-[-50%] translate-y-[-50%] drop-shadow-xl opacity-90 animate-pulse z-10 rotate-x-45 translate-z-50",
     {
       variants: {
@@ -64,19 +64,19 @@ function Ring({
 
   return (
     <div
-      className={cn(ringVariant({ variant, type }), className)}
+      className={cn(Ringvariant({ variant, type }), className)}
       style={{
-        transformStyle: "preserve-3d", // Adjust or remove if unnecessary
+        transformStyle: "preserve-3d", // adjust of remove if necessary
       }}
     ></div>
   );
 }
 
-interface QuestionsType {
+interface questionstype {
   [key: string]: ({ inputStyle }: { inputStyle: string }) => React.ReactElement;
 }
 
-export const Questions: QuestionsType = {
+export const Questions: questionstype = {
   easy_1: ({ inputStyle }: { inputStyle: string }) => {
     return (
       <>

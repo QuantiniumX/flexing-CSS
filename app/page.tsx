@@ -23,7 +23,6 @@ import objectStyle from "../public/objectStyle.json"
 */
 async function getQuestions() {
   const data = objectStyle.questions;
-  console.log(data);
   return data;
 }
 
