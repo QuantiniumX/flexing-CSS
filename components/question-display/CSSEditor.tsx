@@ -7,21 +7,30 @@ import { useQuestion } from "@/context/QuestionContext";
 import { useAttempted } from "@/context/AttemptedContext";
 import { useInput } from "@/context/InputContext";
 import toast from "react-hot-toast";
+import { redirect } from "next/navigation";
+import objectStyle from "../../public/objectStyle.json"
 
 function convertCssStringToCamelCase(cssString: string) {
+  // Split the input string by semicolons to get individual property-value pairs
   const pairs = cssString.split(";").filter(Boolean);
+
+  // Convert each property-value pair to camelCase and join them back into a string
   const camelCaseString = pairs
     .map((pair) => {
       const [property, value] = pair.split(":").map((s) => s.trim());
+
+      // Convert hyphenated property to camelCase
       const camelCasedProperty = property
         .split("-")
         .map((part, index) =>
           index === 0 ? part : part.charAt(0).toUpperCase() + part.slice(1),
         )
         .join("");
+
+      // Return the camelCased property with the value
       return `${camelCasedProperty}: ${value}`;
     })
-    .join("; ");
+    .join("; "); // Join the pairs back into a string with '; '
 
   return camelCaseString;
 }
@@ -49,56 +58,24 @@ const CSSEditor: React.FC = () => {
   }, [cssInput, setInputStyle]);
 
   const handleSubmit = () => {
-    try {
-      if (!validateCSS(cssInput)) {
-        toast.error("Invalid CSS Format", {
-          duration: 4000,
-          position: "bottom-right",
-        });
-        return;
-      }
-
-      const cssObject = parseCSS(cssInput);
-      const cssString = JSON.stringify(cssObject);
-      sendPostRequest(cssString);
-    } finally {
-      setIsLoading(false);
+    const isValid = validateCSS(cssInput);
+    if (!isValid) {
+      toast.error("Invalid CSS Format", {
+        duration: 4000,
+        position: "bottom-right",
+      });
+      return;
     }
-  };
-
-  const normalizeCSSValue = (value: string) => {
-    const valueMap: Record<string, string> = {
-      'end': 'flex-end',
-      'start': 'flex-start',
-      'space-between': 'space-between',
-      'center': 'center',
-      'stretch': 'stretch',
-    };
-
-    return valueMap[value] || value;
-  };
-
-  const normalizeCSS = (cssString: string) => {
-    const cssObject = cssString.split(';').reduce((acc: Record<string, string>, rule) => {
-      const [property, value] = rule
-        .split(':')
-        .map((item) => item.trim());
-      if (property && value) {
-        acc[property] = normalizeCSSValue(value);
-      }
-      return acc;
-    }, {});
-
-    return Object.fromEntries(
-      Object.entries(cssObject).sort(([a], [b]) => a.localeCompare(b))
-    );
+    const cssObject = parseCSS(cssInput);
+    const cssString = JSON.stringify(cssObject);
+// -NOTE: just create an array that will contain the id's(just indexes is fine) and we'll do Attemptedquestion in that
+   sendPostRequest(cssString);
   };
 
   const validateCSS = (css: string) => {
     const cssPattern = /^(?:\s*[a-zA-Z-]+\s*:\s*[^;]+\s*;\s*)*$/;
     return cssPattern.test(css.trim().replace(/\s+/g, " "));
   };
-
 
   const parseCSS = (css: string) => {
     return css.split(";").reduce((acc: Record<string, string>, rule) => {
@@ -113,31 +90,37 @@ const CSSEditor: React.FC = () => {
   };
 
   const sendPostRequest = (data: string) => {
+    setIsLoading(true);
     if (!data || !currentQuestion?.answer) {
-      toast.error("Invalid input or question data!", {
-        duration: 4000,
-        position: "bottom-center",
-      });
-      return;
+        toast.error("Invalid input or question data!", {
+            duration: 4000,
+            position: "bottom-center",
+        });
+        return;
     }
 
-    const normalizedData = JSON.stringify(normalizeCSS(data));
-    const normalizedAnswer = JSON.stringify(normalizeCSS(currentQuestion.answer));
+
+    const normalize = (str: string) => str.split('').sort().join('');
+    
+    const normalizedData = normalize(data);
+    const normalizedAnswer = normalize(currentQuestion.answer);
 
     if (normalizedData === normalizedAnswer) {
-      setAttemptedQuestions((prev) => [...prev, currentQuestion.id]);
-      toast.success("Submitted successfully!!!", {
-        duration: 4000,
-        position: "top-center",
-      });
-      setCssInput("");
+        setAttemptedQuestions((prev) => [...prev, currentQuestion._id]);
+        currentQuestion.completed=true;
+        toast.success("Submitted successfully!!!", {
+            duration: 4000,
+            position: "top-center",
+        });
+        setCssInput(""); 
     } else {
-      toast.error("Wrong Answer! Please try again!", {
-        duration: 4000,
-        position: "bottom-center",
-      });
+        toast.error("Wrong Answer! Please try again!", {
+            duration: 4000,
+            position: "bottom-center",
+        });
     }
-  };
+};
+
 
 
   return (
