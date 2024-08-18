@@ -1,18 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import QuestionPalette from "@/components/topbar/QuestionPallete";
 import { Toaster, toast } from "react-hot-toast";
-import Modal from "@/components/EndTestModal";
 
 const Topbar = () => {
   const [showPalette, setShowPalette] = useState(false);
@@ -84,31 +74,6 @@ const Topbar = () => {
                 Show Questions
               </button>
               {showPalette && <QuestionPalette onClose={togglePalette} />}
-            </div>
-            <div className="mx-2">
-              <DropdownMenu>
-                <DropdownMenuTrigger className="focus:outline-none">
-                  <Avatar>
-                    <AvatarImage src="https://github.com" />
-                    <AvatarFallback>
-                      username
-                    </AvatarFallback>
-                  </Avatar>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-slate-50 shadow-lg">
-                  <DropdownMenuLabel>
-                    username
-                  </DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem onSelect={openModal}>
-                    <DropdownMenuItem>
-                      <p className="text-red-800 font-bold cursor-pointer">
-                        End Test
-                      </p>
-                    </DropdownMenuItem>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
             </div>
           </div>
         </div>
