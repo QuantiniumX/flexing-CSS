@@ -6,7 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "FlexMania",
+  title: "Practice-FlexMania",
   description: "Website made for a CSS contest in college",
 };
 
