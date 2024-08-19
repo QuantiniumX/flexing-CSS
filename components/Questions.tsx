@@ -7,10 +7,10 @@ function Planet({
   className,
 }: {
   variant: "blue" | "red" | "green" | "white";
-  className?: string;
+  className?: String;
 }) {
-  const Planetvariants = cva(
-    "h-[45px] w-[45px] lg:h-[60px] lg:w-[60px] rounded-[50%]",
+  const planetVariants = cva(
+    "h-[45px] w-[45px] lg:h-[60px] lg:w-[60px] rounded-[50%] animate-bounce",
     {
       variants: {
         variant: {
@@ -25,7 +25,7 @@ function Planet({
 
   return (
     <div
-      className={cn(Planetvariants({ variant }), className)}
+      className={cn(planetVariants({ variant }), className)}
       style={{ transformStyle: "preserve-3d" }}
     ></div>
   );
@@ -38,9 +38,9 @@ function Ring({
 }: {
   type?: "absolute" | "normal";
   variant: "blue" | "red" | "green" | "white";
-  className?: string;
+  className?: String;
 }) {
-  const Ringvariant = cva(
+  const ringVariant = cva(
     "border-[5px] border-solid rounded-full w-[50px] h-[50px] lg:w-[70px] lg:h-[70px] transform translate-x-[-50%] translate-y-[-50%] drop-shadow-xl opacity-90 animate-pulse z-10 rotate-x-45 translate-z-50",
     {
       variants: {
@@ -64,14 +64,13 @@ function Ring({
 
   return (
     <div
-      className={cn(Ringvariant({ variant, type }), className)}
+      className={cn(ringVariant({ variant, type }), className)}
       style={{
-        transformStyle: "preserve-3d", // adjust of remove if necessary
+        transformStyle: "preserve-3d", // Adjust or remove if unnecessary
       }}
     ></div>
   );
 }
-
 interface questionstype {
   [key: string]: ({ inputStyle }: { inputStyle: string }) => React.ReactElement;
 }
@@ -89,10 +88,12 @@ export const Questions: questionstype = {
           <Planet variant="green" />
           <Planet variant="blue" />
         </div>
-        <div id="master" className="absolute inset-0 p-16">
-          <Ring variant="blue" className="top-[9%] left-[43.5%]" />
-          <Ring variant="green" className="top-[41%] left-[43.5%]" />
-          <Ring variant="red" className="top-[73%] left-[43.5%]" />
+        <div id="master" className="absolute flex justify-between flex-col-reverse items-center inset-0 p-16">
+        <Ring variant="red" className="" type="normal" />
+        <Ring variant="green" className="" type="normal" />
+          <Ring variant="blue" className=""  type="normal" />
+          
+         
         </div>
       </>
     );
@@ -109,10 +110,11 @@ export const Questions: questionstype = {
           <Planet variant="green" />
           <Planet variant="blue" />
         </div>
-        <div id="master" className="absolute inset-0 flex p-16">
-          <Ring variant="blue" className="bottom-[12%] left-[12.5%]" />
-          <Ring variant="green" className="bottom-[12%] left-[43%]" />
-          <Ring variant="red" className="bottom-[12%] right-[12.5%]" />
+        <div id="master" className="absolute inset-0 flex items-end  justify-between flex-row-reverse  p-16">
+          <Ring variant="red" className="" type="normal" />
+          <Ring variant="green" className="" type="normal" />
+          <Ring variant="blue" className="" type="normal" />
+          
         </div>
       </>
     );
@@ -129,10 +131,10 @@ export const Questions: questionstype = {
           <Planet variant="green" />
           <Planet variant="blue" />
         </div>
-        <div id="master" className="absolute inset-0 flex p-16 ">
-          <Ring variant="red" className="bottom-[38%] right-[11.5%]" />
-          <Ring variant="green" className="bottom-[26%] right-[11.5%]" />
-          <Ring variant="blue" className="bottom-[14%] right-[11.5%]" />
+        <div id="master" className="absolute inset-0 flex  p-16  flex-col items-end justify-end">
+          <Ring variant="red" className="" type="normal" />
+          <Ring variant="green" className="" type="normal" />
+          <Ring variant="blue" className="" type="normal" />
         </div>
       </>
     );
@@ -145,14 +147,15 @@ export const Questions: questionstype = {
           className="absolute inset-0 flex p-16"
           style={inputStyle ? JSON.parse(inputStyle) : {}}
         >
-          <Planet variant="blue" />
-          <Planet variant="green" />
           <Planet variant="red" />
+          <Planet variant="green" />
+          <Planet variant="blue" />
+
         </div>
-        <div id="master" className="absolute inset-0 flex p-16">
-          <Ring variant="red" className="top-[72.5%] left-[13%]" />
-          <Ring variant="green" className="top-[72.5%] left-[43%]" />
-          <Ring variant="blue" className="top-[72.5%] left-[74%]" />
+        <div id="master" className="absolute inset-0 flex p-16 flex-row-reverse items-end justify-between">
+          <Ring variant="red" className="" type="normal" />
+          <Ring variant="green" className="" type="normal" />
+          <Ring variant="blue" className="" type="normal" />
         </div>
       </>
     );
@@ -169,10 +172,10 @@ export const Questions: questionstype = {
           <Planet variant="green" />
           <Planet variant="red" />
         </div>
-        <div id="master" className="absolute inset-0 flex p-16">
-          <Ring variant="blue" className="top-[50%] left-[12%]" />
-          <Ring variant="green" className="top-[60.5%] left-[12%]" />
-          <Ring variant="red" className="top-[72%] left-[12%]" />
+        <div id="master" className="absolute inset-0 flex p-16 flex-col justify-end">
+          <Ring variant="blue" className="" type="normal" />
+          <Ring variant="green" className="" type="normal" />
+          <Ring variant="red" className="" type="normal" />
         </div>
       </>
     );
@@ -187,8 +190,8 @@ export const Questions: questionstype = {
         >
           <Planet variant="blue" />
         </div>
-        <div id="master" className="absolute inset-0 flex p-16">
-          <Ring variant="blue" className="top-[42%] left-[43%]" />
+        <div id="master" className="absolute inset-0 flex p-16 items-center justify-center">
+          <Ring variant="blue" className="" type="normal" />
         </div>
       </>
     );
@@ -201,14 +204,14 @@ export const Questions: questionstype = {
           className="absolute inset-0 flex p-16"
           style={inputStyle ? JSON.parse(inputStyle) : {}}
         >
-          <Planet variant="white" />
-          <Planet variant="green" />
           <Planet variant="red" />
+          <Planet variant="green" />
+          <Planet variant="white" />
         </div>
-        <div id="master" className="absolute inset-0 flex p-16">
-          <Ring variant="red" className="top-[11%] left-[13%]" />
-          <Ring variant="green" className="top-[11%] left-[24.5%]" />
-          <Ring variant="white" className="top-[11%] left-[36.5%]" />
+        <div id="master" className="absolute inset-0 flex p-16 flex-row-reverse justify-start">
+          <Ring variant="red" className="" type="normal"/>
+          <Ring variant="green" className="" type="normal"/>
+          <Ring variant="white" className="" type="normal"/>
         </div>
       </>
     );
@@ -221,14 +224,14 @@ export const Questions: questionstype = {
           className="absolute inset-0 flex p-16"
           style={inputStyle ? JSON.parse(inputStyle) : {}}
         >
-          <Planet variant="blue" />
-          <Planet variant="green" />
           <Planet variant="red" />
+          <Planet variant="green" />
+          <Planet variant="blue"/>
         </div>
-        <div id="master" className="absolute inset-0 p-16">
-          <Ring variant="red" className="top-[9%] left-[11.5%]" />
-          <Ring variant="green" className="top-[41%] left-[11.5%]" />
-          <Ring variant="blue" className="top-[75%] left-[11.5%]" />
+        <div id="master" className="absolute inset-0 p-16 flex flex-col-reverse justify-between">
+          <Ring variant="red" className="" type="normal" />
+          <Ring variant="green" className="" type="normal" />
+          <Ring variant="blue" className="" type="normal" />
         </div>
       </>
     );
@@ -243,12 +246,12 @@ export const Questions: questionstype = {
         >
           <Planet variant="blue" />
           <Planet variant="green" />
-          <Planet variant="red" />
+          <Planet variant="red"/>
         </div>
-        <div id="master" className="absolute inset-0 p-16 ">
-          <Ring variant="blue" className="top-[30%] left-[75.6%]" />
-          <Ring variant="green" className="top-[42%] left-[75.6%]" />
-          <Ring variant="red" className="top-[54%] left-[75.6%]" />
+        <div id="master" className="absolute flex inset-0 p-16 flex-col justify-center items-end ">
+          <Ring variant="blue" className="" type="normal" />
+          <Ring variant="green" className="" type="normal" />
+          <Ring variant="red" className="" type="normal" />
         </div>
       </>
     );
@@ -261,14 +264,14 @@ export const Questions: questionstype = {
           className="absolute inset-0 flex p-16"
           style={inputStyle ? JSON.parse(inputStyle) : {}}
         >
-          <Planet variant="blue" />
-          <Planet variant="white" />
           <Planet variant="red" />
+          <Planet variant="white" />
+          <Planet variant="blue" />
         </div>
-        <div id="master" className="absolute inset-0 flex p-16">
-          <Ring variant="red" className="top-[11%] left-[12.5%]" />
-          <Ring variant="white" className="top-[11%] left-[42%]" />
-          <Ring variant="blue" className="top-[11%] left-[73.7%]" />
+        <div id="master" className="absolute inset-0 flex p-16 flex-row-reverse justify-between">
+          <Ring variant="red" className="" type="normal" />
+          <Ring variant="white" className="" type="normal" />
+          <Ring variant="blue" className="" type="normal" />
         </div>
       </>
     );
@@ -281,14 +284,15 @@ export const Questions: questionstype = {
           className="absolute inset-0 flex p-16"
           style={inputStyle ? JSON.parse(inputStyle) : {}}
         >
-          <Planet variant="red" />
-          <Planet variant="green" />
           <Planet variant="blue" />
+          <Planet variant="green" />
+          <Planet variant="red" />
+
         </div>
-        <div id="master" className="absolute inset-0 flex p-16 ">
-          <Ring variant="blue" className="top-[11%] right-[32%]" />
-          <Ring variant="green" className="top-[11%] right-[42%]" />
-          <Ring variant="red" className="top-[11%] right-[54%]" />
+        <div id="master" className="absolute inset-0 flex p-16 justify-center ">
+          <Ring variant="blue" className="" type="normal" />
+          <Ring variant="green" className="" type="normal" />
+          <Ring variant="red" className="" type="normal" />
         </div>
       </>
     );
@@ -301,14 +305,14 @@ export const Questions: questionstype = {
           className="absolute inset-0 flex p-16"
           style={inputStyle ? JSON.parse(inputStyle) : {}}
         >
-          <Planet variant="red" />
-          <Planet variant="green" />
           <Planet variant="blue" />
+          <Planet variant="green" />
+          <Planet variant="red" />
         </div>
-        <div id="master" className="absolute inset-0 flex p-16">
-          <Ring variant="blue" className="top-[72%] left-[50%]" />
-          <Ring variant="green" className="top-[72%] left-[61.5%]" />
-          <Ring variant="red" className="top-[72%] left-[75%]" />
+        <div id="master" className="absolute inset-0 flex p-16 flex-row-reverse items-end">
+          <Ring variant="blue" className=""  type="normal"/>
+          <Ring variant="green" className=""  type="normal"/>
+          <Ring variant="red" className="" type="normal" />
         </div>
       </>
     );
@@ -321,14 +325,14 @@ export const Questions: questionstype = {
           className="absolute inset-0 flex p-16"
           style={inputStyle ? JSON.parse(inputStyle) : {}}
         >
-          <Planet variant="red" />
-          <Planet variant="green" />
           <Planet variant="blue" />
+          <Planet variant="green" />
+          <Planet variant="red" />
         </div>
-        <div id="master" className="absolute inset-0 flex p-16">
-          <Ring variant="blue" className="top-[73%] right-[56%]" />
-          <Ring variant="green" className="top-[73%] right-[42%]" />
-          <Ring variant="red" className="top-[73%] right-[29.5%]" />
+        <div id="master" className="absolute inset-0 flex p-16 justify-center flex-row-reverse items-end">
+          <Ring variant="blue" className="" type="normal" />
+          <Ring variant="green" className="" type="normal" />
+          <Ring variant="red" className="to" type="normal" />
         </div>
       </>
     );
@@ -343,8 +347,8 @@ export const Questions: questionstype = {
         >
           <Planet variant="red" />
         </div>
-        <div id="master" className="absolute inset-0 flex p-16">
-          <Ring variant="red" className="top-[10.9%] right-[12%]" />
+        <div id="master" className="absolute inset-0 flex p-16 justify-end">
+          <Ring variant="red" className="" />
         </div>
       </>
     );
@@ -357,14 +361,16 @@ export const Questions: questionstype = {
           className="absolute inset-0 flex p-16"
           style={inputStyle ? JSON.parse(inputStyle) : {}}
         >
-          <Planet variant="blue" />
           <Planet variant="green" />
+
           <Planet variant="red" />
+
+          <Planet variant="blue" />
         </div>
-        <div id="master" className="absolute inset-0 flex p-16">
-          <Ring variant="green" className="top-[11%] right-[43.6%]" />
-          <Ring variant="red" className="top-[11%] right-[12%]" />
-          <Ring variant="blue" className="top-[11%] right-[73.5%]" />
+        <div id="master" className="absolute inset-0 flex p-16 justify-between">
+          <Ring variant="green" className=""  type="normal"/>
+          <Ring variant="red" className="" type="normal" />
+          <Ring variant="blue" className=""  type="normal"/>
         </div>
       </>
     );
@@ -377,14 +383,14 @@ export const Questions: questionstype = {
           className="absolute inset-0 flex p-16"
           style={inputStyle ? JSON.parse(inputStyle) : {}}
         >
-          <Planet variant="blue" />
           <Planet variant="green" />
           <Planet variant="red" />
+          <Planet variant="blue" />
         </div>
-        <div id="master" className="absolute inset-0 flex p-16">
-          <Ring variant="green" className="top-[72%] right-[61%]" />
-          <Ring variant="red" className="top-[72%] right-[49%]" />
-          <Ring variant="blue" className="top-[72%] right-[73.5%]" />
+        <div id="master" className="absolute inset-0 flex p-16 items-end">
+          <Ring variant="green" className="" type="normal" />
+          <Ring variant="red" className="" type="normal" />
+          <Ring variant="blue" className="to" type="normal" />
         </div>
       </>
     );
@@ -397,14 +403,15 @@ export const Questions: questionstype = {
           className="absolute inset-0 flex p-16"
           style={inputStyle ? JSON.parse(inputStyle) : {}}
         >
-          <Planet variant="blue" />
           <Planet variant="green" />
           <Planet variant="red" />
+          <Planet variant="blue" />
+
         </div>
         <div id="master" className="absolute inset-0 flex p-16">
-          <Ring variant="green" className="top-[11%] right-[23.5%]" />
-          <Ring variant="red" className="top-[11%] right-[37%]" />
-          <Ring variant="blue" className="top-[11%] right-[10.8%]" />
+          <Ring variant="green" className="" type="normal" />
+          <Ring variant="red" className="" type="normal"/>
+          <Ring variant="blue" className="" type="normal" />
         </div>
       </>
     );
@@ -443,93 +450,93 @@ export const Questions: questionstype = {
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
 
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className=" lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=" "
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
         </div>
       </>
@@ -569,92 +576,92 @@ export const Questions: questionstype = {
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
         </div>
       </>
@@ -701,96 +708,96 @@ export const Questions: questionstype = {
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
 
           {/* Red Rings */}
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
 
           {/* Blue Rings */}
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
         </div>
       </>
@@ -834,96 +841,96 @@ export const Questions: questionstype = {
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
 
           {/* Red Rings */}
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
 
           {/* Blue Rings */}
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
         </div>
       </>
@@ -967,96 +974,96 @@ export const Questions: questionstype = {
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
 
           {/* Red Rings */}
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
 
           {/* Blue Rings */}
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
         </div>
       </>
@@ -1097,92 +1104,92 @@ export const Questions: questionstype = {
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
         </div>
       </>
@@ -1223,92 +1230,92 @@ export const Questions: questionstype = {
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
         </div>
       </>
@@ -1349,92 +1356,92 @@ export const Questions: questionstype = {
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
         </div>
       </>
@@ -1475,92 +1482,92 @@ export const Questions: questionstype = {
           <Ring
             type="normal"
             variant="white"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="white"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="white"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
         </div>
       </>
@@ -1737,142 +1744,142 @@ export const Questions: questionstype = {
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             variant="white"
             type="normal"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
         </div>
       </>
@@ -1909,72 +1916,72 @@ export const Questions: questionstype = {
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="white"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="white"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="blue"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="red"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="white"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="white"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
           <Ring
             type="normal"
             variant="green"
-            className="lg:h-[60px] lg:w-[60px] w-[45px] h-[45px]"
+            className=""
           />
         </div>
       </>
