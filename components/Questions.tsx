@@ -408,7 +408,7 @@ export const Questions: questionstype = {
           <Planet variant="blue" />
 
         </div>
-        <div id="master" className="absolute inset-0 flex p-16">
+        <div id="master" className="absolute inset-0 flex p-16 flex-row-reverse">
           <Ring variant="green" className="" type="normal" />
           <Ring variant="red" className="" type="normal"/>
           <Ring variant="blue" className="" type="normal" />
